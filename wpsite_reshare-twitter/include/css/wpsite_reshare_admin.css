@@ -1,0 +1,41 @@
+/**
+ * Created by Kyle Benk
+ *	
+ * @author Kyle Benk <kjbenk@gmail.com> 
+ */
+
+.wpsite_reshare_admin_table_th {
+	padding: 10px;
+	width: 210px;
+	text-align: left;
+	vertical-align: top;
+	font-weight: 500;
+}
+
+.wpsite_reshare_admin_table_td {
+	padding: 10px;
+}
+
+.wpsite_reshare_admin_messages_table {
+	float: right;
+	width: 60%;
+}
+
+.wpsite_reshare_admin_messages_add_edit {
+	float: left;
+	width: 40%;
+}
+
+.wpsite_reshare_admin_required {
+	border-color: red !important;
+}
+
+/*
+.tr{
+	background-color: purple;
+}
+
+.wpsite_reshare_admin_delete_ahref {
+	visibility: hidden;
+}
+*/
