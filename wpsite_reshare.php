@@ -1485,7 +1485,7 @@ class WPsiteReshare {
 	 */
 	static function wpsite_reshare_schedule_post($account) {
 	
-		error_log('cron job ->' . $account['id']);
+		error_log('cron job -> ' . $account['id']);
 		
 		require_once('wpsite_reshare_schedule_post.php');
 			
