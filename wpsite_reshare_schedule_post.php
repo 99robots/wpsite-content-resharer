@@ -80,11 +80,11 @@ class WPsiteResharePost {
 		/* Create reshare content */
 		
 		$temp_image = wp_get_attachment_image_src(get_post_thumbnail_id($args['post']->ID),'single-post-thumbnail');
-		error_log($temp_image);
 		
 		$content = '';
 		$featured_image = isset($temp_image) && is_array($temp_image) ? $temp_image[0] : null;
 		$post_link = get_permalink($args['post']->ID);
+		$post_title = $args['post']->post_title;
 		$post_data = '';
 		
 		//Include Link
@@ -104,9 +104,9 @@ class WPsiteResharePost {
 		//Post Data
 		
 		if ($account['general']['reshare_content'] == 'title') {
-			$post_data .= $args['post']->post_title;
+			$post_data .= $post_title;
 		} else if ($account['general']['reshare_content'] == 'title_content') {
-			$post_data .= $args['post']->post_title . ' ' . $args['post']->post_content;
+			$post_data .= $post_title . ' ' . $args['post']->post_content;
 		} else if ($account['general']['reshare_content'] == 'content') {
 			$post_data .= $args['post']->post_content;
 		}
