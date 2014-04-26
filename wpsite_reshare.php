@@ -51,7 +51,7 @@ register_activation_hook( __FILE__, array('WPsiteReshare', 'wpsite_register_acti
  
 add_action('init', array('WPsiteReshare', 'wpsite_load_textdoamin'));
 add_action('admin_menu', array('WPsiteReshare', 'wpsite_reshare_menu_page'));
-add_action('admin_enqueue_scripts', array('WPsiteReshare', 'wpsite_reshare_include_admin_scripts'));
+//add_action('admin_enqueue_scripts', array('WPsiteReshare', 'wpsite_reshare_include_admin_scripts'));
 add_filter('cron_schedules', array('WPsiteReshare','wpsite_reshare_create_schedule_intervals'));
 
 $wpsite_reshare_settings = get_option('wpsite_reshare_settings');
@@ -71,6 +71,8 @@ if ($wpsite_reshare_settings !== false) {
  */
 
 class WPsiteReshare {
+
+	private static $class_name = 'WPsiteReshare';
 
 	private static $prefix = 'wpsite_reshare_';
 	
@@ -134,6 +136,16 @@ class WPsiteReshare {
 	private static $default_exclude_posts = array();
 	
 	private static $min_interval = 2;
+	
+	private static $account_dashboard_page = 'wpsite-reshare-account-dashboard';
+	
+	private static $message_dashboard_page = 'wpsite-reshare-settings-messages';
+	
+	private static $exclude_posts_page = 'wpsite-reshare-settings-exclude-posts';
+	
+	private static $help_page = 'wpsite-reshare-settings-help';
+	
+	private static $faq_page = 'wpsite-reshare-settings-faq';
 
 	/**
 	 * Load the text domain 
@@ -174,54 +186,67 @@ class WPsiteReshare {
 			__('WPsite Reshare', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN),
 			__('WPsite Reshare', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN), 
 	    	'manage_options', 
-	    	'wpsite-reshare-menu', 
-	    	array('WPsiteReshare', 'wpsite_reshare_settings')
+	    	self::$account_dashboard_page, 
+	    	array(self::$class_name, 'wpsite_reshare_settings')
 	    );
 	    
-	    add_submenu_page(
-	    	'wpsite-reshare-menu',
+	    $account_sub_menu_page = add_submenu_page(
+	    	self::$account_dashboard_page,
 	    	__('Accounts', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN), 
 	    	__('Accounts', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN), 
 	    	'manage_options', 
-	    	'wpsite-reshare-menu', 
-	    	array('WPsiteReshare', 'wpsite_reshare_settings')
+	    	self::$account_dashboard_page, 
+	    	array(self::$class_name, 'wpsite_reshare_settings')
 	    );
+	    add_action("admin_print_scripts-$account_sub_menu_page" , array(self::$class_name, 'inline_script_dashboard_pages'));
 	    
-	    add_submenu_page(
-	    	'wpsite-reshare-menu', 
+	    $messages_sub_menu_page = add_submenu_page(
+	    	self::$account_dashboard_page, 
 	    	__('Messages', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN), 
 	    	__('Messages', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN), 
 	    	'manage_options', 
-	    	'wpsite-reshare-settings-messages', 
-	    	array('WPsiteReshare', 'wpsite_reshare_settings_messages')
+	    	self::$message_dashboard_page, 
+	    	array(self::$class_name, 'wpsite_reshare_settings_messages')
 	    );
+	    add_action("admin_print_scripts-$messages_sub_menu_page" , array(self::$class_name, 'inline_script_dashboard_pages'));
 	    
-	    add_submenu_page(
-	    	'wpsite-reshare-menu', 
+	    $exclude_posts_sub_menu_page = add_submenu_page(
+	    	self::$account_dashboard_page, 
 	    	__('Exclude Posts', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN), 
 	    	__('Exclude Posts', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN), 
 	    	'manage_options', 
-	    	'wpsite-reshare-settings-exclude-posts', 
-	    	array('WPsiteReshare', 'wpsite_reshare_settings_exclude_posts')
+	    	self::$exclude_posts_page, 
+	    	array(self::$class_name, 'wpsite_reshare_settings_exclude_posts')
 	    );
+	    add_action("admin_print_scripts-$exclude_posts_sub_menu_page" , array(self::$class_name, 'inline_script_dashboard_pages'));
 	    
 	    add_submenu_page(
-	    	'wpsite-reshare-menu', 
+	    	self::$account_dashboard_page, 
 	    	__('Help', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN), 
 	    	__('Help', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN), 
 	    	'manage_options', 
-	    	'wpsite-reshare-settings-help', 
-	    	array('WPsiteReshare', 'wpsite_reshare_settings_help')
+	    	self::$help_page, 
+	    	array(self::$class_name, 'wpsite_reshare_settings_help')
 	    );
 	    
 	    add_submenu_page(
-	    	'wpsite-reshare-menu', 
+	    	self::$account_dashboard_page, 
 	    	__('FAQ', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN), 
 	    	__('FAQ', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN), 
 	    	'manage_options', 
-	    	'wpsite-reshare-settings-faq', 
-	    	array('WPsiteReshare', 'wpsite_reshare_settings_faq')
+	    	self::$faq_page, 
+	    	array(self::$class_name, 'wpsite_reshare_settings_faq')
 	    );
+	}
+	
+	/**
+	 * Hooks to 'admin_enqueue_scripts' 
+	 * 
+	 * @since 1.0.0
+	 */
+	static function inline_script_dashboard_pages() {
+	
+		wp_enqueue_style('wpsite_reshare_admin_css', WPSITE_RESHARE_PLUGIN_URL . '/include/css/wpsite_reshare_admin.css');
 	}
 	
 	/**
@@ -359,7 +384,7 @@ class WPsiteReshare {
 				
 				?>
 				<script type="text/javascript">
-					window.location = "<?php echo $_SERVER['PHP_SELF']?>?page=wpsite-reshare-menu";
+					window.location = "<?php echo $_SERVER['PHP_SELF']?>?page=<?php echo self::$account_dashboard_page; ?>";
 				</script>
 				<?php
 			}
@@ -385,7 +410,7 @@ class WPsiteReshare {
 				
 			?>
 			<script type="text/javascript">
-				window.location = "<?php echo $_SERVER['PHP_SELF']?>?page=wpsite-reshare-menu";
+				window.location = "<?php echo $_SERVER['PHP_SELF']?>?page=<?php echo self::$account_dashboard_page; ?>";
 			</script>
 			<?php
 		}
@@ -415,7 +440,7 @@ class WPsiteReshare {
 			
 			?>
 			<script type="text/javascript">
-				window.location = "<?php echo $_SERVER['PHP_SELF']?>?page=wpsite-reshare-menu";
+				window.location = "<?php echo $_SERVER['PHP_SELF']?>?page=<?php echo self::$account_dashboard_page; ?>";
 			</script>
 			<?php
 		}
@@ -437,7 +462,7 @@ class WPsiteReshare {
 				//if ($settings['accounts'][$_GET['account']]['type'] != 'facebook') {
 					?>
 					<script type="text/javascript">
-						window.location = "<?php echo $_SERVER['PHP_SELF']?>?page=wpsite-reshare-menu";
+						window.location = "<?php echo $_SERVER['PHP_SELF']?>?page=<?php echo self::$account_dashboard_page; ?>";
 					</script>
 					<?php
 				//}
@@ -474,7 +499,7 @@ class WPsiteReshare {
 		?>
 		<div class="wrap">
 			<div id="icon-edit" class="icon32 icon32-posts-post"><br/></div>
-			<h2><?php _e('WPsite Reshare Accounts', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?><a class="add-new-h2" href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=wpsite-reshare-menu&action=add', 'wpsite_reshare_admin_settings_add_edit'); ?>"><?php _e('Add New', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a></h2>
+			<h2><?php _e('WPsite Reshare Accounts', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?><a class="add-new-h2" href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$account_dashboard_page . '&action=add', 'wpsite_reshare_admin_settings_add_edit'); ?>"><?php _e('Add New', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a></h2>
 		
 		<br />
 		
@@ -524,7 +549,7 @@ class WPsiteReshare {
 							<label><?php echo (isset($account['status']) && $account['status'] != '' ? __($account['status'], WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN) : ''); ?></label><br />
 							<!-- Activate / Deactivate -->
 							
-							<a class="wpsite_reshare_admin_delete_ahref wpsite_reshare_admin_delete_ahref<?php echo $account['id']; ?>" href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=wpsite-reshare-menu&action=activate&account=' . $account['id'], 'wpsite_reshare_admin_settings_activate'); ?>"><?php echo $account['status'] == 'active' ? __('Deactivate', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN) : __('Activate', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a>
+							<a class="wpsite_reshare_admin_delete_ahref wpsite_reshare_admin_delete_ahref<?php echo $account['id']; ?>" href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$account_dashboard_page . '&action=activate&account=' . $account['id'], 'wpsite_reshare_admin_settings_activate'); ?>"><?php echo $account['status'] == 'active' ? __('Deactivate', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN) : __('Activate', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a>
 						</td>
 					
 						<!-- Account ID -->
@@ -533,23 +558,21 @@ class WPsiteReshare {
 							
 							<!-- ID Name -->
 							
-							<a href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=wpsite-reshare-menu&action=edit&account=' . $account['id'], 'wpsite_reshare_admin_settings_add_edit'); ?>"><strong><?php _e($account['id'], WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></strong></a><br />
+							<a href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$account_dashboard_page . '&action=edit&account=' . $account['id'], 'wpsite_reshare_admin_settings_add_edit'); ?>"><strong><?php _e($account['id'], WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></strong></a><br />
 							
 							<!-- Edit -->
 							
-							<a class="wpsite_reshare_admin_delete_ahref wpsite_reshare_admin_delete_ahref<?php echo $account['id']; ?>" href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=wpsite-reshare-menu&action=edit&account=' . $account['id'], 'wpsite_reshare_admin_settings_add_edit'); ?>"><?php _e('Edit', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a>
-							
-							<label class="wpsite_reshare_admin_delete_ahref wpsite_reshare_admin_delete_ahref<?php echo $account['id']; ?>"><?php _e(' | ', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></label>
-							
-							<!-- Delete -->
-							
-							<a style="color:red" class="wpsite_reshare_admin_delete_ahref wpsite_reshare_admin_delete_ahref<?php echo $account['id']; ?>" href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=wpsite-reshare-menu&action=delete&account=' . $account['id'], 'wpsite_reshare_admin_settings_delete'); ?>"><?php _e('Delete', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a>
-							
+							<a class="wpsite_reshare_admin_delete_ahref wpsite_reshare_admin_delete_ahref<?php echo $account['id']; ?>" href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$account_dashboard_page . '&action=edit&account=' . $account['id'], 'wpsite_reshare_admin_settings_add_edit'); ?>"><?php _e('Edit', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a>
 						</td>
 						
 						<!-- Label -->
 						
-						<td> <?php echo (isset($account['label']) && $account['label'] != '' ? __($account['label'], WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN) : ''); ?> </td>
+						<td> 
+							<label><?php echo (isset($account['label']) && $account['label'] != '' ? __($account['label'], WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN) : ''); ?></label><br/>
+							<!-- Delete -->
+							
+							<a style="color:red" class="wpsite_reshare_admin_delete_ahref wpsite_reshare_admin_delete_ahref<?php echo $account['id']; ?>" href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$account_dashboard_page . '&action=delete&account=' . $account['id'], 'wpsite_reshare_admin_settings_delete'); ?>"><?php _e('Delete', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a>
+						</td>
 						
 						
 						<!-- Minimun Interval -->
@@ -559,7 +582,7 @@ class WPsiteReshare {
 							
 							<!-- Reshare Now -->
 							
-							<a class="wpsite_reshare_admin_delete_ahref wpsite_reshare_admin_delete_ahref<?php echo $account['id']; ?>" href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=wpsite-reshare-menu&action=reshare&account=' . $account['id'], 'wpsite_reshare_admin_settings_reshare_now'); ?>"><?php _e('Reshare Now', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a> 
+							<a class="wpsite_reshare_admin_delete_ahref wpsite_reshare_admin_delete_ahref<?php echo $account['id']; ?>" href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$account_dashboard_page . '&action=reshare&account=' . $account['id'], 'wpsite_reshare_admin_settings_reshare_now'); ?>"><?php _e('Reshare Now', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a> 
 						</td>
 						
 						<!-- Type -->
@@ -1037,7 +1060,7 @@ class WPsiteReshare {
 				
 				?>
 				<script type="text/javascript">
-					window.location = "<?php echo $_SERVER['PHP_SELF']?>?page=wpsite-reshare-settings-messages";
+					window.location = "<?php echo $_SERVER['PHP_SELF']?>?page=<?php echo self::$message_dashboard_page; ?>";
 				</script>
 				<?php
 			}
@@ -1055,7 +1078,7 @@ class WPsiteReshare {
 				
 			?>
 			<script type="text/javascript">
-				window.location = "<?php echo $_SERVER['PHP_SELF']?>?page=wpsite-reshare-settings-messages";
+				window.location = "<?php echo $_SERVER['PHP_SELF']?>?page=<?php echo self::$message_dashboard_page; ?>";
 			</script>
 			<?php
 		}
@@ -1131,23 +1154,21 @@ class WPsiteReshare {
 							
 							<!-- ID Name -->
 							
-							<a href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=wpsite-reshare-settings-messages&action=edit&message=' . $message['id'], 'wpsite_reshare_admin_settings_messages_add_edit'); ?>"><strong><?php _e($message['id'], WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></strong></a><br />
+							<a href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$message_dashboard_page . '&action=edit&message=' . $message['id'], 'wpsite_reshare_admin_settings_messages_add_edit'); ?>"><strong><?php _e($message['id'], WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></strong></a><br />
 							
 							<!-- Edit -->
 							
-							<a class="wpsite_reshare_admin_delete_ahref wpsite_reshare_admin_delete_ahref<?php echo $message['id']; ?>" href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=wpsite-reshare-settings-messages&action=edit&message=' . $message['id'], 'wpsite_reshare_admin_settings_messages_add_edit'); ?>"><?php _e('Edit', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a>
-							
-							<label class="wpsite_reshare_admin_delete_ahref wpsite_reshare_admin_delete_ahref<?php echo $message['id']; ?>"><?php _e(' | ', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></label>
-							
-							<!-- Delete -->
-							
-							<a style="color:red" class="wpsite_reshare_admin_delete_ahref wpsite_reshare_admin_delete_ahref<?php echo $message['id']; ?>" href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=wpsite-reshare-settings-messages&action=delete&message=' . $message['id'], 'wpsite_reshare_admin_settings_messages_delete'); ?>"><?php _e('Delete', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a>
-							
+							<a class="wpsite_reshare_admin_delete_ahref wpsite_reshare_admin_delete_ahref<?php echo $message['id']; ?>" href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$message_dashboard_page . '&action=edit&message=' . $message['id'], 'wpsite_reshare_admin_settings_messages_add_edit'); ?>"><?php _e('Edit', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a>
 						</td>
 						
 						<!-- Message -->
 						
-						<td> <?php echo (isset($message['message']) && $message['message'] != '' ? __($message['message'], WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN) : ''); ?> </td>
+						<td> 
+							<label><?php echo (isset($message['message']) && $message['message'] != '' ? __($message['message'], WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN) : ''); ?></label><br/>
+							<!-- Delete -->
+							
+							<a style="color:red" class="wpsite_reshare_admin_delete_ahref wpsite_reshare_admin_delete_ahref<?php echo $message['id']; ?>" href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$message_dashboard_page . '&action=delete&message=' . $message['id'], 'wpsite_reshare_admin_settings_messages_delete'); ?>"><?php _e('Delete', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a>
+						</td>
 						
 						<!-- Place -->
 						
@@ -1233,7 +1254,7 @@ class WPsiteReshare {
 				
 				<tr>
 					<th class="wpsite_reshare_admin_table_th">
-						<label><?php _e('Reshare Preview', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></label>
+						<label><?php _e('Preview', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></label>
 						<td class="wpsite_reshare_admin_table_td">
 						
 						<label id="wps_settings_message_preview_before" class="wps_settings_message_preview" style="color:red"><?php _e('Message', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></label>
@@ -1445,18 +1466,6 @@ class WPsiteReshare {
 		
 			<span><?php _e('The reshare content is created by using the settings in the “Rehare Content" section of your account to determine what the content will consist of.  Posts are first filtered using the settings in the “Post Filter” section in your account.  Then a random post is chosen from these qualified posts.  After that, a random message is chosen by first looking to see if there any custom messages relating to hat post.  If so then randomly choose from those custom messages, if not then get all checked messages relating to this post and randomly chose one.  If there are no checked messages then there will be no message in this reshare content.  After the post and message are chosen, the content is created.', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></span> 
 	<?php	
-	}
-	
-	/**
-	 * Hooks to 'admin_enqueue_scripts' 
-	 * 
-	 * @since 1.0.0
-	 */
-	static function wpsite_reshare_include_admin_scripts() {
-	
-		if (isset($_GET['page']) && ($_GET['page'] = 'wpsite-reshare-menu' || $_GET['page'] = 'wpsite-reshare-settings-messages')) {
-			wp_enqueue_style('wpsite_reshare_admin_css', WPSITE_RESHARE_PLUGIN_URL . '/include/css/wpsite_reshare_admin.css');
-		}
 	}
 	
 	/**
