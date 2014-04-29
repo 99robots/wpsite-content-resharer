@@ -31,6 +31,10 @@ jQuery(document).ready(function($) {
 			e.preventDefault();	
 		}
 	});
+	
+	$(".wpsite_reshare_admin_delete_ahref").click(function(){
+		wpsite_reshare_delete($(this).attr('class').substring(67), $("#wpsite_reshare_delete_url_" + $(this).attr('class').substring(67)).text());
+	});
 
 	/* Loop through all accounts */
 		
@@ -154,3 +158,12 @@ jQuery(document).ready(function($) {
 		$("#wps_settings_message_preview_after").show();
 	}
 });
+
+function wpsite_reshare_delete(message, url) {
+	
+	var c = confirm("Are you sure you want to delete: " + message);
+	
+	if (c == true) {
+		window.location = url;
+	}
+}

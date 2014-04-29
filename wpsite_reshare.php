@@ -562,7 +562,7 @@ class WPsiteReshare {
 							
 							<!-- Edit -->
 							
-							<a class="wpsite_reshare_admin_delete_ahref wpsite_reshare_admin_delete_ahref<?php echo $account['id']; ?>" href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$account_dashboard_page . '&action=edit&account=' . $account['id'], 'wpsite_reshare_admin_settings_add_edit'); ?>"><?php _e('Edit', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a>
+							<!-- <a class="wpsite_reshare_admin_delete_ahref wpsite_reshare_admin_delete_ahref<?php echo $account['id']; ?>" href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$account_dashboard_page . '&action=edit&account=' . $account['id'], 'wpsite_reshare_admin_settings_add_edit'); ?>"><?php _e('Edit', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a> -->
 						</td>
 						
 						<!-- Label -->
@@ -571,7 +571,10 @@ class WPsiteReshare {
 							<label><?php echo (isset($account['label']) && $account['label'] != '' ? __($account['label'], WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN) : ''); ?></label><br/>
 							<!-- Delete -->
 							
-							<a style="color:red" class="wpsite_reshare_admin_delete_ahref wpsite_reshare_admin_delete_ahref<?php echo $account['id']; ?>" href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$account_dashboard_page . '&action=delete&account=' . $account['id'], 'wpsite_reshare_admin_settings_delete'); ?>"><?php _e('Delete', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a>
+							<label class="wpsite_reshare_admin_delete_ahref wpsite_reshare_admin_delete_ahref<?php echo $account['id']; ?>" style="color:red;"><?php _e('Delete', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></label>
+							<label id="wpsite_reshare_delete_url_<?php echo $account['id']; ?>" style="display:none;"><?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$account_dashboard_page . '&action=delete&account=' . $account['id'], 'wpsite_reshare_admin_settings_delete'); ?></label>
+							
+							<!-- <a style="color:red" class="wpsite_reshare_admin_delete_ahref wpsite_reshare_admin_delete_ahref<?php echo $account['id']; ?>" href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$account_dashboard_page . '&action=delete&account=' . $account['id'], 'wpsite_reshare_admin_settings_delete'); ?>"><?php _e('Delete', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a> -->
 						</td>
 						
 						
