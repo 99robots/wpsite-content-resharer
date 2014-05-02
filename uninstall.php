@@ -9,23 +9,23 @@
 
 	global $wpdb;
 	
-	$prefix = 'wpsite_reshare_meta_box_';
+	$prefix = 'wpsite_twitter_reshare_meta_box_';
 	
 	if ( !is_multisite() ) 
 	{
 	
-		$settings = get_option('wpsite_reshare_settings');
+		$settings = get_option('wpsite_twitter_reshare_settings');
 		
 		foreach ($settings['accounts'] as $account) {
-			$hook = 'wpsite_reshare_' . $account['id'];
+			$hook = 'wpsite_twitter_reshare_' . $account['id'];
 			$args = $account;
 			$args['status'] = 'active';
 			
 			wp_clear_scheduled_hook($hook, array($args));
 		}
 		
-		delete_option('wpsite_reshare_version');
-		delete_option('wpsite_reshare_settings');
+		delete_option('wpsite_twitter_reshare_version');
+		delete_option('wpsite_twitter_reshare_settings');
 		
 		/* Delete post meta data */
 	        
@@ -44,7 +44,7 @@
 	else 
 	{
 	
-		delete_site_option('wpsite_reshare_version');
+		delete_site_option('wpsite_twitter_reshare_version');
 		
 	    $blog_ids = $wpdb->get_col( "SELECT blog_id FROM $wpdb->blogs" );
 	    $original_blog_id = get_current_blog_id();
@@ -55,17 +55,17 @@
 	        
 	        //Delete site data here
 	        
-	        $settings = get_option('wpsite_reshare_settings');
+	        $settings = get_option('wpsite_twitter_reshare_settings');
 		
 			foreach ($settings['accounts'] as $account) {
-				$hook = 'wpsite_reshare_' . $account['id'];
+				$hook = 'wpsite_twitter_reshare_' . $account['id'];
 				$args = $account;
 				$args['status'] = 'active';
 				
 				wp_clear_scheduled_hook($hook, array($args));
 			}
 	        
-	        delete_option('wpsite_reshare_settings');
+	        delete_option('wpsite_twitter_reshare_settings');
 	        
 	        /* Delete post meta data */
 	        

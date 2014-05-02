@@ -11,35 +11,35 @@
 
 /* Plugin Name */
 
-if (!defined('WPSITE_RESHARE_PLUGIN_NAME'))
-    define('WPSITE_RESHARE_PLUGIN_NAME', trim(dirname(plugin_basename(__FILE__)), '/'));
+if (!defined('WPSITE_TWITTER_RESHARE_PLUGIN_NAME'))
+    define('WPSITE_TWITTER_RESHARE_PLUGIN_NAME', trim(dirname(plugin_basename(__FILE__)), '/'));
 
 /* Plugin directory */
 
-if (!defined('WPSITE_RESHARE_PLUGIN_DIR'))
-    define('WPSITE_RESHARE_PLUGIN_DIR', WP_PLUGIN_DIR . '/' . WPSITE_RESHARE_PLUGIN_NAME);
+if (!defined('WPSITE_TWITTER_RESHARE_PLUGIN_DIR'))
+    define('WPSITE_TWITTER_RESHARE_PLUGIN_DIR', WP_PLUGIN_DIR . '/' . WPSITE_TWITTER_RESHARE_PLUGIN_NAME);
 
 /* Plugin url */
 
-if (!defined('WPSITE_RESHARE_PLUGIN_URL'))
-    define('WPSITE_RESHARE_PLUGIN_URL', WP_PLUGIN_URL . '/' . WPSITE_RESHARE_PLUGIN_NAME);
+if (!defined('WPSITE_TWITTER_RESHARE_PLUGIN_URL'))
+    define('WPSITE_TWITTER_RESHARE_PLUGIN_URL', WP_PLUGIN_URL . '/' . WPSITE_TWITTER_RESHARE_PLUGIN_NAME);
     
 /* Plugin text-domain */
 
-if (!defined('WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN'))
-    define('WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN', 'wpsite-reshare');
+if (!defined('WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN'))
+    define('WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN', 'wpsite-twitter-reshare');
 
-add_action('add_meta_boxes', array('WPsiteAddMetaBox', 'wpsite_add_meta_box'), 10, 2 );
-add_action('save_post', array('WPsiteAddMetaBox', 'wpsite_save_meta_data'));
+add_action('add_meta_boxes', array('WPsiteTwitterAddMetaBox', 'wpsite_add_meta_box'), 10, 2 );
+add_action('save_post', array('WPsiteTwitterAddMetaBox', 'wpsite_save_meta_data'));
 
 /** 
  * Class used to add meta box
  *
  * @since 1.0.0
  */
-class WPsiteAddMetaBox {
+class WPsiteTwitterAddMetaBox {
 
-	private static $prefix = 'wpsite_reshare_meta_box_';
+	private static $prefix = 'wpsite_twitter_reshare_meta_box_';
 
 	/**
 	 * Load the text domain 
@@ -47,7 +47,7 @@ class WPsiteAddMetaBox {
 	 * @since 1.0.0
 	 */
 	static function wpsite_load_textdoamin() {
-		load_plugin_textdomain(WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN, false, WPSITE_RESHARE_PLUGIN_DIR . '/languages');
+		load_plugin_textdomain(WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN, false, WPSITE_TWITTER_RESHARE_PLUGIN_DIR . '/languages');
 	}
 
 	/**
@@ -55,7 +55,7 @@ class WPsiteAddMetaBox {
 	 */
 	static function wpsite_add_meta_box($post_type, $post) {
 	
-		$settings = get_option('wpsite_reshare_settings');
+		$settings = get_option('wpsite_twitter_reshare_settings');
 		
 		if ($settings === false)
 			return null;
@@ -73,8 +73,8 @@ class WPsiteAddMetaBox {
 			if (in_array($post_type, $account['post_filter']['post_types']) && $check) {
 				add_meta_box(
 					self::$prefix . $account['id'],
-					'WPSite Rehsare ' . $account['label'],
-					array('WPsiteAddMetaBox' , 'wpsite_render_meta_box_content'),
+					'WPSite Twitter Reshare ' . $account['label'],
+					array('WPsiteTwitterAddMetaBox' , 'wpsite_render_meta_box_content'),
 					$post_type,
 					'side',
 					'low',
@@ -100,7 +100,7 @@ class WPsiteAddMetaBox {
 		
 		$messages = array();
 		
-		foreach(get_option('wpsite_reshare_settings')['messages'] as $message) {
+		foreach(get_option('wpsite_twitter_reshare_settings')['messages'] as $message) {
 		
 			if (isset($post_meta_messages) && $post_meta_messages !== false && array_key_exists($message['id'], $post_meta_messages)) {
 				$messages[$message['id']] = array(
@@ -142,8 +142,8 @@ class WPsiteAddMetaBox {
 			?>
 			<input type="text" id="<?php echo self::$prefix . $metabox['args']['account_id'] . '-custom-message_' . $cus_message_id; ?>" name="<?php echo self::$prefix . $metabox['args']['account_id'] . '-custom-message_' . $cus_message_id; ?>" value="<?php echo isset($cus_message_val['message']) ? $cus_message_val['message'] : ''; ?>" placeholder="custom message" size="18"/>
 			<select id="<?php echo self::$prefix . $metabox['args']['account_id'] . '-custom-message-place_' . $cus_message_id; ?>" name="<?php echo self::$prefix . $metabox['args']['account_id'] . '-custom-message-place_' . $cus_message_id; ?>">
-				<option value="before" <?php echo isset($cus_message_val['place']) && $cus_message_val['place'] == 'before' ? 'selected' : ''; ?>><?php _e('Before', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></option>
-				<option value="after" <?php echo isset($cus_message_val['place']) && $cus_message_val['place'] == 'after' ? 'selected' : ''; ?>><?php _e('After', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></option>
+				<option value="before" <?php echo isset($cus_message_val['place']) && $cus_message_val['place'] == 'before' ? 'selected' : ''; ?>><?php _e('Before', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></option>
+				<option value="after" <?php echo isset($cus_message_val['place']) && $cus_message_val['place'] == 'after' ? 'selected' : ''; ?>><?php _e('After', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></option>
 			</select><br />
 	        <?php
 		}
@@ -153,7 +153,7 @@ class WPsiteAddMetaBox {
 		foreach ($messages as $message_id => $message_val) {
 			?>
 			<input type="checkbox" id="<?php echo self::$prefix . $metabox['args']['account_id'] . '_' . $message_id; ?>" name="<?php echo self::$prefix . $metabox['args']['account_id'] . '_' . $message_id; ?>" <?php echo isset($message_val['val']) && $message_val['val'] ? 'checked="checked"' :''; ?>/>
-			<label><?php _e($message_val['message'], WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></label><br />
+			<label><?php _e($message_val['message'], WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></label><br />
 	        <?php
 		}
 	}
@@ -165,7 +165,7 @@ class WPsiteAddMetaBox {
 	 */
 	static function wpsite_save_meta_data($post_id) {
 		
-		$settings = get_option('wpsite_reshare_settings');
+		$settings = get_option('wpsite_twitter_reshare_settings');
 		
 		if ($settings === false)
 			return null;

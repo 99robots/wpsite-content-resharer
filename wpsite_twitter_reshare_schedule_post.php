@@ -2,7 +2,7 @@
 /**
  * This class is used to post to all social media channels based on the user's settings
  *
- * Was built originally to work with the WPsite Reshare plugin, but can be used in any context
+ * Was built originally to work with the WPsite Twitter Reshare plugin, but can be used in any context
  *	by calling the wpsite_setup_all_reshares() function with and $args parameter. An example args
  *	parameter could look like this.
  * 		$args = array(
@@ -44,27 +44,27 @@
  * Hooks / Filter 
  */
 
-//add_action('wp_footer', array('WPsiteResharePost', 'wpsite_setup_all_reshares'));
+//add_action('wp_footer', array('WPsiteTwitterResharePost', 'wpsite_setup_all_reshares'));
 
 /** 
- * WPsite Reshare main class
+ * WPsite Twitter Reshare main class
  *
  * @since 1.0.0
  */
  
-class WPsiteResharePost {
+class WPsiteTwitterResharePost {
 
-	private static $prefix = 'wpsite_reshare_';
+	private static $prefix = 'wpsite_twitter_reshare_';
 	
 	//private static $api_bitly_dir = 'include/api_src/bitly/bitly.php';
 	
 	private static $api_twitter_dir = 'include/api_src/twitter/codebird.php';
 	
-	private static $api_facebook_js_dir = 'include/js/wpsite_reshare_facebook.js';
+	private static $api_facebook_js_dir = 'include/js/wpsite_twitter_reshare_facebook.js';
 	
 	private static $api_facebook_php_dir = 'include/api_src/facebook/facebook.php';
 	
-	private static $api_linkedin_dir = 'include/js/wpsite_reshare_linkedin.js';
+	private static $api_linkedin_dir = 'include/js/wpsite_twitter_reshare_linkedin.js';
 	
 	/**
 	 * Posts to all channels
@@ -243,16 +243,16 @@ class WPsiteResharePost {
 											'access_token'	=> $temp_access_token
 									));
 									
-									$settings = get_option('wpsite_reshare_settings');
+									$settings = get_option('wpsite_twitter_reshare_settings');
 									
-									wp_clear_scheduled_hook('wpsite_reshare_' . $account['id'], array($account));
+									wp_clear_scheduled_hook('wpsite_twitter_reshare_' . $account['id'], array($account));
 									
 									$settings['accounts'][$account['id']]['facebook']['access_token'] = $access_token['access_token'];
 									$account['facebook']['access_token'] = $access_token['access_token'];
 									
-									wp_schedule_event(time(), 'wpsite_reshare_' . $account['id'] . '_recurrence', 'wpsite_reshare_' . $account['id'], array($account));
+									wp_schedule_event(time(), 'wpsite_twitter_reshare_' . $account['id'] . '_recurrence', 'wpsite_twitter_reshare_' . $account['id'], array($account));
 									
-									update_option('wpsite_reshare_settings', $settings);
+									update_option('wpsite_twitter_reshare_settings', $settings);
 								}
 								
 								//Use the permenat access token
@@ -321,16 +321,16 @@ class WPsiteResharePost {
 										'access_token'	=> $temp_access_token
 								));
 								
-								$settings = get_option('wpsite_reshare_settings');
+								$settings = get_option('wpsite_twitter_reshare_settings');
 								
-								wp_clear_scheduled_hook('wpsite_reshare_' . $account['id'], array($account));
+								wp_clear_scheduled_hook('wpsite_twitter_reshare_' . $account['id'], array($account));
 								
 								$settings['accounts'][$account['id']]['facebook']['access_token'] = $access_token['access_token'];
 								$account['facebook']['access_token'] = $access_token['access_token'];
 								
-								wp_schedule_event(time(), 'wpsite_reshare_' . $account['id'] . '_recurrence', 'wpsite_reshare_' . $account['id'], array($account));
+								wp_schedule_event(time(), 'wpsite_twitter_reshare_' . $account['id'] . '_recurrence', 'wpsite_twitter_reshare_' . $account['id'], array($account));
 								
-								update_option('wpsite_reshare_settings', $settings);
+								update_option('wpsite_twitter_reshare_settings', $settings);
 							}
 							
 							//Use the permenat access token
@@ -365,8 +365,8 @@ class WPsiteResharePost {
 						'test'		=> $args['test']
 					);
 					
-					wp_enqueue_script('wpsite_reshare_facebook_src', plugins_url(self::$api_facebook_js_dir, __FILE__ ));
-					wp_localize_script('wpsite_reshare_facebook_src', 'wpsite_facebook', $wpsite_facebook);
+					wp_enqueue_script('wpsite_twitter_reshare_facebook_src', plugins_url(self::$api_facebook_js_dir, __FILE__ ));
+					wp_localize_script('wpsite_twitter_reshare_facebook_src', 'wpsite_facebook', $wpsite_facebook);
 				}
 								
 			break;
@@ -504,8 +504,8 @@ class WPsiteResharePost {
 */
 				
 				//wp_enqueue_script('wpsite_rehare_jquery', self::$jquery);
-				//wp_enqueue_script('wpsite_reshare_linkedin_src', plugins_url(self::$api_linkedin_dir, __FILE__ ));
-				//wp_localize_script('wpsite_reshare_linkedin_src', 'wpsite_linkedin', $wpsite_linkedin);
+				//wp_enqueue_script('wpsite_twitter_reshare_linkedin_src', plugins_url(self::$api_linkedin_dir, __FILE__ ));
+				//wp_localize_script('wpsite_twitter_reshare_linkedin_src', 'wpsite_linkedin', $wpsite_linkedin);
 			
 			break;
 			
@@ -549,7 +549,7 @@ class WPsiteResharePost {
 		
 		/*
 else {
-			$settings = get_option('wpsite_reshare_settings');
+			$settings = get_option('wpsite_twitter_reshare_settings');
 		
 			if ($settings === false)
 				return null;
@@ -588,7 +588,7 @@ else {
 		
 		$max_age = mktime(0, 0, 0, date("m")  , date("d") - $account['post_filter']['max_age'], date("Y"));
 		
-		$settings = get_option('wpsite_reshare_settings');
+		$settings = get_option('wpsite_twitter_reshare_settings');
 		
 		if (isset($settings['exclude_posts']) && is_array($settings['exclude_posts']) && count($settings['exclude_posts']) > 0) {
 			$exclude_posts = array();
@@ -629,10 +629,10 @@ else {
 			
 			$post = $posts[0];
 		
-			$messages = get_post_meta($post->ID, 'wpsite_reshare_meta_box_' . $account['id'], true);
+			$messages = get_post_meta($post->ID, 'wpsite_twitter_reshare_meta_box_' . $account['id'], true);
 			
 			if (empty($messages)) {
-				$settings = get_option('wpsite_reshare_settings');
+				$settings = get_option('wpsite_twitter_reshare_settings');
 				
 				if ($settings === false)
 					return null;
