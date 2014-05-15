@@ -72,67 +72,20 @@ jQuery(document).ready(function($) {
 		}
 	}
 	
-	/* Show and Hide all API settings */
+	/* Exclude Posts */
 	
-	/*
-$("#wps_settings_account_type").change(function(){
+	if (typeof(categories) != "undefined" && categories !== null) {
+		$("#wpsite_twitter_reshare_exclude_posts_category").change(function() {
 	
-		$(".wpsite_api_settings_twitter").hide();
-		$(".wpsite_api_settings_facebook").hide();
-		$(".wpsite_api_settings_google").hide();
-		$(".wpsite_api_settings_linkedin").hide();
-		$(".wpsite_api_settings_pinterest").hide();
-		
-		if ($(this).val() == 'twitter') {
-			$(".wpsite_api_settings_twitter").show();
-		}else if ($(this).val() == 'facebook') {
-			$(".wpsite_api_settings_facebook").show();
-		}else if ($(this).val() == 'google') {
-			$(".wpsite_api_settings_google").show();
-		}else if ($(this).val() == 'linkedin') {
-			$(".wpsite_api_settings_linkedin").show();
-		}else if ($(this).val() == 'pinterest') {
-			$(".wpsite_api_settings_pinterest").show();
-		}
-	});
-	
-	$(".wpsite_api_settings_twitter").hide();
-	$(".wpsite_api_settings_facebook").hide();
-	$(".wpsite_api_settings_google").hide();
-	$(".wpsite_api_settings_linkedin").hide();
-	$(".wpsite_api_settings_pinterest").hide();
-	
-	if ($("#wps_settings_account_type").val() == 'twitter') {
-		$(".wpsite_api_settings_twitter").show();
-	}else if ($("#wps_settings_account_type").val() == 'facebook') {
-		$(".wpsite_api_settings_facebook").show();
-	}else if ($("#wps_settings_account_type").val() == 'google') {
-		$(".wpsite_api_settings_google").show();
-	}else if ($("#wps_settings_account_type").val() == 'linkedin') {
-		$(".wpsite_api_settings_linkedin").show();
-	}else if ($("#wps_settings_account_type").val() == 'pinterest') {
-		$(".wpsite_api_settings_pinterest").show();
+			$(".wpsite_twitter_reshare_exclude_posts_general").hide();
+			
+			if ($(this).val() != '') {
+				$(".wpsite_twitter_reshare_cat_" + $(this).val()).show();
+			} else {
+				$(".wpsite_twitter_reshare_exclude_posts_general").show();
+			}
+		});
 	}
-*/
-	
-	/* Facebook Page ID */
-	
-	/*
-$("#wps_facebook_type").change(function(){
-	
-		$(".wpsite_api_settings_facebook_page_id").hide();
-		
-		if ($(this).val() == 'page') {
-			$(".wpsite_api_settings_facebook_page_id").show();
-		}
-	});
-	
-	$(".wpsite_api_settings_facebook_page_id").hide();
-		
-	if ($("#wps_facebook_type").val() == 'page') {
-		$(".wpsite_api_settings_facebook_page_id").show();
-	}
-*/
 	
 	/* Message Preview */
 	
