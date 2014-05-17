@@ -60,11 +60,11 @@ class WPsiteTwitterResharePost {
 	
 	private static $api_twitter_dir = 'include/api_src/twitter/codebird.php';
 	
-	private static $api_facebook_js_dir = 'include/js/wpsite_twitter_reshare_facebook.js';
+	private static $api_facebook_js_dir = 'js/wpsite_twitter_reshare_facebook.js';
 	
 	private static $api_facebook_php_dir = 'include/api_src/facebook/facebook.php';
 	
-	private static $api_linkedin_dir = 'include/js/wpsite_twitter_reshare_linkedin.js';
+	private static $api_linkedin_dir = 'js/wpsite_twitter_reshare_linkedin.js';
 	
 	/**
 	 * Posts to all channels
