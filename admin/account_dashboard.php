@@ -50,7 +50,7 @@
 					<label><?php echo (isset($account['status']) && $account['status'] != '' ? __($account['status'], WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN) : ''); ?></label><br />
 					<!-- Activate / Deactivate -->
 					
-					<a class="wpsite_twitter_reshare_admin_delete_ahref wpsite_twitter_reshare_admin_delete_ahref<?php echo $account['id']; ?>" href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$account_dashboard_page . '&action=activate&account=' . $account['id'], 'wpsite_twitter_reshare_admin_settings_activate'); ?>"><?php echo $account['status'] == 'active' ? __('Deactivate', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN) : __('Activate', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a>
+					<a class="wpsite_twitter_reshare_admin_ahref wpsite_twitter_reshare_admin_ahref<?php echo $account['id']; ?>" href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$account_dashboard_page . '&action=activate&account=' . $account['id'], 'wpsite_twitter_reshare_admin_settings_activate'); ?>"><?php echo $account['status'] == 'active' ? __('Deactivate', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN) : __('Activate', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a>
 				</td>
 			
 				<!-- Account ID -->
@@ -74,8 +74,6 @@
 					
 					<label class="wpsite_twitter_reshare_admin_delete_ahref wpsite_twitter_reshare_admin_delete_ahref<?php echo $account['id']; ?>" style="color:red;"><?php _e('Delete', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></label>
 					<label id="wpsite_twitter_reshare_delete_url_<?php echo $account['id']; ?>" style="display:none;"><?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$account_dashboard_page . '&action=delete&account=' . $account['id'], 'wpsite_twitter_reshare_admin_settings_delete'); ?></label>
-					
-					<!-- <a style="color:red" class="wpsite_twitter_reshare_admin_delete_ahref wpsite_twitter_reshare_admin_delete_ahref<?php echo $account['id']; ?>" href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$account_dashboard_page . '&action=delete&account=' . $account['id'], 'wpsite_twitter_reshare_admin_settings_delete'); ?>"><?php _e('Delete', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a> -->
 				</td>
 				
 				
@@ -86,7 +84,7 @@
 					
 					<!-- Reshare Now -->
 					
-					<a class="wpsite_twitter_reshare_admin_delete_ahref wpsite_twitter_reshare_admin_delete_ahref<?php echo $account['id']; ?>" href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$account_dashboard_page . '&action=reshare&account=' . $account['id'], 'wpsite_twitter_reshare_admin_settings_reshare_now'); ?>"><?php _e('Reshare Now', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a> 
+					<a class="wpsite_twitter_reshare_admin_ahref wpsite_twitter_reshare_admin_ahref<?php echo $account['id']; ?>" href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$account_dashboard_page . '&action=reshare&account=' . $account['id'], 'wpsite_twitter_reshare_admin_settings_reshare_now'); ?>"><?php _e('Reshare Now', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a> 
 				</td>
 				
 				<!-- Type -->

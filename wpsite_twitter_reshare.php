@@ -474,8 +474,6 @@ class WPsiteTwitterReshare {
 	 * @since 1.0.0
 	 */
 	static function wpsite_twitter_reshare_settings_add_edit($account_id = null) {
-	
-		require_once('admin/account_add_edit.php');
 		
 		$settings = get_option('wpsite_twitter_reshare_settings');
 		
@@ -488,6 +486,8 @@ class WPsiteTwitterReshare {
 		
 		wp_enqueue_script('jquery');
 		wp_enqueue_script('jquery-ui-tabs');
+		
+		require_once('admin/account_add_edit.php');
 	}
 	
 	/**
@@ -496,12 +496,6 @@ class WPsiteTwitterReshare {
 	 * @since 1.0.0
 	 */
 	static function wpsite_twitter_reshare_settings_messages() {
-	
-		require_once('admin/messages_dashboard.php');
-		
-		wp_enqueue_script('wpsite_twitter_reshare_admin_js', WPSITE_TWITTER_RESHARE_PLUGIN_URL . '/js/wpsite_twitter_reshare_admin.js');
-		
-		wp_localize_script('wpsite_twitter_reshare_admin_js', 'wpsite_twitter_reshare_messages_ahref', $wpsite_twitter_reshare_ahref_array);
 	
 		$settings = get_option('wpsite_twitter_reshare_settings');
 			
@@ -555,6 +549,12 @@ class WPsiteTwitterReshare {
 			</script>
 			<?php
 		}
+		
+		require_once('admin/messages_dashboard.php');
+		
+		wp_enqueue_script('wpsite_twitter_reshare_admin_js', WPSITE_TWITTER_RESHARE_PLUGIN_URL . '/js/wpsite_twitter_reshare_admin.js');
+		
+		wp_localize_script('wpsite_twitter_reshare_admin_js', 'wpsite_twitter_reshare_messages_ahref', $wpsite_twitter_reshare_ahref_array);
 	}
 	
 	/**

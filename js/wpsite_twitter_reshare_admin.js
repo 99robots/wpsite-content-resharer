@@ -42,14 +42,18 @@ jQuery(document).ready(function($) {
 		for (var i = 0; i < wpsite_twitter_reshare_accounts_ahref.length; i++) {
 			
 			/* Set all links to hidden */
+			
 			$('.wpsite_twitter_reshare_admin_delete_ahref' + wpsite_twitter_reshare_accounts_ahref[i]).css('visibility', 'hidden');
+			$('.wpsite_twitter_reshare_admin_ahref' + wpsite_twitter_reshare_accounts_ahref[i]).css('visibility', 'hidden');
 			
 			$(".wpsite_twitter_reshare_admin_accounts_delete_tr" + wpsite_twitter_reshare_accounts_ahref[i]).mouseover(function(){
 				$('.wpsite_twitter_reshare_admin_delete_ahref' + $(this).attr('class').substring(95)).css('visibility', 'visible');
+				$('.wpsite_twitter_reshare_admin_ahref' + $(this).attr('class').substring(95)).css('visibility', 'visible');
 			});
 			
 			$(".wpsite_twitter_reshare_admin_accounts_delete_tr" + wpsite_twitter_reshare_accounts_ahref[i]).mouseout(function(){
 				$('.wpsite_twitter_reshare_admin_delete_ahref' + $(this).attr('class').substring(95)).css('visibility', 'hidden');
+				$('.wpsite_twitter_reshare_admin_ahref' + $(this).attr('class').substring(95)).css('visibility', 'hidden');
 			});
 		}
 	}
