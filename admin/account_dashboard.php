@@ -23,11 +23,10 @@
 		</div> <!-- /wpsite_plugin_header -->
 	
 		<div id="wpsite_plugin_content">
-			
-			<div id="icon-edit" class="icon32 icon32-posts-post"><br/></div>
-			<h2><?php _e('WPsite Twitter Reshare Accounts', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?><a class="add-new-h2" href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$account_dashboard_page . '&action=add', 'wpsite_twitter_reshare_admin_settings_add_edit'); ?>"><?php _e('Add New', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a></h2>
 		
 			<div id="wpsite_plugin_settings">
+				
+				<h2><?php _e('Accounts', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?><a class="add-new-h2" href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$account_dashboard_page . '&action=add', 'wpsite_twitter_reshare_admin_settings_add_edit'); ?>"><?php _e('Add New', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a></h2>
 			
 				<table class="wp-list-table widefat fixed posts">
 					<thead>

@@ -5,7 +5,7 @@
  */
  
 /* PLUGIN ADMIN PANEL - BACK-END */
-.wpsite_plugin_wrapper {position: relative; width: 1080px;overflow:hidden;background:#FFF;}
+.wpsite_plugin_wrapper {position: relative; width: 100%;overflow:hidden;background:#FFF;}
 
 .wpsite_plugin_header { background: url("../img/rainbow-strip-hz-wide.png") repeat-x center top;padding-top:5px;overflow:hidden;}
 
@@ -100,7 +100,7 @@
 	margin: auto;
 }
  
-#wpsite_admin_panel_settings {
+#wpsite_admin_panel_settings{
 	width: 70%;
 	float: left;
 	border-right: 1px solid rgba(0,0,0,0.5);
@@ -116,6 +116,13 @@
 	width: intrinsic;
 	margin: auto;
 }
+
+/*
+#wpsite_twitter_reshare_message_form, #wpsite_twitter_reshare_messages_add_edit_table {
+	width: 100% !important;
+	overflow: scroll !important;
+}
+*/
 
 /* Tabs */
 
@@ -262,13 +269,3 @@
 	background: transparent;
 	color: #000;
 }
-
-/*
-.tr{
-	background-color: purple;
-}
-
-.wpsite_twitter_reshare_admin_delete_ahref {
-	visibility: hidden;
-}
-*/

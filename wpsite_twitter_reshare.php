@@ -576,7 +576,7 @@ class WPsiteTwitterReshare {
 		?>
 		<form method="post" id="wpsite_twitter_reshare_message_form">
 		
-		<table>
+		<table id="wpsite_twitter_reshare_messages_add_edit_table">
 			<tbody>
 			
 				<!-- ID -->
@@ -641,6 +641,7 @@ class WPsiteTwitterReshare {
 		<?php wp_nonce_field('wpsite_twitter_reshare_admin_settings_messages_add_edit'); ?>
 		
 		<?php submit_button(); ?>
+		
 		</form>
 		<?php
 	}
