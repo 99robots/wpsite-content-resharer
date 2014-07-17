@@ -1,7 +1,7 @@
 /**
  * Created by Kyle Benk
- *	
- * @author Kyle Benk <kjbenk@gmail.com> 
+ *
+ * @author Kyle Benk <kjbenk@gmail.com>
  */
 
 jQuery(document).ready(function($) {
@@ -18,12 +18,12 @@ jQuery(document).ready(function($) {
 });
 
 function onLinkedInLoad() {
-	
+
 	if (!IN.User.isAuthorized()) {
 		console.log('check false login user');
 	}else {
 		console.log('check true');
-		
+
 		if (wpsite_linkedin.image) {
 			console.log('image');
 			IN.API.Raw("/people/~/shares") // Update (PUT) the status
@@ -38,7 +38,7 @@ function onLinkedInLoad() {
 					"code": "anyone"
 				}
 			  }))
-			  .result(function(r) { 
+			  .result(function(r) {
 			      alert("POST OK");
 				  if (wpsite_linkedin.test) {
 					  window.location = "admin.php?page=wpsite-reshare-menu";
@@ -60,7 +60,7 @@ function onLinkedInLoad() {
 					"code": "anyone"
 				}
 			  }))
-			  .result(function(r) { 
+			  .result(function(r) {
 			      alert("POST OK");
 				  if (wpsite_linkedin.test) {
 					  window.location = "admin.php?page=wpsite-reshare-menu";
@@ -71,6 +71,6 @@ function onLinkedInLoad() {
 			      console.log(r);
 			  });
 		}
-		
+
 	}
 }
