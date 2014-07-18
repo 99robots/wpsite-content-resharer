@@ -147,8 +147,6 @@ class WPsiteTwitterResharePost {
 				} else {
 					$reply = $cb->statuses_update('status=' . $content);
 				}
-
-				error_log(serialize($reply));
 			break;
 
 			/* Facebook */
@@ -185,8 +183,6 @@ class WPsiteTwitterResharePost {
 	                              'access_token'	=> $account['facebook']['access_token']
 	                         ));
 						}
-
-						error_log($ret_obj['id']);
 					}
 				}
 
@@ -218,8 +214,6 @@ class WPsiteTwitterResharePost {
 			                              'message' => $content
 			                         ));
 								}
-
-								error_log($ret_obj['id']);
 							}
 
 
@@ -235,7 +229,6 @@ class WPsiteTwitterResharePost {
 
 
 								if (isset($temp_access_token)) {
-									//error_log('temp ->' . $temp_access_token);
 									$temp_access_token = substr($temp_access_token, 13);
 
 									$access_token = $facebook->api('/' . $account['facebook']['page_id'] . '/?fields=access_token', 'GET',
@@ -271,8 +264,6 @@ class WPsiteTwitterResharePost {
 			                              'access_token'	=> $access_token['access_token']
 			                         ));
 								}
-
-								error_log($ret_obj['id']);
 							}
 
 						} catch(FacebookApiException $e) {
@@ -285,8 +276,6 @@ class WPsiteTwitterResharePost {
 				               ));
 
 							//echo 'Please <a href="' . $login_url . '">login.</a>';
-							error_log($e->getType());
-							error_log($e->getMessage());
 
 							echo $e->getType();
 							echo $e->getMessage();
@@ -298,7 +287,6 @@ class WPsiteTwitterResharePost {
 				      // We'll use the current URL as the redirect_uri, so we don't
 				      // need to specify it here.
 				      $login_url = $facebook->getLoginUrl( array( 'scope' => 'publish_stream, manage_pages,photo_upload' ) );
-				      error_log('no user');
 
 
 				      	// Page
@@ -313,7 +301,6 @@ class WPsiteTwitterResharePost {
 
 
 							if (isset($temp_access_token)) {
-								//error_log('temp ->' . $temp_access_token);
 								$temp_access_token = substr($temp_access_token, 13);
 
 								$access_token = $facebook->api('/' . $account['facebook']['page_id'] . '/?fields=access_token', 'GET',
@@ -349,8 +336,6 @@ class WPsiteTwitterResharePost {
 						              'access_token'	=> $access_token['access_token']
 						         ));
 							}
-
-							error_log($ret_obj['id']);
 						}
 				    }
 

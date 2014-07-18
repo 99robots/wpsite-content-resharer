@@ -757,8 +757,6 @@ class WPsiteTwitterReshare {
 	 */
 	static function wpsite_twitter_reshare_schedule_post($account) {
 
-		//error_log('cron job -> ' . $account['id']);
-
 		require_once('wpsite_twitter_reshare_schedule_post.php');
 
 		$wpsite_reschedule = new WPsiteTwitterResharePost();
