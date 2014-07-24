@@ -36,44 +36,22 @@ jQuery(document).ready(function($) {
 		wpsite_twitter_reshare_delete($(this).attr('id').substring(30), $("#wpsite_twitter_reshare_delete_url_" + $(this).attr('id').substring(30)).text());
 	});
 
-	/* Loop through all accounts */
+	$(".wpsite_twitter_reshare_message_delete").click(function(){
+		wpsite_twitter_reshare_delete($(this).attr('id').substring(38), $("#wpsite_twitter_reshare_delete_url_" + $(this).attr('id').substring(38)).text());
+	});
 
-	if (typeof(wpsite_twitter_reshare_accounts_ahref) != "undefined" && wpsite_twitter_reshare_accounts_ahref !== null) {
-		for (var i = 0; i < wpsite_twitter_reshare_accounts_ahref.length; i++) {
+	$("#wps_general_hashtag_type").change(function() {
+		$(".wpsite_general_specific_hashtag").hide();
 
-			/* Set all links to hidden */
-
-			$('.wpsite_twitter_reshare_admin_delete_ahref' + wpsite_twitter_reshare_accounts_ahref[i]).css('visibility', 'hidden');
-			$('.wpsite_twitter_reshare_admin_ahref' + wpsite_twitter_reshare_accounts_ahref[i]).css('visibility', 'hidden');
-
-			$(".wpsite_twitter_reshare_admin_accounts_delete_tr" + wpsite_twitter_reshare_accounts_ahref[i]).mouseover(function(){
-				$('.wpsite_twitter_reshare_admin_delete_ahref' + $(this).attr('class').substring(95)).css('visibility', 'visible');
-				$('.wpsite_twitter_reshare_admin_ahref' + $(this).attr('class').substring(95)).css('visibility', 'visible');
-			});
-
-			$(".wpsite_twitter_reshare_admin_accounts_delete_tr" + wpsite_twitter_reshare_accounts_ahref[i]).mouseout(function(){
-				$('.wpsite_twitter_reshare_admin_delete_ahref' + $(this).attr('class').substring(95)).css('visibility', 'hidden');
-				$('.wpsite_twitter_reshare_admin_ahref' + $(this).attr('class').substring(95)).css('visibility', 'hidden');
-			});
+		if ($(this).val() == 'specific_hashtags') {
+			$(".wpsite_general_specific_hashtag").show();
 		}
-	}
+	});
 
-	/* Loop through all messages */
+	$(".wpsite_general_specific_hashtag").hide();
 
-	if (typeof(wpsite_twitter_reshare_messages_ahref) != "undefined" && wpsite_twitter_reshare_messages_ahref !== null) {
-		for (var i = 0; i < wpsite_twitter_reshare_messages_ahref.length; i++) {
-
-			/* Set all links to hidden */
-			$('.wpsite_twitter_reshare_admin_delete_ahref' + wpsite_twitter_reshare_messages_ahref[i]).css('visibility', 'hidden');
-
-			$(".wpsite_twitter_reshare_admin_messages_delete_tr" + wpsite_twitter_reshare_messages_ahref[i]).mouseover(function(){
-				$('.wpsite_twitter_reshare_admin_delete_ahref' + $(this).attr('class').substring(95)).css('visibility', 'visible');
-			});
-
-			$(".wpsite_twitter_reshare_admin_messages_delete_tr" + wpsite_twitter_reshare_messages_ahref[i]).mouseout(function(){
-				$('.wpsite_twitter_reshare_admin_delete_ahref' + $(this).attr('class').substring(95)).css('visibility', 'hidden');
-			});
-		}
+	if ($("#wps_general_hashtag_type").val() == 'specific_hashtags') {
+		$(".wpsite_general_specific_hashtag").show();
 	}
 
 	/* Exclude Posts */

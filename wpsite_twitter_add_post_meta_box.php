@@ -39,7 +39,7 @@ add_action('save_post', array('WPsiteTwitterAddMetaBox', 'wpsite_save_meta_data'
  */
 class WPsiteTwitterAddMetaBox {
 
-	private static $prefix = 'wpsite_twitter_reshare_meta_box_';
+	private static $prefix = 'wpsite-twitter-reshare-meta-box-';
 
 	/**
 	 * Load the text domain
@@ -55,32 +55,15 @@ class WPsiteTwitterAddMetaBox {
 	 */
 	static function wpsite_add_meta_box($post_type, $post) {
 
-		$settings = get_option('wpsite_twitter_reshare_settings');
-
-		if ($settings === false)
-			return null;
-
-		foreach ($settings['accounts'] as $account) {
-
-			$check = true;
-
-			foreach ($account['post_filter']['exclude_categories'] as $category) {
-				if (in_category($category, $post)) {
-					$check = false;
-				}
-			}
-
-			if (in_array($post_type, $account['post_filter']['post_types']) && $check) {
-				add_meta_box(
-					self::$prefix . $account['id'],
-					'WPSite Twitter Reshare ' . $account['label'],
-					array('WPsiteTwitterAddMetaBox' , 'wpsite_render_meta_box_content'),
-					$post_type,
-					'side',
-					'low',
-					array('account_id' => $account['id'], 'messages' => $settings['messages'])
-				);
-			}
+		if ($post_type != 'attachment' || $post_type != 'page') {
+			add_meta_box(
+				self::$prefix . 'hashtags',
+				'WPSite Twitter Reshare Hashtags',
+				array('WPsiteTwitterAddMetaBox' , 'wpsite_render_meta_box_content'),
+				$post_type,
+				'side',
+				'low'
+			);
 		}
 	}
 
@@ -89,73 +72,21 @@ class WPsiteTwitterAddMetaBox {
 	 *
 	 * @param WP_Post $post The post object.
 	 */
-	static function wpsite_render_meta_box_content($post, $metabox) {
+	static function wpsite_render_meta_box_content($post) {
 
 		// Use get_post_meta to retrieve an existing value from the database.
-		$post_meta_messages = get_post_meta($post->ID, self::$prefix . $metabox['args']['account_id'], true);
-		$post_meta_messages = isset($post_meta_messages['messages']) ? $post_meta_messages['messages'] : null;
 
-		$post_cus_meta_messages = get_post_meta($post->ID, self::$prefix . $metabox['args']['account_id'], true);
-		$post_cus_meta_messages = isset($post_cus_meta_messages['custom_messages']) ? $post_cus_meta_messages['custom_messages'] : null;
+		$hashtags = get_post_meta($post->ID, self::$prefix . 'hashtags', true);
+		$hashtags = isset($hashtags) ? $hashtags : null;
 
-		$messages = array();
+		// Add an nonce field so we can check for it later.
+		wp_nonce_field(self::$prefix . 'meta-box', self::$prefix . 'meta-box-nonce');
 
-		foreach(get_option('wpsite_twitter_reshare_settings')['messages'] as $message) {
+		?>
+			<input type="text" id="<?php echo self::$prefix . 'hashtags'; ?>" name="<?php echo self::$prefix . 'hashtags'; ?>" value="<?php echo isset($hashtags) ? $hashtags : ''; ?>" placeholder="hashtag,hashtag1" size="18"/><br/>
+			<em><?php _e('No spaces (i.e. hashtag,hashtag1) not (hashtag, hashtag1)', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></em>
+		<?php
 
-			if (isset($post_meta_messages) && $post_meta_messages !== false && array_key_exists($message['id'], $post_meta_messages)) {
-				$messages[$message['id']] = array(
-					'id'		=> $message['id'],
-					'message'	=> $message['message'],
-					'place'		=> $message['place'],
-					'val'		=> $post_meta_messages[$message['id']]['val']
-				);
-			}else {
-				$messages[$message['id']] = array(
-					'id'		=> $message['id'],
-					'message'	=> $message['message'],
-					'place'		=> $message['place'],
-					'val'		=> true
-				);
-			}
-		}
-
-		for ($i = 1; $i < 4; $i++) {
-			if (isset($post_cus_meta_messages) && $post_cus_meta_messages !== false && array_key_exists('custom_' . $i, $post_cus_meta_messages)) {
-				$cus_messages['custom_' . $i] = array(
-					'id'		=> 'custom_' . $i,
-					'message'	=> $post_cus_meta_messages['custom_' . $i]['message'],
-					'place'		=> $post_cus_meta_messages['custom_' . $i]['place']
-				);
-			} else {
-				$cus_messages['custom_' . $i] = array(
-					'id'		=> 'custom_' . $i,
-					'message'	=> '',
-					'place'		=> 'before'
-				);
-			}
-		}
-
-
-		// Check all custom text input fields
-
-		foreach ($cus_messages as $cus_message_id => $cus_message_val) {
-			?>
-			<input type="text" id="<?php echo self::$prefix . $metabox['args']['account_id'] . '-custom-message_' . $cus_message_id; ?>" name="<?php echo self::$prefix . $metabox['args']['account_id'] . '-custom-message_' . $cus_message_id; ?>" value="<?php echo isset($cus_message_val['message']) ? $cus_message_val['message'] : ''; ?>" placeholder="custom message" size="18"/>
-			<select id="<?php echo self::$prefix . $metabox['args']['account_id'] . '-custom-message-place_' . $cus_message_id; ?>" name="<?php echo self::$prefix . $metabox['args']['account_id'] . '-custom-message-place_' . $cus_message_id; ?>">
-				<option value="before" <?php echo isset($cus_message_val['place']) && $cus_message_val['place'] == 'before' ? 'selected' : ''; ?>><?php _e('Before', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></option>
-				<option value="after" <?php echo isset($cus_message_val['place']) && $cus_message_val['place'] == 'after' ? 'selected' : ''; ?>><?php _e('After', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></option>
-			</select><br />
-	        <?php
-		}
-
-		// Display the form, using the current value.
-
-		foreach ($messages as $message_id => $message_val) {
-			?>
-			<input type="checkbox" id="<?php echo self::$prefix . $metabox['args']['account_id'] . '_' . $message_id; ?>" name="<?php echo self::$prefix . $metabox['args']['account_id'] . '_' . $message_id; ?>" <?php echo isset($message_val['val']) && $message_val['val'] ? 'checked="checked"' :''; ?>/>
-			<label><?php _e($message_val['message'], WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></label><br />
-	        <?php
-		}
 	}
 
 	/**
@@ -165,50 +96,55 @@ class WPsiteTwitterAddMetaBox {
 	 */
 	static function wpsite_save_meta_data($post_id) {
 
-		$settings = get_option('wpsite_twitter_reshare_settings');
+		/*
+		 * We need to verify this came from our screen and with proper authorization,
+		 * because the save_post action can be triggered at other times.
+		 */
 
-		if ($settings === false)
-			return null;
+		// Check if our nonce is set.
+		if ( ! isset( $_POST[self::$prefix . 'meta-box-nonce'] ) ) {
+			return;
+		}
 
-		foreach ($settings['accounts'] as $account) {
+		// Verify that the nonce is valid.
+		if ( ! wp_verify_nonce($_POST[self::$prefix . 'meta-box-nonce'], self::$prefix . 'meta-box') ) {
+			return;
+		}
 
-			$check = true;
+		// If this is an autosave, our form has not been submitted, so we don't want to do anything.
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+			return;
+		}
 
+		// Check the user's permissions.
+		if ( isset( $_POST['post_type'] ) && 'page' == $_POST['post_type'] ) {
 
-
-			foreach ($account['post_filter']['exclude_categories'] as $category) {
-				if (in_category($category, $post_id)) {
-					$check = false;
-				}
+			if ( ! current_user_can( 'edit_page', $post_id ) ) {
+				return;
 			}
 
-			if (in_array(get_post_type($post_id), $account['post_filter']['post_types']) && $check) {
+		} else {
 
-				$messages_array = array();
-
-				/* New Option */
-
-				foreach ($settings['messages'] as $message) {
-					$messages_array[$message['id']] = array(
-						'id'		=> $message['id'],
-						'message'	=> $message['message'],
-						'place'		=> $message['place'],
-						'val'		=> isset($_POST[self::$prefix . $account['id'] . '_' . $message['id']]) ? stripcslashes(sanitize_text_field($_POST[self::$prefix . $account['id'] . '_' . $message['id']])) : false
-					);
-				}
-
-				for ($i = 1; $i < 4; $i++) {
-					$cus_messages_array['custom_' . $i] = array(
-						'id'		=> 'custom_' . $i,
-						'message'	=> isset($_POST[self::$prefix . $account['id'] . '-custom-message_' . 'custom_' . $i]) ? stripcslashes(sanitize_text_field($_POST[self::$prefix . $account['id'] . '-custom-message_' . 'custom_' . $i])) : false,
-						'place'		=>  isset($_POST[self::$prefix . $account['id'] . '-custom-message-place_' . 'custom_' . $i]) ? stripcslashes(sanitize_text_field($_POST[self::$prefix . $account['id'] . '-custom-message-place_' . 'custom_' . $i])) : 'before'
-					);
-				}
-
-				// Update the meta field.
-
-				update_post_meta($post_id, self::$prefix . $account['id'], array('messages' => $messages_array, 'custom_messages' => $cus_messages_array));
+			if ( ! current_user_can( 'edit_post', $post_id ) ) {
+				return;
 			}
+		}
+
+		/* OK, it's safe for us to save the data now. */
+
+		// Make sure that it is set.
+		if ( ! isset( $_POST[self::$prefix . 'hashtags'] ) ) {
+			return;
+		}
+
+		// Sanitize user input.
+		$hashtags = sanitize_text_field( $_POST[self::$prefix . 'hashtags'] );
+
+		// Update the meta field in the database.
+		if ($hashtags == '') {
+			delete_post_meta($post_id, self::$prefix . 'hashtags');
+		} else {
+			update_post_meta( $post_id, self::$prefix . 'hashtags', str_replace(' ','',$hashtags));
 		}
 	}
 }

@@ -26,7 +26,7 @@
 
 			<div id="wpsite_plugin_settings">
 
-				<h2><?php _e('Accounts', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?><a class="add-new-h2" href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$account_dashboard_page . '&action=add', 'wpsite_twitter_reshare_admin_settings_add_edit'); ?>"><?php _e('Add New', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a></h2>
+				<h2><?php _e('Accounts', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h2>
 
 				<table class="wp-list-table widefat fixed posts">
 					<thead>
@@ -87,13 +87,15 @@
 									<div class="row-actions">
 										<span class="edit">
 											<a href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$account_dashboard_page . '&action=edit&account=' . $account['id'], 'wpsite_twitter_reshare_admin_settings_add_edit'); ?>"><?php _e('Edit', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a>
-										</span>
+										</span><!--
+
 										|
 										<span class="trash">
 											<a href="#" class="wpsite_twitter_reshare_admin_settings_add_edit_submitdelete" id="wpsite_twitter_reshare_delete_<?php echo $account['id']; ?>"><?php _e('Delete', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a>
 
 											<span id="wpsite_twitter_reshare_delete_url_<?php echo $account['id']; ?>" style="display:none;"><?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$account_dashboard_page . '&action=delete&account=' . $account['id'], 'wpsite_twitter_reshare_admin_settings_delete'); ?></span>
 										</span>
+-->
 									</div>
 								</td>
 

@@ -53,6 +53,9 @@ add_action('init', array('WPsiteTwitterReshare', 'wpsite_load_textdoamin'));
 add_action('admin_menu', array('WPsiteTwitterReshare', 'wpsite_twitter_reshare_menu_page'));
 add_filter('cron_schedules', array('WPsiteTwitterReshare','wpsite_twitter_reshare_create_schedule_intervals'));
 
+$plugin = plugin_basename(__FILE__);
+add_filter("plugin_action_links_$plugin", array('WPsiteTwitterReshare', 'plugin_links'));
+
 $wpsite_twitter_reshare_settings = get_option('wpsite_twitter_reshare_settings');
 
 if ($wpsite_twitter_reshare_settings !== false) {
@@ -71,20 +74,63 @@ if ($wpsite_twitter_reshare_settings !== false) {
 
 class WPsiteTwitterReshare {
 
+	/**
+	 * class_name
+	 *
+	 * (default value: 'WPsiteTwitterReshare')
+	 *
+	 * @var string
+	 * @access private
+	 * @static
+	 */
 	private static $class_name = 'WPsiteTwitterReshare';
 
+	/**
+	 * prefix
+	 *
+	 * (default value: 'wpsite_twitter_reshare_')
+	 *
+	 * @var string
+	 * @access private
+	 * @static
+	 */
 	private static $prefix = 'wpsite_twitter_reshare_';
 
+	/**
+	 * prefix_dash
+	 *
+	 * (default value: 'wpsite_twitter_reshare_')
+	 *
+	 * @var string
+	 * @access private
+	 * @static
+	 */
+	private static $prefix_dash = 'wpsite_twitter_reshare_';
+
+	/**
+	 * default
+	 *
+	 * @var mixed
+	 * @access private
+	 * @static
+	 */
 	private static $default = array(
 		'accounts'		=> array(),
 		'messages'		=> array(),
 		'exclude_posts'	=> array()
 	);
 
+	/**
+	 * default_account
+	 *
+	 * @var mixed
+	 * @access private
+	 * @static
+	 */
 	private static $default_account = array(
-		'id'			=> '',
+		'id'			=> 'twitter',
 		'type'			=> 'twitter',
-		'label'			=> '',
+		'label'			=> 'twitter',
 		'status'		=> 'active',
 		'twitter'		=> array(
 			'consumer_key'		=> '',
@@ -94,7 +140,9 @@ class WPsiteTwitterReshare {
 		),
 		'general' 		=> array(
 			'reshare_content'		=> 'title',
-			'url_shortener'			=> '',
+			'bitly_url_shortener'	=> '',
+			'hashtag_type'			=> 'none',
+			'specific_hashtags'		=> '',
 			'featured_image'		=> false,
 			'include_link'			=> false,
 			'min_interval'			=> '6', 	//hours
@@ -109,24 +157,94 @@ class WPsiteTwitterReshare {
 		)
 	);
 
+	/**
+	 * default_message
+	 *
+	 * @var mixed
+	 * @access private
+	 * @static
+	 */
 	private static $default_message = array(
 		'id'		=> '',
 		'message'	=> '',
 		'place'		=> 'front'
 	);
 
+	/**
+	 * default_exclude_posts
+	 *
+	 * (default value: array())
+	 *
+	 * @var array
+	 * @access private
+	 * @static
+	 */
 	private static $default_exclude_posts = array();
 
+	/**
+	 * min_interval
+	 *
+	 * (default value: 2)
+	 *
+	 * @var int
+	 * @access private
+	 * @static
+	 */
 	private static $min_interval = 2;
 
+	/**
+	 * account_dashboard_page
+	 *
+	 * (default value: 'wpsite-twitter-reshare-account-dashboard')
+	 *
+	 * @var string
+	 * @access private
+	 * @static
+	 */
 	private static $account_dashboard_page = 'wpsite-twitter-reshare-account-dashboard';
 
+	/**
+	 * message_dashboard_page
+	 *
+	 * (default value: 'wpsite-twitter-reshare-settings-messages')
+	 *
+	 * @var string
+	 * @access private
+	 * @static
+	 */
 	private static $message_dashboard_page = 'wpsite-twitter-reshare-settings-messages';
 
+	/**
+	 * exclude_posts_page
+	 *
+	 * (default value: 'wpsite-twitter-reshare-settings-exclude-posts')
+	 *
+	 * @var string
+	 * @access private
+	 * @static
+	 */
 	private static $exclude_posts_page = 'wpsite-twitter-reshare-settings-exclude-posts';
 
+	/**
+	 * help_page
+	 *
+	 * (default value: 'wpsite-twitter-reshare-settings-help')
+	 *
+	 * @var string
+	 * @access private
+	 * @static
+	 */
 	private static $help_page = 'wpsite-twitter-reshare-settings-help';
 
+	/**
+	 * faq_page
+	 *
+	 * (default value: 'wpsite-twitter-reshare-settings-faq')
+	 *
+	 * @var string
+	 * @access private
+	 * @static
+	 */
 	private static $faq_page = 'wpsite-twitter-reshare-settings-faq';
 
 	/**
@@ -149,13 +267,72 @@ class WPsiteTwitterReshare {
 
 		/* Adds version number to database */
 
-		if (is_multisite()) {
-			add_site_option('wpsite_twitter_reshare_version', WPSITE_TWITTER_RESHARE_VERSION_NUM);
+		if (function_exists("is_multisite") && is_multisite()) {
+			add_site_option(self::$prefix . 'version', WPSITE_TWITTER_RESHARE_VERSION_NUM);
 		} else {
-			add_option('wpsite_twitter_reshare_version', WPSITE_TWITTER_RESHARE_VERSION_NUM);
+			add_option(self::$prefix . 'version', WPSITE_TWITTER_RESHARE_VERSION_NUM);
 		}
 
-		add_option('wpsite_twitter_reshare_settings', self::$default);
+		$settings = get_option('wpsite_twitter_reshare_settings');
+
+		/* Default values */
+
+		if ($settings === false) {
+			$settings = array(
+				'accounts'		=> array(
+					'twitter' 	=> array(
+						'id'			=> 'twitter',
+						'type'			=> 'twitter',
+						'label'			=> 'twitter',
+						'status'		=> 'active',
+						'twitter'		=> array(
+							'consumer_key'		=> '',
+							'consumer_secret'	=> '',
+							'token'				=> '',
+							'token_secret'		=> ''
+						),
+						'general' 		=> array(
+							'reshare_content'		=> 'title',
+							'bitly_url_shortener'	=> '',
+							'hashtag_type'			=> 'none',
+							'specific_hashtags'		=> '',
+							'featured_image'		=> false,
+							'include_link'			=> false,
+							'min_interval'			=> '6', 	//hours
+						),
+						'post_filter'	=> array(
+							'min_age'		=> '30',			//days
+							'max_age'		=> '60',			//days
+							'post_types'	=> array(
+							),
+							'exclude_categories'	=> array(
+							)
+						)
+					)
+				),
+				'messages'		=> array(
+					'message' => array(
+						'id'		=> 'message',
+						'message'	=> '',
+						'place'		=> 'front'
+					)
+				),
+				'exclude_posts'	=> array()
+			);
+
+			update_option('wpsite_twitter_reshare_settings', $settings);
+		}
+	}
+
+	/**
+	 * Hooks to 'plugin_action_links_' filter
+	 *
+	 * @since 1.0.0
+	 */
+	static function plugin_links($links) {
+		$settings_link = '<a href="admin.php?page=' . self::$account_dashboard_page . '">Dashboard</a>';
+		array_unshift($links, $settings_link);
+		return $links;
 	}
 
 	/**
@@ -315,11 +492,14 @@ class WPsiteTwitterReshare {
 						'token_secret'		=> stripcslashes(sanitize_text_field($_POST['wps_twitter_token_secret']))
 					),
 					'general' 		=> array(
-						'reshare_content'	=> $_POST['wps_general_reshare_content'],
+						'reshare_content'		=> $_POST['wps_general_reshare_content'],
+						'bitly_url_shortener' 	=> stripcslashes(sanitize_text_field($_POST['wps_general_bitly_url_shortener'])),
 						//'url_shortener'		=> $_POST['wps_general_url_shortener'],
-						'featured_image'	=> isset($_POST['wps_general_featured_image']) && $_POST['wps_general_featured_image'] ? true : false,
-						'include_link'		=> isset($_POST['wps_general_include_link']) && $_POST['wps_general_include_link'] ? true : false,
-						'min_interval'		=> (double) stripcslashes(sanitize_text_field($_POST['wps_general_min_interval'])) > (double) self::$min_interval
+						'hashtag_type'			=> $_POST['wps_general_hashtag_type'],
+						'specific_hashtags'		=> str_replace(' ','',stripcslashes(sanitize_text_field($_POST['wps_general_specific_hashtags']))),
+						'featured_image'		=> isset($_POST['wps_general_featured_image']) && $_POST['wps_general_featured_image'] ? true : false,
+						'include_link'			=> isset($_POST['wps_general_include_link']) && $_POST['wps_general_include_link'] ? true : false,
+						'min_interval'			=> (double) stripcslashes(sanitize_text_field($_POST['wps_general_min_interval'])) > (double) self::$min_interval
  ? stripcslashes(sanitize_text_field($_POST['wps_general_min_interval'])) : '4'
  					),
 					'post_filter'	=> array(
@@ -479,10 +659,11 @@ class WPsiteTwitterReshare {
 
 		/* Edit */
 
-		if (isset($account_id))
+		if (isset($account_id)) {
 			$settings = $settings['accounts'][$account_id];
-		else
+		} else {
 			$settings = self::$default_account;
+		}
 
 		wp_enqueue_script('jquery');
 		wp_enqueue_script('jquery-ui-tabs');
@@ -585,7 +766,7 @@ class WPsiteTwitterReshare {
 					<th class="wpsite_twitter_reshare_admin_table_th">
 						<label><?php _e('Message ID', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></label>
 						<td class="wpsite_twitter_reshare_admin_table_td">
-							<input id="wps_settings_message_id" name="wps_settings_message_id" type="text" size="40" value="<?php echo isset($settings['id']) ? $settings['id'] : ''; ?>" placeholder="<?php _e('social_media_message', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?>" <?php echo isset($_GET['action']) && $_GET['action'] == 'edit' ? "readonly" : ''; ?>>
+							<input id="wps_settings_message_id" name="wps_settings_message_id" type="text" size="40" value="<?php echo isset($settings['id']) ? $settings['id'] : ''; ?>" placeholder="<?php _e('social_media_message', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?>" readonly>
 						</td>
 					</th>
 				</tr>

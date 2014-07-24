@@ -93,10 +93,14 @@ class WPsiteTwitterResharePost {
 
 			//require_once(plugin_dir_path( __FILE__ ) . self::$api_bitly_dir);
 
-			$result = file_get_contents('https://api-ssl.bitly.com/v3/shorten?access_token=db70e7dc153a834c1b52deb8b0c587511e97b2fb&longUrl=' . urlencode($post_link) . '&format=json');
+			if (isset($account['general']['bitly_url_shortener']) && $account['general']['bitly_url_shortener'] != '') {
 
-			if (isset(json_decode($result)->data->url))
-				$post_link = json_decode($result)->data->url;
+				$result = file_get_contents('https://api-ssl.bitly.com/v3/shorten?access_token=' . $account['general']['bitly_url_shortener'] . '&longUrl=' . urlencode($post_link) . '&format=json');
+
+				if (isset(json_decode($result)->data->url)) {
+					$post_link = json_decode($result)->data->url;
+				}
+			}
 
 			$post_data .= $post_link . ' ';
 		}
@@ -117,6 +121,46 @@ class WPsiteTwitterResharePost {
 			$content = $args['message']['text'] . ' ' .  $post_data;
 		} else {
 			$content = $post_data . ' ' . $args['message']['text'];
+		}
+
+		//Hashtags
+
+		if ($account['general']['hashtag_type'] == 'custom_field') {
+
+			$hashtags = get_post_meta($args['post']->ID, 'wpsite-twitter-reshare-meta-box-hashtags', true);
+
+			$hashtags = explode(',', $hashtags);
+
+			foreach ($hashtags as $hashtag) {
+				$new_hashtags[] = '#' . $hashtag;
+			}
+
+			$hashtags = implode(' ', $new_hashtags);
+
+			$content .= ' ' . $hashtags;
+		} else if ($account['general']['hashtag_type'] == 'category') {
+
+			$categories = get_the_category($args['post']->ID);
+
+			foreach ($categories as $category) {
+				$hashtag = '#' . $category->name;
+
+				break;
+			}
+
+			$content .= ' ' . $hashtag;
+		} else if ($account['general']['hashtag_type'] == 'specific_hashtags') {
+			$hashtags = $account['general']['specific_hashtags'];
+
+			$hashtags = explode(',', $hashtags);
+
+			foreach ($hashtags as $hashtag) {
+				$new_hashtags[] = '#' . $hashtag;
+			}
+
+			$hashtags = implode(' ', $new_hashtags);
+
+			$content .= ' ' . $hashtags;
 		}
 
 		/* Determine type of post */

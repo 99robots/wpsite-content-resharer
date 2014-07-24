@@ -181,6 +181,47 @@ jQuery(document).ready(function($) {
 											</th>
 										</tr>
 
+										<!-- Hashtags -->
+
+										<tr>
+											<th class="wpsite_twitter_reshare_admin_table_th">
+												<label><?php _e('Hashtag Type', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></label>
+												<td class="wpsite_twitter_reshare_admin_table_td">
+													<select id="wps_general_hashtag_type" name="wps_general_hashtag_type">
+														<option value="none" <?php echo isset($settings['general']['hashtag_type']) && $settings['general']['hashtag_type'] == 'none' ? 'selected' : ''; ?>><?php _e('Do not include hashtags', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></option>
+														<option value="custom_field" <?php echo isset($settings['general']['hashtag_type']) && $settings['general']['hashtag_type'] == 'custom_field' ? 'selected' : ''; ?>><?php _e('From post custom field (i.e Twitter Reshare Meta Box)', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></option>
+														<option value="category" <?php echo isset($settings['general']['hashtag_type']) && $settings['general']['hashtag_type'] == 'category' ? 'selected' : ''; ?>><?php _e('First Category', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></option>
+														<option value="specific_hashtags" <?php echo isset($settings['general']['hashtag_type']) && $settings['general']['hashtag_type'] == 'specific_hashtags' ? 'selected' : ''; ?>><?php _e('Specific hashtag', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></option>
+													</select>
+												</td>
+											</th>
+										</tr>
+
+										<!-- Specific Hashtags -->
+
+										<tr class="wpsite_general_specific_hashtag">
+											<th class="wpsite_twitter_reshare_admin_table_th">
+												<label><?php _e('Specific Hashtags', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></label>
+												<td class="wpsite_twitter_reshare_admin_table_td">
+													<input id="wps_general_specific_hashtags" name="wps_general_specific_hashtags" type="text" size="60" value="<?php echo esc_attr($settings['general']['specific_hashtags']); ?>" placeholder="hashtag,hashtag1">
+													<br /><em><?php _e('These hashtags will alwasy be include in every tweet', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></em>
+													<br /><em><?php _e('Spearate tags by commas no spaces', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></em>
+												</td>
+											</th>
+										</tr>
+
+										<!-- Bitly URL Shortener -->
+
+										<tr>
+											<th class="wpsite_twitter_reshare_admin_table_th">
+												<label><?php _e('Bitly URL Shortener', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></label>
+												<td class="wpsite_twitter_reshare_admin_table_td">
+													<input id="wps_general_bitly_url_shortener" name="wps_general_bitly_url_shortener" type="text" size="60" value="<?php echo esc_attr($settings['general']['bitly_url_shortener']); ?>">
+													<br /><em><?php _e('Your Bitly access token', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></em>
+												</td>
+											</th>
+										</tr>
+
 										<!-- Include Link -->
 
 										<tr>
