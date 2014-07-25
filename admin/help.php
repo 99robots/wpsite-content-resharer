@@ -9,9 +9,11 @@
 
 		<span><?php _e('An account is a social media channel that you would like to have WPSite Reshare automatically use to reshare all your posts.  You can have multiple accounts and each with differently settings and intervals in which to automatically post.', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></span>
 
-	<h3><?php _e('How do I setup my twitter developer account?', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h3>
+	<!--
+<h3><?php _e('How do I setup my twitter developer account?', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h3>
 
 		<span><?php _e('Before WPSite Reshare can automatically tweet for you, we need you to create a twitter developer account.  By creating this account you can link your site to your twitter account and allow WPSite Reshare to automatically post for you.  Go to this link to create an twitter developer account https://dev.twitter.com. Then create a twitter developer application by going to this link https://dev.twitter.com/apps.  After that is done and you set your Access Level Capabilities to "Read and Write” (see FAQ), then copy and paste all your keys, secrets, and tokens (see FAQ) into your new WPSite Reshare twitter account.  Once that is done set your post filter settings,(see Trouble Shooting section on Help page for Post Filtering) making sure to include some post types and to not exclude all categories.  Finally your ready to test your account!  Go to the Accounts page and hover your newly created account.  Under the “Minimum Interval” column there will be a link that says “reshare now”, click it.  Once this is done check your twitter feed to see your new tweet (if not go to Trouble Shooting section on Help page).', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></span>
+-->
 
 
 	<h3><?php _e('What are messages?', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h3>

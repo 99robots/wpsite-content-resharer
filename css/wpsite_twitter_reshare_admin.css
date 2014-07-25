@@ -272,4 +272,4 @@
 
 /* Account Display */
 
-.<?php echo self::$prefix_dash; ?>profile-image {display:block; overflow:hidden; width: 100px; height: 100px;}
+.wpsite-twitter-reshare-profile-image {display:block; overflow:hidden; width: 100px; height: 100px;}

@@ -4,8 +4,8 @@ Plugin Name: WPsite Twitter Reshare Beta
 plugin URI:
 Description: Automatically tweets all your posts so you dont have to.
 version: 0.9
-Author: Kyle Benk
-Author URI: http://kylebenkapps.com
+Author: WPSite.NET
+Author URI: http://wpsite.net
 License: GPL2
 */
 
@@ -73,17 +73,6 @@ if ($wpsite_twitter_reshare_settings !== false) {
  */
 
 class WPsiteTwitterReshare {
-
-	/**
-	 * class_name
-	 *
-	 * (default value: 'WPsiteTwitterReshare')
-	 *
-	 * @var string
-	 * @access private
-	 * @static
-	 */
-	private static $class_name = 'WPsiteTwitterReshare';
 
 	/**
 	 * prefix
@@ -256,7 +245,7 @@ class WPsiteTwitterReshare {
 	 * @access private
 	 * @static
 	 */
-	private static $api_key = 'kEKsMXElcPUvMFIRq9nJuTGoe';
+	public static $api_key = 'kEKsMXElcPUvMFIRq9nJuTGoe';
 
 	/**
 	 * api_secret
@@ -267,29 +256,7 @@ class WPsiteTwitterReshare {
 	 * @access private
 	 * @static
 	 */
-	private static $api_secret = '1EQWMgveYs4Zok50xhb2ThQAn4SH29Hjk76oXEFfvVsMWlZBne';
-
-	/**
-	 * access_token
-	 *
-	 * (default value: '342576480-BiuFOBsJpxNGaBV7zF8y5LlKx8bE4cu2Ot9jdGb7')
-	 *
-	 * @var string
-	 * @access private
-	 * @static
-	 */
-	private static $access_token = '342576480-BiuFOBsJpxNGaBV7zF8y5LlKx8bE4cu2Ot9jdGb7';
-
-	/**
-	 * access_token_secret
-	 *
-	 * (default value: 'mwQWBNnswZDqpvpFQepM6NNFflQwCHMijEfLdXaHD4Q3D')
-	 *
-	 * @var string
-	 * @access private
-	 * @static
-	 */
-	private static $access_token_secret = 'mwQWBNnswZDqpvpFQepM6NNFflQwCHMijEfLdXaHD4Q3D';
+	public static $api_secret = '1EQWMgveYs4Zok50xhb2ThQAn4SH29Hjk76oXEFfvVsMWlZBne';
 
 	/**
 	 * Load the text domain
@@ -390,7 +357,7 @@ class WPsiteTwitterReshare {
 			__('WPsite Twitter Reshare', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN),
 	    	'manage_options',
 	    	self::$account_dashboard_page,
-	    	array(self::$class_name, 'wpsite_twitter_reshare_settings')
+	    	array('WPsiteTwitterReshare', 'wpsite_twitter_reshare_settings')
 	    );
 
 	    $account_sub_menu_page = add_submenu_page(
@@ -399,9 +366,9 @@ class WPsiteTwitterReshare {
 	    	__('Accounts', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN),
 	    	'manage_options',
 	    	self::$account_dashboard_page,
-	    	array(self::$class_name, 'wpsite_twitter_reshare_settings')
+	    	array('WPsiteTwitterReshare', 'wpsite_twitter_reshare_settings')
 	    );
-	    add_action("admin_print_scripts-$account_sub_menu_page" , array(self::$class_name, 'inline_script_dashboard_pages'));
+	    add_action("admin_print_scripts-$account_sub_menu_page" , array('WPsiteTwitterReshare', 'inline_script_dashboard_pages'));
 
 	    $messages_sub_menu_page = add_submenu_page(
 	    	self::$account_dashboard_page,
@@ -409,9 +376,9 @@ class WPsiteTwitterReshare {
 	    	__('Messages', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN),
 	    	'manage_options',
 	    	self::$message_dashboard_page,
-	    	array(self::$class_name, 'wpsite_twitter_reshare_settings_messages')
+	    	array('WPsiteTwitterReshare', 'wpsite_twitter_reshare_settings_messages')
 	    );
-	    add_action("admin_print_scripts-$messages_sub_menu_page" , array(self::$class_name, 'inline_script_dashboard_pages'));
+	    add_action("admin_print_scripts-$messages_sub_menu_page" , array('WPsiteTwitterReshare', 'inline_script_dashboard_pages'));
 
 	    $exclude_posts_sub_menu_page = add_submenu_page(
 	    	self::$account_dashboard_page,
@@ -419,9 +386,9 @@ class WPsiteTwitterReshare {
 	    	__('Exclude Posts', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN),
 	    	'manage_options',
 	    	self::$exclude_posts_page,
-	    	array(self::$class_name, 'wpsite_twitter_reshare_settings_exclude_posts')
+	    	array('WPsiteTwitterReshare', 'wpsite_twitter_reshare_settings_exclude_posts')
 	    );
-	    add_action("admin_print_scripts-$exclude_posts_sub_menu_page" , array(self::$class_name, 'inline_script_dashboard_pages'));
+	    add_action("admin_print_scripts-$exclude_posts_sub_menu_page" , array('WPsiteTwitterReshare', 'inline_script_dashboard_pages'));
 
 	    add_submenu_page(
 	    	self::$account_dashboard_page,
@@ -429,7 +396,7 @@ class WPsiteTwitterReshare {
 	    	__('Help', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN),
 	    	'manage_options',
 	    	self::$help_page,
-	    	array(self::$class_name, 'wpsite_twitter_reshare_settings_help')
+	    	array('WPsiteTwitterReshare', 'wpsite_twitter_reshare_settings_help')
 	    );
 
 	    add_submenu_page(
@@ -438,7 +405,7 @@ class WPsiteTwitterReshare {
 	    	__('FAQ', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN),
 	    	'manage_options',
 	    	self::$faq_page,
-	    	array(self::$class_name, 'wpsite_twitter_reshare_settings_faq')
+	    	array('WPsiteTwitterReshare', 'wpsite_twitter_reshare_settings_faq')
 	    );
 	}
 
@@ -538,7 +505,6 @@ class WPsiteTwitterReshare {
 					'general' 		=> array(
 						'reshare_content'		=> $_POST['wps_general_reshare_content'],
 						'bitly_url_shortener' 	=> stripcslashes(sanitize_text_field($_POST['wps_general_bitly_url_shortener'])),
-						//'url_shortener'		=> $_POST['wps_general_url_shortener'],
 						'hashtag_type'			=> $_POST['wps_general_hashtag_type'],
 						'specific_hashtags'		=> str_replace(' ','',stripcslashes(sanitize_text_field($_POST['wps_general_specific_hashtags']))),
 						'featured_image'		=> isset($_POST['wps_general_featured_image']) && $_POST['wps_general_featured_image'] ? true : false,
@@ -554,9 +520,6 @@ class WPsiteTwitterReshare {
 					)
 				);
 
-
-				//if (!in_array($account_id, $settings['accounts'])) {
-
 				/* Create the transient for keeping track of reshare interval */
 
 				update_option('wpsite_twitter_reshare_settings', $settings);
@@ -567,8 +530,6 @@ class WPsiteTwitterReshare {
 
 					self::wpsite_twitter_reshare_schedule_reshare_event($hook, array($args));
 				}
-
-				//}
 
 				?>
 				<script type="text/javascript">
@@ -673,13 +634,11 @@ class WPsiteTwitterReshare {
 
 				$wpsite_reschedule->wpsite_setup_all_reshares($settings['accounts'][$_GET['account']], true);
 
-				//if ($settings['accounts'][$_GET['account']]['type'] != 'facebook') {
-					?>
-					<script type="text/javascript">
-						window.location = "<?php echo $_SERVER['PHP_SELF']?>?page=<?php echo self::$account_dashboard_page; ?>";
-					</script>
-					<?php
-				//}
+				?>
+				<script type="text/javascript">
+					window.location = "<?php echo $_SERVER['PHP_SELF']?>?page=<?php echo self::$account_dashboard_page; ?>";
+				</script>
+				<?php
 			}
 		}
 
@@ -824,77 +783,7 @@ class WPsiteTwitterReshare {
 		else
 			$settings = self::$default_message;
 
-		?>
-		<form method="post" id="wpsite_twitter_reshare_message_form">
-
-		<table id="wpsite_twitter_reshare_messages_add_edit_table">
-			<tbody>
-
-				<!-- ID -->
-
-				<tr>
-					<th class="wpsite_twitter_reshare_admin_table_th">
-						<label><?php _e('Message ID', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></label>
-						<td class="wpsite_twitter_reshare_admin_table_td">
-							<input id="wps_settings_message_id" name="wps_settings_message_id" type="text" size="40" value="<?php echo isset($settings['id']) ? $settings['id'] : ''; ?>" placeholder="<?php _e('social_media_message', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?>" readonly>
-						</td>
-					</th>
-				</tr>
-
-				<!-- Message -->
-
-				<tr>
-					<th class="wpsite_twitter_reshare_admin_table_th">
-						<label><?php _e('Message Text', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></label>
-						<td class="wpsite_twitter_reshare_admin_table_td">
-							<input id="wps_settings_message_text" name="wps_settings_message_text" type="text" size="40" value="<?php echo isset($settings['message']) ? $settings['message'] : ''; ?>" placeholder="<?php _e('Check this out:', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?>">
-						</td>
-					</th>
-				</tr>
-
-				<!-- Place -->
-
-				<tr>
-					<th class="wpsite_twitter_reshare_admin_table_th">
-						<label><?php _e('Place', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></label>
-						<td class="wpsite_twitter_reshare_admin_table_td">
-							<select id="wps_settings_message_place" name="wps_settings_message_place">
-
-								<option value="before" <?php echo isset($settings['place']) && $settings['place'] == 'before' ? 'selected' : ''; ?>><?php _e('Before', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></option>
-
-								<option value="after" <?php echo isset($settings['place']) && $settings['place'] == 'after' ? 'selected' : ''; ?>><?php _e('After', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></option>
-							</select>
-						</td>
-					</th>
-				</tr>
-
-				<!-- Preview -->
-
-
-				<tr>
-					<th class="wpsite_twitter_reshare_admin_table_th">
-						<label><?php _e('Preview', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></label>
-						<td class="wpsite_twitter_reshare_admin_table_td">
-
-						<label id="wps_settings_message_preview_before" class="wps_settings_message_preview" style="color:red"><?php _e('Message', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></label>
-
-						<a href="http://wpsite.net" target="_blank"><label><?php _e('http://wpsite.net', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></label></a>
-
-						<label><?php _e('Post Title: Content of the post (if included)', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></label>
-
-						<label id="wps_settings_message_preview_after" class="wps_settings_message_preview" style="color:red"><?php _e('Message', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></label>
-						</td>
-					</th>
-				</tr>
-			</tbody>
-		</table>
-
-		<?php wp_nonce_field('wpsite_twitter_reshare_admin_settings_messages_add_edit'); ?>
-
-		<?php submit_button(); ?>
-
-		</form>
-		<?php
+		require('admin/messages_add_edit.php');
 	}
 
 	/**

@@ -1,5 +1,6 @@
 <h1><?php _e('Fequently Asked Questions', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h1>
 
+<!--
 <h3><?php _e('Why do I have to create a twitter developer application to use this plugin? ', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h3>
 
 	<span><?php _e('Twitter just recently updated its application programming interface (API) to make it more safe for users to retrieve and post information.  This also means that there are now more guidelines to follow and in order to tweet behind the scenes twitter needs to make sure you, are really you.  What this means is that twitter needs for you to register with them as a developer so they know that when you get or post information, using that developer account, to twitter it is 100% you.  What this means for you the end-user is that you need to do a little bit more to create this developer account, and then in turn create an application that will get and post information to twitter on your behalf.', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></span>
@@ -15,6 +16,7 @@
 <h3><?php _e('How do I get read and write Access Level capabilities? ', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h3>
 
 	<span><?php _e('First go to your twitter developer applications list from this link https://dev.twitter.com/apps.  Once there go to the application you are using with the WPSite Reshare plugin.  Go to the “Settings” tab and then scroll down to the "Application Type" Section. Check the "Read and Write" option and click “Update this Twitter application’s settings”.  Now Go to the “Details” tab and scroll down to the “Your Access Token” section.  Click on the “Recreate my access token” button.  If this new Access Level still says “Read Only” then, please try a again after a few moments because twitter is still updating the settings you changed from the “Settings” tab.  Keeping trying until the Access Level says “Read and Write”.  Now you can copy and paste the Access Token and Access Token Secret into the related accounts settings in the WPSite Reshare plugin.', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></span>
+-->
 
 <h3><?php _e('How do I exclude certain messages from certain posts? ', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h3>
 
