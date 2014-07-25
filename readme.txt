@@ -8,7 +8,7 @@ Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-WPSite Reshare is an automatic sharing tool that lets you, the author or admin, worry about writing while we do the sharing.
+This plugin allows site owners to bring new life to existing posts by resharing content. Most sharing plugins focus on the act of sharing a post upon publishing, however Content Resharer allows users to automatically share content that has been published weeks or months ago to garner more traffic from social networks. 
 
 == Description ==
 
