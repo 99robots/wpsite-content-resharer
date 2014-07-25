@@ -269,3 +269,7 @@
 	background: transparent;
 	color: #000;
 }
+
+/* Account Display */
+
+.<?php echo self::$prefix_dash; ?>profile-image {display:block; overflow:hidden; width: 100px; height: 100px;}

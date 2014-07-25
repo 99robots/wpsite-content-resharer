@@ -105,7 +105,7 @@ class WPsiteTwitterReshare {
 	 * @access private
 	 * @static
 	 */
-	private static $prefix_dash = 'wpsite_twitter_reshare_';
+	private static $prefix_dash = 'wpsite-twitter-reshare-';
 
 	/**
 	 * default
@@ -246,6 +246,50 @@ class WPsiteTwitterReshare {
 	 * @static
 	 */
 	private static $faq_page = 'wpsite-twitter-reshare-settings-faq';
+
+	/**
+	 * api_key
+	 *
+	 * (default value: 'kEKsMXElcPUvMFIRq9nJuTGoe')
+	 *
+	 * @var string
+	 * @access private
+	 * @static
+	 */
+	private static $api_key = 'kEKsMXElcPUvMFIRq9nJuTGoe';
+
+	/**
+	 * api_secret
+	 *
+	 * (default value: '1EQWMgveYs4Zok50xhb2ThQAn4SH29Hjk76oXEFfvVsMWlZBne')
+	 *
+	 * @var string
+	 * @access private
+	 * @static
+	 */
+	private static $api_secret = '1EQWMgveYs4Zok50xhb2ThQAn4SH29Hjk76oXEFfvVsMWlZBne';
+
+	/**
+	 * access_token
+	 *
+	 * (default value: '342576480-BiuFOBsJpxNGaBV7zF8y5LlKx8bE4cu2Ot9jdGb7')
+	 *
+	 * @var string
+	 * @access private
+	 * @static
+	 */
+	private static $access_token = '342576480-BiuFOBsJpxNGaBV7zF8y5LlKx8bE4cu2Ot9jdGb7';
+
+	/**
+	 * access_token_secret
+	 *
+	 * (default value: 'mwQWBNnswZDqpvpFQepM6NNFflQwCHMijEfLdXaHD4Q3D')
+	 *
+	 * @var string
+	 * @access private
+	 * @static
+	 */
+	private static $access_token_secret = 'mwQWBNnswZDqpvpFQepM6NNFflQwCHMijEfLdXaHD4Q3D';
 
 	/**
 	 * Load the text domain
@@ -559,6 +603,32 @@ class WPsiteTwitterReshare {
 			<?php
 		}
 
+		/* Remove account */
+
+		if (isset($_GET['action']) && $_GET['action'] == 'remove' && check_admin_referer('wpsite_twitter_reshare_admin_settings_remove')) {
+
+			$settings = get_option('wpsite_twitter_reshare_settings');
+
+			/* Delete current cron job for the account */
+
+			$hook = self::$prefix . $settings['accounts'][$_GET['account']]['id'];
+			$args = $settings['accounts'][$_GET['account']];
+			$args['status'] = 'active';
+
+			wp_clear_scheduled_hook($hook, array($args));
+
+			$settings['accounts'][$_GET['account']][$_GET['type']]['token'] = '';
+			$settings['accounts'][$_GET['account']][$_GET['type']]['token_secret'] = '';
+
+			update_option('wpsite_twitter_reshare_settings', $settings);
+
+			?>
+			<script type="text/javascript">
+				window.location = "<?php echo $_SERVER['PHP_SELF']?>?page=<?php echo self::$account_dashboard_page; ?>";
+			</script>
+			<?php
+		}
+
 		/* Activate / Deactivate */
 
 		if (isset($_GET['action']) && $_GET['action'] == 'activate' && check_admin_referer('wpsite_twitter_reshare_admin_settings_activate')) {
@@ -655,12 +725,12 @@ class WPsiteTwitterReshare {
 	 */
 	static function wpsite_twitter_reshare_settings_add_edit($account_id = null) {
 
-		$settings = get_option('wpsite_twitter_reshare_settings');
+		$settings_all = get_option('wpsite_twitter_reshare_settings');
 
 		/* Edit */
 
 		if (isset($account_id)) {
-			$settings = $settings['accounts'][$account_id];
+			$settings = $settings_all['accounts'][$account_id];
 		} else {
 			$settings = self::$default_account;
 		}
