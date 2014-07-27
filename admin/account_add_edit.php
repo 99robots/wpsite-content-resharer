@@ -17,7 +17,7 @@ jQuery(document).ready(function($) {
 
 				<header class="headercontent">
 					<!-- ** UPDATE THE NAME ** -->
-					<h1 class="logo"><?php _e('Twitter Reshare', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h1>
+					<h1 class="logo"><?php _e('Content Resharer', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h1>
 					<span class="slogan"><?php _e('by', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?> <a href="http://www.wpsite.com/?utm_source=topadmin&amp;utm_medium=announce&amp;utm_campaign=top"><?php _e('WPsite.net', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a></span>
 
 					<!-- ** UPDATE THE 2 LINKS ** -->

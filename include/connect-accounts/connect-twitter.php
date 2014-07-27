@@ -57,12 +57,14 @@ if (!isset($settings['twitter']['token']) || $settings['twitter']['token'] == ''
 
 		?>
 		<div class="<?php echo self::$prefix_dash; ?>container">
+			<div class="<?php echo self::$prefix_dash; ?>profile-image">
+				<img src="<?php echo $account->profile_image_url; ?>" />
+			</div>
 			<div class="<?php echo self::$prefix_dash; ?>screen-name">
 				<a href="https://twitter.com/<?php echo $account->screen_name; ?>"><?php echo $account->screen_name; ?></a>
 			</div>
-			<div class="<?php echo self::$prefix_dash; ?>profile-image" style="background:url('<?php echo $account->profile_image_url; ?>') no-repeat center center;"></div>
 			<div class="<?php echo self::$prefix_dash; ?>remove">
-				<a href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$account_dashboard_page . '&action=remove&account=' . $settings['id'] . '&type=twitter', 'wpsite_twitter_reshare_admin_settings_remove'); ?>">X</a>
+				<a href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$account_dashboard_page . '&action=remove&account=' . $settings['id'] . '&type=twitter', 'wpsite_twitter_reshare_admin_settings_remove'); ?>"></a>
 			</div>
 		</div>
 		<?php

@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: WPsite Twitter Reshare Beta
+Plugin Name: WPsite Content Resharer Beta
 plugin URI:
 Description: Automatically tweets all your posts so you dont have to.
 version: 0.9
@@ -353,8 +353,8 @@ class WPsiteTwitterReshare {
 	 */
 	static function wpsite_twitter_reshare_menu_page() {
 	    add_menu_page(
-			__('WPsite Twitter Reshare', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN),
-			__('WPsite Twitter Reshare', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN),
+			__('WPsite Content Resharer', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN),
+			__('WPsite Content Resharer', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN),
 	    	'manage_options',
 	    	self::$account_dashboard_page,
 	    	array('WPsiteTwitterReshare', 'wpsite_twitter_reshare_settings')
