@@ -15,3 +15,5 @@ if ($account['general']['featured_image'] && (isset($params['media[]']) && $para
 } else {
 	$reply = $cb->statuses_update('status=' . $content);
 }
+
+//error_log(serialize($reply));

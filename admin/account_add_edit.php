@@ -36,7 +36,7 @@ jQuery(document).ready(function($) {
 
 					<div id="tabs">
 							<ul>
-								<li><a href="#wpsite_twitter_reshare_keys"><span class="wpsite_admin_panel_content_tabs"><?php _e('ID and Keys', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></span></a></li>
+								<li><a href="#wpsite_twitter_reshare_keys"><span class="wpsite_admin_panel_content_tabs"><?php _e('Account', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></span></a></li>
 								<li><a href="#wpsite_twitter_reshare_general"><span class="wpsite_admin_panel_content_tabs"><?php _e('General', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></span></a></li>
 								<li><a href="#wpsite_twitter_reshare_content"><span class="wpsite_admin_panel_content_tabs"><?php _e('Content', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></span></a></li>
 								<li><a href="#wpsite_twitter_reshare_filters"><span class="wpsite_admin_panel_content_tabs"><?php _e('Filters', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></span></a></li>
@@ -182,7 +182,7 @@ jQuery(document).ready(function($) {
 												<label><?php _e('Bitly URL Shortener', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></label>
 												<td class="wpsite_twitter_reshare_admin_table_td">
 													<input id="wps_general_bitly_url_shortener" name="wps_general_bitly_url_shortener" type="text" size="60" value="<?php echo esc_attr($settings['general']['bitly_url_shortener']); ?>">
-													<br /><em><?php _e('Your Bitly', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?> </em><a href="https://bitly.com/a/oauth_apps"><?php _e('access token', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a>
+													<br /><em><?php _e('Your Bitly', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?> </em><a href="https://bitly.com/a/oauth_apps" target="_blank"><?php _e('access token', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a>
 												</td>
 											</th>
 										</tr>

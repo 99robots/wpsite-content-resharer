@@ -497,10 +497,10 @@ class WPsiteTwitterReshare {
 					'label'			=> stripcslashes(sanitize_text_field($_POST['wps_settings_label'])),
 					'status'		=> $_POST['wps_settings_status'],
 					'twitter'		=> array(
-						'consumer_key'		=> stripcslashes(sanitize_text_field($_POST['wps_twitter_consumer_key'])),
-						'consumer_secret'	=> stripcslashes(sanitize_text_field($_POST['wps_twitter_consumer_secret'])),
-						'token'				=> stripcslashes(sanitize_text_field($_POST['wps_twitter_token'])),
-						'token_secret'		=> stripcslashes(sanitize_text_field($_POST['wps_twitter_token_secret']))
+						'consumer_key'		=> $settings['accounts'][$account_id]['twitter']['consumer_key'],
+						'consumer_secret'	=> $settings['accounts'][$account_id]['twitter']['consumer_secret'],
+						'token'				=> $settings['accounts'][$account_id]['twitter']['token'],
+						'token_secret'		=> $settings['accounts'][$account_id]['twitter']['token_secret']
 					),
 					'general' 		=> array(
 						'reshare_content'		=> $_POST['wps_general_reshare_content'],
