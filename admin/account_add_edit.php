@@ -106,11 +106,11 @@ jQuery(document).ready(function($) {
 											</th>
 										</tr>
 
-										<!-- Minimun Interval to reshare posts -->
+										<!-- Minimum Interval to reshare posts -->
 
 										<tr>
 											<th class="wpsite_twitter_reshare_admin_table_th">
-												<label><?php _e('Minimun interval to reshare posts', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></label>
+												<label><?php _e('Minimum interval to reshare posts', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></label>
 												<td class="wpsite_twitter_reshare_admin_table_td">
 													<input id="wps_general_min_interval" name="wps_general_min_interval" type="text" size="60" value="<?php echo esc_attr($settings['general']['min_interval']); ?>"><br /><label><?php _e('Units: hours', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></label>
 												</td>

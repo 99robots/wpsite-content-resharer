@@ -5,9 +5,10 @@ require_once(WPSITE_TWITTER_RESHARE_PLUGIN_DIR . self::$api_twitter_dir);
 $cb = \Codebird\Codebird::getInstance();
 $cb->setToken($account['twitter']['token'], $account['twitter']['token_secret']);
 
-if ($account['general']['featured_image'] && (isset($params['media[]']) && $params['media[]'] != '')) {
+if ($account['general']['featured_image'] /* && (isset($params['media[]']) && $params['media[]'] != '') */) {
+
 	$params = array(
-	    'status' 	=> $args['message']['text'],
+	    'status' 	=> $content,
 	    'media[]' 	=> file_get_contents($featured_image)
 	);
 
