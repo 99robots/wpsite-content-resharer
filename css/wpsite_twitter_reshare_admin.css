@@ -320,3 +320,9 @@
 .wpsite-twitter-reshare-remove a:hover{
 	background:url("../img/remove_account_hover.png") no-repeat center center, #fff;
 }
+
+/* Message Dashboard */
+
+.form-field {
+	padding-bottom: 20px;
+}

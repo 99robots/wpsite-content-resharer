@@ -28,21 +28,10 @@
 
 				<h2><?php _e('Messages', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h2>
 
-				<div class="col-container">
+				<div id="col-container">
 
-					<div class="wpsite_twitter_reshare_admin_messages_add_edit"><?php
-						/* if (isset($_GET['action']) && check_admin_referer('wpsite_twitter_reshare_admin_settings_messages_add_edit')) */
-							self::wpsite_twitter_reshare_settings_messages_add_edit('message');
-						/*
-else if (isset($_GET['action']) && $_GET['action'] == 'add' && check_admin_referer('wpsite_twitter_reshare_admin_settings_messages_add_edit'))
-							self::wpsite_twitter_reshare_settings_messages_add_edit();
-						else
-							self::wpsite_twitter_reshare_settings_messages_add_edit();
-*/?>
-					</div> <!-- wpsite_twitter_reshare_admin_messages_add_edit -->
-
-					<div class="wpsite_twitter_reshare_admin_messages_table">
-
+					<div id="col-right">
+						<div class="col-wrap">
 						<table class="wp-list-table widefat fixed posts">
 							<thead>
 								<tr>
@@ -112,8 +101,21 @@ else if (isset($_GET['action']) && $_GET['action'] == 'add' && check_admin_refer
 
 							?></tbody>
 						</table>
+						</div>
+					</div>
 
-					</div> <!-- wpsite_twitter_reshare_admin_messages_table -->
+					<div id="col-left">
+						<div class="col-wrap"><?php
+						/* if (isset($_GET['action']) && check_admin_referer('wpsite_twitter_reshare_admin_settings_messages_add_edit')) */
+							self::wpsite_twitter_reshare_settings_messages_add_edit('message');
+						/*
+else if (isset($_GET['action']) && $_GET['action'] == 'add' && check_admin_referer('wpsite_twitter_reshare_admin_settings_messages_add_edit'))
+							self::wpsite_twitter_reshare_settings_messages_add_edit();
+						else
+							self::wpsite_twitter_reshare_settings_messages_add_edit();
+*/?>
+						</div>
+					</div>
 
 					<label style="color:red"><?php _e('**Please note that if plugin is deleted then all WPsite Twitter Reshare accounts will be deleted.  Also, if this plugin is deactivated, then all WPsite Twitter Reshare accounts will be deactivated as well.', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></label>
 
@@ -152,3 +154,16 @@ else if (isset($_GET['action']) && $_GET['action'] == 'add' && check_admin_refer
 	</div> 	<!-- /wpsite_plugin_wrapper -->
 
 </div> 	<!-- /wrap -->
+
+<!--
+<div class="wpsite_twitter_reshare_admin_messages_add_edit">
+					</div>
+-->
+
+					<!--
+<div class="wpsite_twitter_reshare_admin_messages_table">
+
+
+
+					</div>
+-->

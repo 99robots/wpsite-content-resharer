@@ -17,12 +17,12 @@ if (!isset($settings['twitter']['token']) || $settings['twitter']['token'] == ''
 
 	update_option('wpsite_twitter_reshare_settings', $settings_all);
 
-} else if (isset($_REQUEST['oauth_verifier'])) {
+} else if (isset($_GET['oauth_verifier'])) {
 
 	$connection = new TwitterOAuth(self::$api_key, self::$api_secret, $settings['twitter']['token'],
 	$settings['twitter']['token_secret']);
 
-	$token_credentials = $connection->getAccessToken($_REQUEST['oauth_verifier']);
+	$token_credentials = $connection->getAccessToken($_GET['oauth_verifier']);
 
 	$settings['twitter']['token'] = $token_credentials['oauth_token'];
 	$settings['twitter']['token_secret'] = $token_credentials['oauth_token_secret'];
