@@ -16,7 +16,7 @@
 
 					<!-- ** UPDATE THE 2 LINKS ** -->
 					<div class="top-call-to-actions">
-						<a class="tweet-about-plugin" href="https://twitter.com/intent/tweet?text=Neat%20and%20simple%20plugin%20for%20WordPress%20users.%20Check%20out%20the%20Follow%20Us%20plugin%20by%20@WPsite%20-%20&amp;url=http%3A%2F%2Fwpsite.net%2Fplugins%2F&amp;via=wpsite"><span></span><?php _e('Tweet About WPsite', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a>
+						<a class="tweet-about-plugin" href="https://twitter.com/intent/tweet?text=Neat%20and%20simple%20plugin%20for%20WordPress%20users.%20Check%20out%20the%20Content%20Resharer%20plugin%20by%20@WPsite%20-%20&amp;url=http%3A%2F%2Fwpsite.net%2Fplugins%2F&amp;via=wpsite"><span></span><?php _e('Tweet About WPsite', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a>
 						<a class="leave-a-review" href="http://wordpress.org/support/view/plugin-reviews/follow-us-badges#postform" target="_blank"><span></span> <?php _e('Leave A Review', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a>
 					</div><!-- end .top-call-to-actions -->
 				</header>
@@ -24,9 +24,9 @@
 
 		<div id="wpsite_plugin_content">
 
-			<h1><?php _e('Exclude Posts', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h1>
-
 			<div id="wpsite_plugin_settings">
+
+				<h1><?php _e('Exclude Posts', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h1>
 
 				<form method="post" id="wpsite_twitter_reshare_exclude_posts_form">
 
@@ -66,14 +66,16 @@
 
 								$post_categories = wp_get_post_categories($post->ID);
 
-							?>
-
+								?>
 								<tr class="wpsite_twitter_reshare_exclude_posts_general <?php foreach ($post_categories as $cat) { echo 'wpsite_twitter_reshare_cat_' . $cat . ' '; } ?>">
 									<th class="wpsite_twitter_reshare_admin_table_th">
 										<label><?php _e($post->post_title, WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></label>
 										<td class="wpsite_twitter_reshare_admin_table_td">
 											<input id="wps_settings_exclude_posts_<?php echo $post->ID; ?>" name="wps_settings_exclude_posts_<?php echo $post->ID; ?>" type="checkbox" <?php echo isset($settings_exclude_posts[$post->ID]) && $settings_exclude_posts[$post->ID] ? 'checked="checked"' : ''; ?>>
 											<input id="wpsite_twitter_reshare_categories_exclude_posts_<?php echo $post->ID; ?>" style="display:none;" value="<?php echo isset($post_categories) && is_array($post_categories) ? serialize($post_categories) : null; ?>">
+										</td>
+										<td>
+
 										</td>
 									</th>
 								</tr>

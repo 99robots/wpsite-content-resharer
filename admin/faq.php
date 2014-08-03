@@ -1,44 +1,102 @@
+<div class="wrap">
+
+	<div class="wpsite_plugin_wrapper">
+
+	<div class="wpsite_plugin_header">
+				<!-- ** UPDATE THE UTM LINK BELOW ** -->
+				<div class="announcement">
+					<h2><?php _e('Check out the all new', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?> <strong><?php _e('WPsite.net', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></strong> <?php _e('for more WordPress resources, plugins, and news.', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h2>
+					<a  class="show-me" href="http://www.wpsite.net/?utm_source=follow-us-badges-plugin&amp;utm_medium=announce&amp;utm_campaign=top"><?php _e('Click Here', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a>
+				</div>
+
+				<header class="headercontent">
+					<!-- ** UPDATE THE NAME ** -->
+					<h1 class="logo"><?php _e('Content Resharer', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h1>
+					<span class="slogan"><?php _e('by', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?> <a href="http://www.wpsite.net/?utm_source=topadmin&amp;utm_medium=announce&amp;utm_campaign=top"><?php _e('WPsite.net', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a></span>
+
+					<!-- ** UPDATE THE 2 LINKS ** -->
+					<div class="top-call-to-actions">
+						<a class="tweet-about-plugin" href="https://twitter.com/intent/tweet?text=Neat%20and%20simple%20plugin%20for%20WordPress%20users.%20Check%20out%20the%20Content%20Resharer%20plugin%20by%20@WPsite%20-%20&amp;url=http%3A%2F%2Fwpsite.net%2Fplugins%2F&amp;via=wpsite"><span></span><?php _e('Tweet About WPsite', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a>
+						<a class="leave-a-review" href="http://wordpress.org/support/view/plugin-reviews/follow-us-badges#postform" target="_blank"><span></span> <?php _e('Leave A Review', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a>
+					</div><!-- end .top-call-to-actions -->
+				</header>
+		</div> <!-- /wpsite_plugin_header -->
+
+		<div id="wpsite_plugin_content">
+
+			<div id="wpsite_plugin_settings">
+
 <div class="wrap metabox-holder">
 
-<h1><?php _e('Fequently Asked Questions', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h1>
+	<h1><?php _e('Fequently Asked Questions', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h1>
+
+	<div class="postbox">
+		<h3><?php _e('What does Content Resharer do for me?', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h3>
+		<div class="inside">
+			<span><?php _e('Do you have a lot of posts on your blog and not enough traffic to them, or not enough traffic to old posts that are still very relevant?  Wish you can automatically share all your posts at random to your twitter account at set intervals?  Well with Content Resharer all of this is possible and more.  Simply link your twitter account to Content Resharer and we wil take care of the rest.', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></span>
+		</div>
+	</div>
+
+	<div class="postbox">
+		<h3><?php _e('What is an account?', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h3>
+		<div class="inside">
+			<span><?php _e('An account is a social media channel that you would like Content Reshare to use to automatically reshare all your posts.', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></span>
+		</div>
+	</div>
+
+	<div class="postbox">
+		<h3><?php _e('What is a message?', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h3>
+		<div class="inside">
+			<span><?php _e('A message is the text you would like to include in the reshare content.  It is highly recommended to create messages and lots of them to make your reshare content more humanlike.  When creating a message you will see a preview that shows you what an example reshare content could look like.  Messages are totally optional and the plugin will still post to the social channel if you have none.', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></span>
+		</div>
+	</div>
+
+	<div class="postbox">
+		<h3><?php _e('How can I customize the reshare content?', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h3>
+		<div class="inside">
+			<span><?php _e('Navigate to the “Content" section under the settings page for your account.  All the settings in this tab control what the reshare will consist of.  Do you want to include a link or an image?  Do you want hashtags?  Next navigate to the "Filters" scetion.  These settings are used to determine which posts are eligible to be reshared.  Do you want to reshare posts with a certaion age, or post type, or category?  Then a random post is chosen from these qualified posts.  After that, the message is added to the content.  Either to beginning or end of the content.  This would conclude how your content is being created.', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></span>
+		</div>
+	</div>
+
+	<div class="postbox">
+		<h3><?php _e('How do I share manually?', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h3>
+		<div class="inside">
+			<span><?php _e('There is a way to reshare content manually.  Go to the "Accounts" submenu page and hover over the account you want to manually reshare.  Go to the “Interval” column and hit the "reshare now” link.  This will manually reshare content to that account and will not affect the account’s scheduled reshare intervals.  This is a great way to test if your account is setup properly.', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></span>
+		</div>
+	</div>
+
+</div>
+
+			</div> <!-- wpsite_plugin_settings -->
+
+			<div id="wpsite_plugin_sidebar">
+				<div class="wpsite_feed">
+					<h3><?php _e('Must-Read Articles', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h3>
+					<script src="http://feeds.feedburner.com/wpsite?format=sigpro" type="text/javascript" ></script><noscript><p><?php _e('Subscribe to WPsite Feed:', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?> <a href="http://feeds.feedburner.com/wpsite"></a><br/><?php _e('Powered by FeedBurner', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></p> </noscript>
+				</div>
+
+				<div class="mktg-banner">
+					<a target="_blank" href="http://www.wpsite.net/custom-wordpress-development/#utm_source=plugin-config&utm_medium=banner&utm_campaign=custom-development-banner"><img src="<?php echo WPSITE_TWITTER_RESHARE_PLUGIN_URL . '/img/ad-custom-development.png' ?>"></a>
+				</div>
+
+				<div class="mktg-banner">
+					<a target="_blank" href="http://www.wpsite.net/services/#utm_source=plugin-config&utm_medium=banner&utm_campaign=plugin-request-banner"><img src="<?php echo WPSITE_TWITTER_RESHARE_PLUGIN_URL . '/img/ad-plugin-request.png' ?>"></a>
+				</div>
+
+				<div class="mktg-banner">
+					<a target="_blank" href="http://www.wpsite.net/themes/#utm_source=plugin-config&utm_medium=banner&utm_campaign=themes-banner"><img src="<?php echo WPSITE_TWITTER_RESHARE_PLUGIN_URL . '/img/ad-themes.png' ?>"></a>
+				</div>
 
 <!--
-<h3><?php _e('Why do I have to create a twitter developer application to use this plugin? ', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h3>
-
-	<span><?php _e('Twitter just recently updated its application programming interface (API) to make it more safe for users to retrieve and post information.  This also means that there are now more guidelines to follow and in order to tweet behind the scenes twitter needs to make sure you, are really you.  What this means is that twitter needs for you to register with them as a developer so they know that when you get or post information, using that developer account, to twitter it is 100% you.  What this means for you the end-user is that you need to do a little bit more to create this developer account, and then in turn create an application that will get and post information to twitter on your behalf.', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></span>
-
-<h3><?php _e('What is the "API Keys and Tokens" section in account settings page?', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h3>
-
-	<span><?php _e('This is where you will give WPSite Reshare your Consumer Key and Consumer Secret as well as the created Access Token and Access Token Secret.  This is what will allow WPSite Reshare the ability to post information to twitter automatically on your behalf.  Without this information nothing can be posted to twitter.', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></span>
-
-<h3><?php _e('Where can I find my Consumer Key, Consumer Secret, Access Token and Access Token Secret?', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h3>
-
-	<span><?php _e('All of this information will be available to you once your create a twitter developer account and then create an application.  Once you create an application you can then go to this link https://dev.twitter.com/apps to find all your applications.  Choose the one you want to use and then Go to the “Details" tab.  Under this tab you will see the "OAuth Settings" section.  In this section you will find your Consumer Key and Consumer Secret.  Please copy and paste those to the related fields in the WPSite Reshare account settings page.  Then go to the "Your Access Token” section and first look at the Access Level field.  This must have read and write capabilities, if you don’t have these capabilities then read more about "How do I get read and write Access Level capabilities?".  Once you have read and write capabilities please copy and paste the Access Token and Access Token Secret to the related field in the WPSite Reshare plugin account settings page.', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></span>
-
-<h3><?php _e('How do I get read and write Access Level capabilities? ', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h3>
-
-	<span><?php _e('First go to your twitter developer applications list from this link https://dev.twitter.com/apps.  Once there go to the application you are using with the WPSite Reshare plugin.  Go to the “Settings” tab and then scroll down to the "Application Type" Section. Check the "Read and Write" option and click “Update this Twitter application’s settings”.  Now Go to the “Details” tab and scroll down to the “Your Access Token” section.  Click on the “Recreate my access token” button.  If this new Access Level still says “Read Only” then, please try a again after a few moments because twitter is still updating the settings you changed from the “Settings” tab.  Keeping trying until the Access Level says “Read and Write”.  Now you can copy and paste the Access Token and Access Token Secret into the related accounts settings in the WPSite Reshare plugin.', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></span>
+				<div class="mktg-banner">
+					<a target="_blank" href="http://www.wpsite.net/services/#utm_source=plugin-config&utm_medium=banner&utm_campaign=need-support-banner"><img src="<?php echo WPSITE_TWITTER_RESHARE_PLUGIN_URL . '/img/ad-need-support.png' ?>"></a>
+				</div>
 -->
 
-<div class="postbox">
-	<h3><?php _e('How do I exclude certain messages from certain posts? ', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h3>
-	<div class="inside">
-		<span><?php _e('To exclude a message from a certain post go to that posts edit page.  On the right side bar you will see a box that is Titled "WPSite Rehsare YourAccount”.  Check and uncheck all your messages.  All messages that are unchecked will never be used for that post. ', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></span>
-	</div>
-</div>
+			</div> <!-- wpsite_plugin_sidebar -->
 
-<div class="postbox">
-	<h3><?php _e('How do I create a custom message only for a specific post? ', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h3>
-	<div class="inside">
-		<span><?php _e('To create a custom message related to a specific post go to that posts edit page.  On the right side bar you will see a box that is Titled "WPSite Rehsare YourAccount”.  In this box you can create custom messages only relating to this post.', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></span>
-	</div>
-</div>
+		</div> <!-- /wpsite_plugin_content -->
 
-<div class="postbox">
-	<h3><?php _e('How is the reshare content created? ', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h3>
-	<div class="inside">
-		<span><?php _e('The reshare content is created by using the settings in the “Rehare Content" section of your account to determine what the content will consist of.  Posts are first filtered using the settings in the “Post Filter” section in your account.  Then a random post is chosen from these qualified posts.  After that, a random message is chosen by first looking to see if there any custom messages relating to hat post.  If so then randomly choose from those custom messages, if not then get all checked messages relating to this post and randomly chose one.  If there are no checked messages then there will be no message in this reshare content.  After the post and message are chosen, the content is created.', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></span>
-	</div>
-</div>
+	</div> 	<!-- /wpsite_plugin_wrapper -->
 
-</div>
+</div> 	<!-- /wrap -->

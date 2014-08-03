@@ -390,7 +390,7 @@ class WPsiteTwitterReshare {
 	    );
 	    add_action("admin_print_scripts-$exclude_posts_sub_menu_page" , array('WPsiteTwitterReshare', 'inline_script_dashboard_pages'));
 
-	    add_submenu_page(
+	    $help_sub_menu_page = add_submenu_page(
 	    	self::$account_dashboard_page,
 	    	__('Help', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN),
 	    	__('Help', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN),
@@ -398,8 +398,9 @@ class WPsiteTwitterReshare {
 	    	self::$help_page,
 	    	array('WPsiteTwitterReshare', 'wpsite_twitter_reshare_settings_help')
 	    );
+	    add_action("admin_print_scripts-$help_sub_menu_page" , array('WPsiteTwitterReshare', 'inline_script_dashboard_pages'));
 
-	    add_submenu_page(
+	    $faq_sub_menu_page = add_submenu_page(
 	    	self::$account_dashboard_page,
 	    	__('FAQ', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN),
 	    	__('FAQ', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN),
@@ -407,6 +408,7 @@ class WPsiteTwitterReshare {
 	    	self::$faq_page,
 	    	array('WPsiteTwitterReshare', 'wpsite_twitter_reshare_settings_faq')
 	    );
+	    add_action("admin_print_scripts-$faq_sub_menu_page" , array('WPsiteTwitterReshare', 'inline_script_dashboard_pages'));
 	}
 
 	/**
