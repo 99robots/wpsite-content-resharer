@@ -78,6 +78,32 @@
 
 								<td>
 
+									<!-- Picture -->
+
+									<?php require(WPSITE_TWITTER_RESHARE_PLUGIN_DIR . '/include/api_src/twitteroauth/twitteroauth.php');
+
+									if (isset($account['twitter']['token']) && !isset($_GET['oauth_verifier']) && $account['twitter']['token'] != '' && $account['twitter']['token_secret'] != '') {
+										$sign_in = new TwitterOAuth(self::$api_key, self::$api_secret);
+
+										$temporary_credentials = $sign_in->getRequestToken('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+
+										$redirect_url = $sign_in->getAuthorizeURL($temporary_credentials);
+
+										$connection = new TwitterOAuth(self::$api_key, self::$api_secret, $account['twitter']['token'], $account['twitter']['token_secret']);
+
+										$reshare_account = $connection->get('account/verify_credentials');
+
+										if (isset($reshare_account) && !isset($reshare_account->errors)) {
+											?>
+											<div class="<?php echo self::$prefix_dash; ?>container">
+												<div class="<?php echo self::$prefix_dash; ?>profile-image">
+													<img src="<?php echo $reshare_account->profile_image_url; ?>" />
+												</div>
+											</div>
+											<?php
+										}
+									}?>
+
 									<!-- ID Name -->
 
 									<a href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$account_dashboard_page . '&action=edit&account=' . $account['id'], 'wpsite_twitter_reshare_admin_settings_add_edit'); ?>"><strong><?php _e($account['id'], WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></strong></a><br />
