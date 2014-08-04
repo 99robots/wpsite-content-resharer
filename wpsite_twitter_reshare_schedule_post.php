@@ -200,9 +200,17 @@ class WPsiteTwitterResharePost {
 
 		/* Get a random post */
 
-		$min_age = mktime(0, 0, 0, date("m")  , date("d") - $account['post_filter']['min_age'], date("Y"));
+		if ($account['post_filter']['min_age'] > 0 && $account['post_filter']['min_age'] < 1) {
+			$min_age = mktime(date("H") - (24 * $account['post_filter']['min_age']), date("i"), date("s"), date("m"), date("d"), date("Y"));
+		} else {
+			$min_age = mktime(date("H"), date("i"), date("s"), date("m")  , date("d") - $account['post_filter']['min_age'], date("Y"));
+		}
 
-		$max_age = mktime(0, 0, 0, date("m")  , date("d") - $account['post_filter']['max_age'], date("Y"));
+		if ($account['post_filter']['max_age'] > 0 && $account['post_filter']['max_age'] < 1) {
+			$max_age = mktime(date("H") - (24 * $account['post_filter']['max_age']), date("i"), date("s"), date("m"), date("d"), date("Y"));
+		} else {
+			$max_age = mktime(date("H"), date("i"), date("s"), date("m"), date("d") - $account['post_filter']['max_age'], date("Y"));
+		}
 
 		$settings = get_option('wpsite_twitter_reshare_settings');
 
@@ -227,12 +235,14 @@ class WPsiteTwitterResharePost {
 					'after'     => array(
 						'year'  => (int) date('Y',$max_age),
 						'month' => (int) date('m',$max_age),
-						'day'   => (int) date('d',$max_age)
+						'day'   => (int) date('d',$max_age),
+						'hour'  => (int) date('H',$max_age)
 					),
 					'before'    => array(
 						'year'  => (int) date('Y',$min_age),
 						'month' => (int) date('m',$min_age),
-						'day'   => (int) date('d',$min_age)
+						'day'   => (int) date('d',$min_age),
+						'hour'  => (int) date('H',$min_age)
 					),
 					'inclusive' => true,
 				),

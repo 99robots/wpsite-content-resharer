@@ -2,9 +2,9 @@
 /*
 Plugin Name: WPsite Content Resharer Beta
 plugin URI:
-Description: Automatically tweets all your posts so you dont have to.
+Description: This plugin allows site owners to bring new life to existing posts by resharing content.
 version: 0.9
-Author: WPSite.NET
+Author: WPSITE.NET
 Author URI: http://wpsite.net
 License: GPL2
 */
@@ -125,7 +125,9 @@ class WPsiteTwitterReshare {
 			'consumer_key'		=> '',
 			'consumer_secret'	=> '',
 			'token'				=> '',
-			'token_secret'		=> ''
+			'token_secret'		=> '',
+			'profile_image'		=> '',
+			'screen_name'		=> ''
 		),
 		'general' 		=> array(
 			'reshare_content'		=> 'title',
@@ -584,6 +586,8 @@ class WPsiteTwitterReshare {
 			$settings['accounts'][$_GET['account']][$_GET['type']]['token_secret'] = '';
 
 			update_option('wpsite_twitter_reshare_settings', $settings);
+
+			delete_transient('wpsite_content_reshare_acccount_verify');
 
 			?>
 			<script type="text/javascript">
