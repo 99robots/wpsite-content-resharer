@@ -158,7 +158,7 @@ class WPsiteTwitterReshare {
 	private static $default_message = array(
 		'id'		=> '',
 		'message'	=> '',
-		'place'		=> 'front'
+		'place'		=> 'before'
 	);
 
 	/**
