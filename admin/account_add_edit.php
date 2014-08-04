@@ -253,7 +253,7 @@ jQuery(document).ready(function($) {
 												<label><?php _e('Maximun days for eligible', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></label>
 												<td class="wpsite_twitter_reshare_admin_table_td">
 													<input id="wps_post_filter_max_age" name="wps_post_filter_max_age" type="text" size="60" value="<?php echo esc_attr($settings['post_filter']['max_age']); ?>"><br />
-													<em><?php _e("Only reshare posts that have been published after this many days ago.", WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></em><br />
+													<em><?php _e("Only reshare posts that have been published after this many days ago. (0 for no max age limit)", WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></em><br />
 													<em><?php _e('Units: days', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></em>
 												</td>
 											</th>
