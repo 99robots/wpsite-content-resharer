@@ -514,11 +514,11 @@ class WPsiteTwitterReshare {
 						'featured_image'		=> isset($_POST['wps_general_featured_image']) && $_POST['wps_general_featured_image'] ? true : false,
 						'include_link'			=> isset($_POST['wps_general_include_link']) && $_POST['wps_general_include_link'] ? true : false,
 						'min_interval'			=> (double) stripcslashes(sanitize_text_field($_POST['wps_general_min_interval'])) > (double) self::$min_interval
- ? stripcslashes(sanitize_text_field($_POST['wps_general_min_interval'])) : '4'
+ ? stripcslashes(sanitize_text_field($_POST['wps_general_min_interval'])) : self::$min_interval
  					),
 					'post_filter'	=> array(
-						'min_age'			=> (double) stripcslashes(sanitize_text_field($_POST['wps_post_filter_min_age'])) >= 0 ? stripcslashes(sanitize_text_field($_POST['wps_post_filter_min_age'])) : 0,
-						'max_age'			=> $max_age,
+						'min_age'			=> (double) stripcslashes(sanitize_text_field($_POST['wps_post_filter_min_age'])) >= 0 ? (double) stripcslashes(sanitize_text_field($_POST['wps_post_filter_min_age'])) : 0,
+						'max_age'			=> (double) stripcslashes(sanitize_text_field($_POST['wps_post_filter_max_age'])) >= 0 ? (double) stripcslashes(sanitize_text_field($_POST['wps_post_filter_max_age'])) : 0,
 						'post_types'		=> $post_types_array,
 						'exclude_categories'=> $exclude_categories_array
 					)

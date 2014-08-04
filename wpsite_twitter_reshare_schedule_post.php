@@ -206,11 +206,17 @@ class WPsiteTwitterResharePost {
 			$min_age = mktime(date("H"), date("i"), date("s"), date("m")  , date("d") - $account['post_filter']['min_age'], date("Y"));
 		}
 
-		if ($account['post_filter']['max_age'] > 0 && $account['post_filter']['max_age'] < 1) {
-			$max_age = mktime(date("H") - (24 * $account['post_filter']['max_age']), date("i"), date("s"), date("m"), date("d"), date("Y"));
+		if ($account['post_filter']['max_age'] == 0) {
+			$max_age = 0;
 		} else {
-			$max_age = mktime(date("H"), date("i"), date("s"), date("m"), date("d") - $account['post_filter']['max_age'], date("Y"));
+			if ($account['post_filter']['max_age'] > 0 && $account['post_filter']['max_age'] < 1) {
+				$max_age = mktime(date("H") - (24 * $account['post_filter']['max_age']), date("i"), date("s"), date("m"), date("d"), date("Y"));
+			} else {
+				$max_age = mktime(date("H"), date("i"), date("s"), date("m"), date("d") - $account['post_filter']['max_age'], date("Y"));
+			}
 		}
+
+
 
 		$settings = get_option('wpsite_twitter_reshare_settings');
 
@@ -224,7 +230,7 @@ class WPsiteTwitterResharePost {
 			}
 		}
 
-		$posts = get_posts(array(
+		$post_args = array(
 			'posts_per_page'   	=> -1,
 			'category__not_in' 	=> $account['post_filter']['exclude_categories'],
 			'orderby'          	=> 'rand',
@@ -237,17 +243,23 @@ class WPsiteTwitterResharePost {
 						'month' => (int) date('m',$max_age),
 						'day'   => (int) date('d',$max_age),
 						'hour'  => (int) date('H',$max_age)
-					),
-					'before'    => array(
-						'year'  => (int) date('Y',$min_age),
-						'month' => (int) date('m',$min_age),
-						'day'   => (int) date('d',$min_age),
-						'hour'  => (int) date('H',$min_age)
-					),
-					'inclusive' => true,
-				),
+					)
+				)
 			)
-		));
+		);
+
+		if ($max_age != 0) {
+			$post_args['date_query'][0]['before'] = array(
+				'year'  => (int) date('Y',$min_age),
+				'month' => (int) date('m',$min_age),
+				'day'   => (int) date('d',$min_age),
+				'hour'  => (int) date('H',$min_age)
+			);
+
+			$post_args['date_query'][0]['inclusive'] = true;
+		}
+
+		$posts = get_posts($post_args);
 
 		if (isset($posts) && count($posts) > 0) {
 
