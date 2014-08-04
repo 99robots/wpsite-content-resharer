@@ -584,6 +584,8 @@ class WPsiteTwitterReshare {
 
 			$settings['accounts'][$_GET['account']][$_GET['type']]['token'] = '';
 			$settings['accounts'][$_GET['account']][$_GET['type']]['token_secret'] = '';
+			$settings['accounts'][$_GET['account']][$_GET['type']]['profile_image'] = '';
+			$settings['accounts'][$_GET['account']][$_GET['type']]['screen_name'] = '';
 
 			update_option('wpsite_twitter_reshare_settings', $settings);
 
