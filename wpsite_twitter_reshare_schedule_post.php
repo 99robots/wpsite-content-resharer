@@ -95,7 +95,7 @@ class WPsiteTwitterResharePost {
 			$hashtags = explode(',', $hashtags);
 
 			foreach ($hashtags as $hashtag) {
-				$new_hashtags[] = '#' . $hashtag;
+				$new_hashtags[] = '#' . str_replace(' ', '', $hashtag);
 			}
 
 			$hashtags = implode(' ', $new_hashtags);
@@ -106,7 +106,7 @@ class WPsiteTwitterResharePost {
 			$categories = get_the_category($args['post']->ID);
 
 			foreach ($categories as $category) {
-				$hashtag = '#' . $category->name;
+				$hashtag = '#' . str_replace(' ', '', $category->name);
 
 				break;
 			}
@@ -118,7 +118,7 @@ class WPsiteTwitterResharePost {
 			$hashtags = explode(',', $hashtags);
 
 			foreach ($hashtags as $hashtag) {
-				$new_hashtags[] = '#' . $hashtag;
+				$new_hashtags[] = '#' . str_replace(' ', '', $hashtag);
 			}
 
 			$hashtags = implode(' ', $new_hashtags);
