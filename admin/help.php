@@ -28,7 +28,7 @@
 
 <div class="wrap metabox-holder">
 
-	<h1><?php _e('Trouble Shooting Twitter Account', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h1>
+	<h1><?php _e('Help', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h1>
 
 	<div class="postbox">
 		<h3><?php _e('My Twitter account has not been tweeting at its intervals or at all.', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h3>

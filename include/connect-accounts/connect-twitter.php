@@ -10,6 +10,10 @@ if (!isset($settings['twitter']['token']) || $settings['twitter']['token'] == ''
 
 	?><a href="<?php echo $redirect_url; ?>"><input class="button" type="button" value="<?php _e('Sign In', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?>"/></a><?php
 
+	$hook = self::$prefix . 'twitter';
+	$args = $settings;
+	wp_clear_scheduled_hook($hook, array($args));
+
 	$settings['twitter']['token'] = $temporary_credentials['oauth_token'];
 	$settings['twitter']['token_secret'] = $temporary_credentials['oauth_token_secret'];
 
@@ -17,11 +21,20 @@ if (!isset($settings['twitter']['token']) || $settings['twitter']['token'] == ''
 
 	update_option('wpsite_twitter_reshare_settings', $settings_all);
 
+	$hook = self::$prefix . 'twitter';
+	$args = $settings;
+
+	self::wpsite_twitter_reshare_schedule_reshare_event($hook, array($args));
+
 } else if (isset($_REQUEST['oauth_verifier']) && get_transient('wpsite_content_reshare_acccount_verify') === false) {
 
 	$connection = new TwitterOAuth(self::$api_key, self::$api_secret, $settings['twitter']['token'], $settings['twitter']['token_secret']);
 
 	$token_credentials = $connection->getAccessToken($_REQUEST['oauth_verifier']);
+
+	$hook = self::$prefix . 'twitter';
+	$args = $settings;
+	wp_clear_scheduled_hook($hook, array($args));
 
 	$settings['twitter']['token'] = $token_credentials['oauth_token'];
 	$settings['twitter']['token_secret'] = $token_credentials['oauth_token_secret'];
@@ -29,6 +42,11 @@ if (!isset($settings['twitter']['token']) || $settings['twitter']['token'] == ''
 	$settings_all['accounts']['twitter'] = $settings;
 
 	update_option('wpsite_twitter_reshare_settings', $settings_all);
+
+	$hook = self::$prefix . 'twitter';
+	$args = $settings;
+
+	self::wpsite_twitter_reshare_schedule_reshare_event($hook, array($args));
 
 	set_transient('wpsite_content_reshare_acccount_verify', 'wpsite_content_reshare_acccount_verify', 60 * 15);
 
@@ -48,8 +66,7 @@ if (!isset($settings['twitter']['token']) || $settings['twitter']['token'] == ''
 
 		$redirect_url = $sign_in->getAuthorizeURL($temporary_credentials);
 
-		$connection = new TwitterOAuth(self::$api_key, self::$api_secret, $settings['twitter']['token'],
-		$settings['twitter']['token_secret']);
+		$connection = new TwitterOAuth(self::$api_key, self::$api_secret, $settings['twitter']['token'], $settings['twitter']['token_secret']);
 
 		$account = $connection->get('account/verify_credentials');
 
@@ -69,12 +86,21 @@ if (!isset($settings['twitter']['token']) || $settings['twitter']['token'] == ''
 			</div>
 			<?php
 
+			$hook = self::$prefix . 'twitter';
+			$args = $settings;
+			wp_clear_scheduled_hook($hook, array($args));
+
 			$settings['twitter']['profile_image'] = $account->profile_image_url;
 			$settings['twitter']['screen_name'] = $account->screen_name;
 
 			$settings_all['accounts']['twitter'] = $settings;
 
 			update_option('wpsite_twitter_reshare_settings', $settings_all);
+
+			$hook = self::$prefix . 'twitter';
+			$args = $settings;
+
+			self::wpsite_twitter_reshare_schedule_reshare_event($hook, array($args));
 		} else {
 			?><a href="<?php echo $redirect_url; ?>"><input class="button" type="button" value="<?php _e('Sign In', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?>"/></a><?php
 		}

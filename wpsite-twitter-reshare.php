@@ -44,6 +44,7 @@ if (!defined('WPSITE_TWITTER_RESHARE_VERSION_NUM'))
  */
 
 register_activation_hook( __FILE__, array('WPsiteTwitterReshare', 'wpsite_register_activation'));
+register_deactivation_hook( __FILE__, array('WPsiteTwitterReshare', 'wpsite_register_deactivation'));
 
 /**
  * Hooks / Filter
@@ -272,7 +273,7 @@ class WPsiteTwitterReshare {
 	}
 
 	/**
-	 * Hooks to 'init'
+	 * Hooks to 'register_activation_hook'
 	 *
 	 * @since 1.0.0
 	 */
@@ -334,6 +335,23 @@ class WPsiteTwitterReshare {
 			);
 
 			update_option('wpsite_twitter_reshare_settings', $settings);
+		}
+	}
+
+	/**
+	 * Hooks to 'register_deactivation_hook'
+	 *
+	 * @since 1.0.0
+	 */
+	static function wpsite_register_deactivation() {
+		$settings = get_option('wpsite_twitter_reshare_settings');
+
+		foreach ($settings['accounts'] as $account) {
+			$hook = 'wpsite_twitter_reshare_' . $account['id'];
+			$args = $account;
+			$args['status'] = 'active';
+
+			wp_clear_scheduled_hook($hook, array($args));
 		}
 	}
 
@@ -441,8 +459,6 @@ class WPsiteTwitterReshare {
 
 		if (isset($_POST['submit']) && check_admin_referer('wpsite_twitter_reshare_admin_settings_add_edit')) {
 
-			$settings = get_option('wpsite_twitter_reshare_settings');
-
 			/* Default values */
 
 			if ($settings === false)
@@ -504,7 +520,9 @@ class WPsiteTwitterReshare {
 						'consumer_key'		=> $settings['accounts'][$account_id]['twitter']['consumer_key'],
 						'consumer_secret'	=> $settings['accounts'][$account_id]['twitter']['consumer_secret'],
 						'token'				=> $settings['accounts'][$account_id]['twitter']['token'],
-						'token_secret'		=> $settings['accounts'][$account_id]['twitter']['token_secret']
+						'token_secret'		=> $settings['accounts'][$account_id]['twitter']['token_secret'],
+						'profile_image'		=> $settings['accounts'][$account_id]['twitter']['profile_image'],
+						'screen_name'		=> $settings['accounts'][$account_id]['twitter']['screen_name']
 					),
 					'general' 		=> array(
 						'reshare_content'		=> $_POST['wps_general_reshare_content'],
@@ -529,6 +547,7 @@ class WPsiteTwitterReshare {
 				update_option('wpsite_twitter_reshare_settings', $settings);
 
 				if ($_POST['wps_settings_status'] == 'active') {
+
 					$hook = self::$prefix . $account_id;
 					$args = $settings['accounts'][$account_id];
 
@@ -546,8 +565,6 @@ class WPsiteTwitterReshare {
 		/* Delete account */
 
 		if (isset($_GET['action']) && $_GET['action'] == 'delete' && check_admin_referer('wpsite_twitter_reshare_admin_settings_delete')) {
-
-			$settings = get_option('wpsite_twitter_reshare_settings');
 
 			/* Delete current cron job for the account */
 
@@ -571,8 +588,6 @@ class WPsiteTwitterReshare {
 		/* Remove account */
 
 		if (isset($_GET['action']) && $_GET['action'] == 'remove' && check_admin_referer('wpsite_twitter_reshare_admin_settings_remove')) {
-
-			$settings = get_option('wpsite_twitter_reshare_settings');
 
 			/* Delete current cron job for the account */
 
@@ -602,7 +617,6 @@ class WPsiteTwitterReshare {
 
 		if (isset($_GET['action']) && $_GET['action'] == 'activate' && check_admin_referer('wpsite_twitter_reshare_admin_settings_activate')) {
 
-			$settings = get_option('wpsite_twitter_reshare_settings');
 			$hook = self::$prefix . $settings['accounts'][$_GET['account']]['id'];
 			$args = $settings['accounts'][$_GET['account']];
 
@@ -633,8 +647,6 @@ class WPsiteTwitterReshare {
 		if (isset($_GET['action']) && $_GET['action'] == 'reshare' && check_admin_referer('wpsite_twitter_reshare_admin_settings_reshare_now')) {
 
 			require_once('wpsite_twitter_reshare_schedule_post.php');
-
-			$settings = get_option('wpsite_twitter_reshare_settings');
 
 			if ($settings !== false) {
 

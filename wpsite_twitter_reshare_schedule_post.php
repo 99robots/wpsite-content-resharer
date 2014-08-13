@@ -73,9 +73,9 @@ class WPsiteTwitterResharePost {
 		if ($account['general']['reshare_content'] == 'title') {
 			$post_data .= $post_title;
 		} else if ($account['general']['reshare_content'] == 'title_content') {
-			$post_data .= $post_title . ' ' . apply_filters( 'the_content', $args['post']->post_content);
+			$post_data .= $post_title . ' ' . $args['post']->post_excerpt;
 		} else if ($account['general']['reshare_content'] == 'content') {
-			$post_data .= $args['post']->post_content;
+			$post_data .= $args['post']->post_excerpt;
 		}
 
 		//Message Place

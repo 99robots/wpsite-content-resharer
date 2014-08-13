@@ -63,7 +63,7 @@ jQuery(document).ready(function($) {
 
 										<tr>
 											<th class="wpsite_twitter_reshare_admin_table_th">
-												<span><?php _e('Sign In', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></span>
+												<span><?php _e('Connect Account', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></span>
 											</th>
 											<td class="wpsite_twitter_reshare_admin_table_td">
 												<?php require(WPSITE_TWITTER_RESHARE_PLUGIN_DIR . '/include/connect-accounts/connect-twitter.php'); ?>
@@ -144,11 +144,11 @@ jQuery(document).ready(function($) {
 													<select id="wps_general_reshare_content" name="wps_general_reshare_content">
 														<option value="title" <?php echo isset($settings['general']['reshare_content']) && $settings['general']['reshare_content'] == 'title' ? 'selected' : ''; ?>><?php _e('Title', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></option>
 
-														<option value="content" <?php echo isset($settings['general']['reshare_content']) && $settings['general']['reshare_content'] == 'content' ? 'selected' : ''; ?>><?php _e('Content', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></option>
+														<option value="content" <?php echo isset($settings['general']['reshare_content']) && $settings['general']['reshare_content'] == 'content' ? 'selected' : ''; ?>><?php _e('Excerpt', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></option>
 
-														<option value="title_content" <?php echo isset($settings['general']['reshare_content']) && $settings['general']['reshare_content'] == 'title_content' ? 'selected' : ''; ?>><?php _e('Title and Content', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></option>
+														<option value="title_content" <?php echo isset($settings['general']['reshare_content']) && $settings['general']['reshare_content'] == 'title_content' ? 'selected' : ''; ?>><?php _e('Title and Excerpt', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></option>
 													</select><br />
-													<em><?php _e("Should the content be the a post's title, content, or both?", WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></em>
+													<em><?php _e("Should the content be the a post's title, excerpt, or both?", WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></em>
 												</td>
 											</th>
 										</tr>
