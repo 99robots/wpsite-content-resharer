@@ -98,6 +98,17 @@ class WPsiteTwitterReshare {
 	private static $prefix_dash = 'wpsite-twitter-reshare-';
 
 	/**
+	 * text_domain
+	 *
+	 * (default value: WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN)
+	 *
+	 * @var mixed
+	 * @access private
+	 * @static
+	 */
+	private static $text_domain = WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN;
+
+	/**
 	 * default
 	 *
 	 * @var mixed
