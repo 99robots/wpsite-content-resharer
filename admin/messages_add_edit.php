@@ -25,7 +25,7 @@
 
 			<option value="after" <?php echo isset($settings['place']) && $settings['place'] == 'after' ? 'selected' : ''; ?>><?php _e('After', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></option>
 		</select><br/>
-		<em class="wps_settings_message_description"><?php _e('Where the message will be include, before or after the content.', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></em>
+		<em class="wps_settings_message_description"><?php _e('Where the message will be included, before or after the content.', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></em>
 	</div>
 
 	<!-- Preview -->
