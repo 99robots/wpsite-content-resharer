@@ -11,7 +11,7 @@
 					<div class="postbox">
 						<h3><?php _e('What does Content Resharer do for me?', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h3>
 						<div class="inside">
-							<span><?php _e('Do you have a lot of posts on your blog and not enough traffic to them, or not enough traffic to old posts that are still very relevant?  Wish you can automatically share all your posts at random to your twitter account at set intervals?  Well with Content Resharer all of this is possible and more.  Simply link your twitter account to Content Resharer and we wil take care of the rest.', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></span>
+							<span><?php _e('Do you have a lot of posts on your blog and not enough traffic to them, or not enough traffic to old posts that are still very relevant?  Wish you can automatically share all your posts at random to your twitter account at set intervals?  Well with Content Resharer all of this is possible and more.  Simply link your twitter account to Content Resharer and we will take care of the rest.', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></span>
 						</div>
 					</div>
 
