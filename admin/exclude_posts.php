@@ -52,9 +52,6 @@
 										<input id="wps_settings_exclude_posts_<?php echo $post->ID; ?>" name="wps_settings_exclude_posts_<?php echo $post->ID; ?>" type="checkbox" <?php echo isset($settings_exclude_posts[$post->ID]) && $settings_exclude_posts[$post->ID] ? 'checked="checked"' : ''; ?>>
 										<input id="wpsite_twitter_reshare_categories_exclude_posts_<?php echo $post->ID; ?>" style="display:none;" value="<?php echo isset($post_categories) && is_array($post_categories) ? serialize($post_categories) : null; ?>">
 									</td>
-									<td>
-
-									</td>
 								</th>
 							</tr>
 

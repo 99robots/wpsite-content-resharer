@@ -29,7 +29,8 @@
 
 		/* Delete post meta data */
 
-		$posts = get_posts(array('posts_per_page' => -1));
+		/*
+$posts = get_posts(array('posts_per_page' => -1));
 
 		foreach ($posts as $post) {
 			$post_meta = get_post_meta($post->ID);
@@ -40,9 +41,8 @@
 				}
 			}
 		}
-	}
-	else
-	{
+*/
+	} else {
 
 		delete_site_option('wpsite_twitter_reshare_version');
 
@@ -69,7 +69,8 @@
 
 	        /* Delete post meta data */
 
-			$posts = get_posts(array('posts_per_page' => -1));
+			/*
+$posts = get_posts(array('posts_per_page' => -1));
 
 			foreach ($posts as $post) {
 				$post_meta = get_post_meta($post->ID);
@@ -80,6 +81,7 @@
 					}
 				}
 			}
+*/
 	    }
 	    switch_to_blog( $original_blog_id );
 	}
