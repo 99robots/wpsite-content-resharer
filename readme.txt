@@ -1,4 +1,4 @@
-=== WPSite Content Resharer ===
+=== WPsite Content Resharer ===
 Contributors: wpsitenet, kjbenk, charliepatel
 Donate link:
 Tags: tweet, twitter, social media, social accounts, share, sharing, share post, share content, content share, content sharing, tweet post, post tweets, tweet content, promote content, promote posts, automatic, automatic tweet, share, follow, like, facebook, linkedin, marketing, wordpress, followers, evergreen, twitter plugin, content, auto Tweet, Hashtags, Twitter Hashtags, Wordpress Twitter Plugin, random, Wordpress Twitter, increase traffic, social share, auto tweet, auto share, social tweet, ajax, follow, followers, traffic, inbound, wpsite
@@ -12,7 +12,7 @@ This plugin allows site owners to reshare their content automatically on a sched
 
 == Description ==
 
-WPSite Content Resharer is a powerful marketing automation plugin that automatically shares your content on a pre-defined interval to ensure you stay active on social media, increase your followers, and generate more inbound traffic. This is the FREE version which provides all the functionality needed for Twitter for one account. 
+WPsite Content Resharer is a powerful marketing automation plugin that automatically shares your content on a pre-defined interval to ensure you stay active on social media, increase your followers, and generate more inbound traffic. This is the FREE version which provides all the functionality needed for one Twitter account. 
 
 Buy the PRO version for marketing automation across Twitter, Facebook, LinkedIn, and Google+ using multiple accounts. Get it here: <a href="http://www.wpsite.net/?utm_source=wprepo&utm_medium=content-resharer&utm_campaign=desc">WPsite.net</a>
 
@@ -49,7 +49,7 @@ Similar to all other plugins, follow these instructions:
 * Unzip the file
 * Upload the `wpsite-content-resharer` folder to your `/wp-content/plugins` directory (do not rename the folder)
 * Activate the plugin from Plugins menu.
-* Configure the plugin's options from Content Resharer tab in your WP Admin.
+* Configure the plugin's options from WPsite Content Resharer tab in your WP Admin.
 
 == Frequently Asked Questions ==
 
