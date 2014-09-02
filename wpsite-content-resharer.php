@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: WPsite Content Resharer Beta
+Plugin Name: WPsite Content Resharer
 plugin URI:
 Description: This plugin allows site owners to reshare their content automatically on a schedule to bring new life to existing posts and increase traffic.
 version: 1.0
@@ -36,7 +36,7 @@ if (!defined('WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN'))
 /* Plugin verison */
 
 if (!defined('WPSITE_TWITTER_RESHARE_VERSION_NUM'))
-    define('WPSITE_TWITTER_RESHARE_VERSION_NUM', '0.9.0');
+    define('WPSITE_TWITTER_RESHARE_VERSION_NUM', '1.0.0');
 
 
 /**
@@ -388,7 +388,8 @@ class WPsiteTwitterReshare {
 			__('WPsite Content Resharer', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN),
 	    	'manage_options',
 	    	self::$account_dashboard_page,
-	    	array('WPsiteTwitterReshare', 'wpsite_twitter_reshare_settings')
+	    	array('WPsiteTwitterReshare', 'wpsite_twitter_reshare_settings'),
+	    	plugin_dir_url(__FILE__) . 'img/wpsite-menu-icon.png'
 	    );
 
 	    $account_sub_menu_page = add_submenu_page(
@@ -431,7 +432,8 @@ class WPsiteTwitterReshare {
 	    );
 	    add_action("admin_print_scripts-$help_sub_menu_page" , array('WPsiteTwitterReshare', 'inline_script_dashboard_pages'));
 
-	    $faq_sub_menu_page = add_submenu_page(
+	    /*
+$faq_sub_menu_page = add_submenu_page(
 	    	self::$account_dashboard_page,
 	    	__('FAQ', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN),
 	    	__('FAQ', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN),
@@ -440,6 +442,7 @@ class WPsiteTwitterReshare {
 	    	array('WPsiteTwitterReshare', 'wpsite_twitter_reshare_settings_faq')
 	    );
 	    add_action("admin_print_scripts-$faq_sub_menu_page" , array('WPsiteTwitterReshare', 'inline_script_dashboard_pages'));
+*/
 	}
 
 	/**

@@ -58,7 +58,7 @@ class WPsiteTwitterAddMetaBox {
 		if ($post_type != 'attachment' || $post_type != 'page') {
 			add_meta_box(
 				self::$prefix . 'hashtags',
-				'WPSite Twitter Reshare Hashtags',
+				'WPSite Content Resharer Hashtags',
 				array('WPsiteTwitterAddMetaBox' , 'wpsite_render_meta_box_content'),
 				$post_type,
 				'side',

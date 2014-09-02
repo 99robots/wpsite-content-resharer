@@ -45,7 +45,7 @@ jQuery(document).ready(function($) {
 										</th>
 										<td class="wpsite_twitter_reshare_admin_table_td">
 											<?php require(WPSITE_TWITTER_RESHARE_PLUGIN_DIR . '/include/connect-accounts/connect-twitter.php'); ?>
-											<div style="float: right;"><em><?php _e('Sign into your twitter account.  If button says "Sign In" then your account is not yet registered with WPsite Content Resharer.', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></em></div>
+											<div style="display: inline-block";><em><?php _e('Sign into your twitter account.  If button says "Sign In" then your account is not yet registered with WPsite Content Resharer.', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></em></div>
 										</td>
 									</tr>
 
