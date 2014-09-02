@@ -2,8 +2,8 @@
 /*
 Plugin Name: WPsite Content Resharer Beta
 plugin URI:
-Description: This plugin allows site owners to bring new life to existing posts by resharing content.
-version: 0.9
+Description: This plugin allows site owners to reshare their content automatically on a schedule to bring new life to existing posts and increase traffic.
+version: 1.0
 Author: WPSITE.NET
 Author URI: http://wpsite.net
 License: GPL2

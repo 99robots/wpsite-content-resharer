@@ -6,7 +6,7 @@
 
 				<div class="wrap metabox-holder">
 
-					<h1><?php _e('Fequently Asked Questions', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h1>
+					<h1><?php _e('Frequently Asked Questions', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h1>
 
 					<div class="postbox">
 						<h3><?php _e('What does Content Resharer do for me?', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h3>
