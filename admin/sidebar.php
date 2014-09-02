@@ -14,7 +14,7 @@
 		<h3><?php _e('Need Plugin or Theme Development?', self::$text_domain); ?></h3>
 			<div class="inside">
 				<div class="mktg-banner">
-					<a target="_blank" href="http://www.wpsite.net/custom-wordpress-development/#utm_source=plugin-config&utm_medium=banner&utm_campaign=custom-development-banner"><img src="<?php echo WPSITE_WALLPAPER_TAKEOVER_PLUGIN_URL . '/img/ad-custom-development.png' ?>"></a>
+					<a target="_blank" href="http://www.wpsite.net/custom-wordpress-development/#utm_source=plugin-config&utm_medium=banner&utm_campaign=custom-development-banner"><img src="<?php echo WPSITE_TWITTER_RESHARE_PLUGIN_URL . '/img/ad-custom-development.png' ?>"></a>
 				</div>
 			</div>
 	</div>
@@ -23,7 +23,7 @@
 		<h3><?php _e('Request a Plugin', self::$text_domain); ?></h3>
 			<div class="inside">
 				<div class="mktg-banner">
-					<a target="_blank" href="http://www.wpsite.net/services/#utm_source=plugin-config&utm_medium=banner&utm_campaign=plugin-request-banner"><img src="<?php echo WPSITE_WALLPAPER_TAKEOVER_PLUGIN_URL . '/img/ad-plugin-request.png' ?>"></a>
+					<a target="_blank" href="http://www.wpsite.net/services/#utm_source=plugin-config&utm_medium=banner&utm_campaign=plugin-request-banner"><img src="<?php echo WPSITE_TWITTER_RESHARE_PLUGIN_URL . '/img/ad-plugin-request.png' ?>"></a>
 				</div>
 			</div>
 	</div>
@@ -32,7 +32,7 @@
 		<h3><?php _e('Get WordPress Themes', self::$text_domain); ?></h3>
 			<div class="inside">
 				<div class="mktg-banner">
-					<a target="_blank" href="http://www.wpsite.net/themes/#utm_source=plugin-config&utm_medium=banner&utm_campaign=themes-banner"><img src="<?php echo WPSITE_WALLPAPER_TAKEOVER_PLUGIN_URL . '/img/ad-themes.png' ?>"></a>
+					<a target="_blank" href="http://www.wpsite.net/themes/#utm_source=plugin-config&utm_medium=banner&utm_campaign=themes-banner"><img src="<?php echo WPSITE_TWITTER_RESHARE_PLUGIN_URL . '/img/ad-themes.png' ?>"></a>
 				</div>
 			</div>
 	</div>
@@ -41,7 +41,7 @@
 		<h3><?php _e('Visit Support Forums', self::$text_domain); ?></h3>
 			<div class="inside">
 				<div class="mktg-banner">
-					<a target="_blank" href="http://www.wpsite.net/support/#utm_source=plugin-config&utm_medium=banner&utm_campaign=need-support-banner"><img src="<?php echo WPSITE_WALLPAPER_TAKEOVER_PLUGIN_URL . '/img/ad-need-support.png' ?>"></a>
+					<a target="_blank" href="http://www.wpsite.net/support/#utm_source=plugin-config&utm_medium=banner&utm_campaign=need-support-banner"><img src="<?php echo WPSITE_TWITTER_RESHARE_PLUGIN_URL . '/img/ad-need-support.png' ?>"></a>
 				</div>
 			</div>
 	</div>
