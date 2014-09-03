@@ -118,7 +118,7 @@
 
 				?></tbody>
 			</table>
-			<label style="color:red"><?php _e('**Please note that if plugin is deleted then all WPsite Twitter Reshare accounts will be deleted.  Also, if this plugin is deactivated, then all WPsite Twitter Reshare accounts will be deactivated as well.', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></label>
+			<label style="color:red"><?php _e('**Please note that if plugin is deleted then all WPsite Content Resharer accounts will be deleted.  Also, if this plugin is deactivated, then all WPsite Content Resharer accounts will be deactivated as well.', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></label>
 
 		</div> <!-- wpsite_plugin_settings -->
 
