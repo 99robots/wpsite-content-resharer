@@ -101,9 +101,9 @@ There is a way to reshare content manually. Go to the "Accounts" submenu page an
 
 == Screenshots ==
 
-
-
-
+1. Accounts Dashboard
+2. Connect twitter account
+3. Edit account’s general settings
 
 == Changelog ==
 
