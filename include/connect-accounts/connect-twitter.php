@@ -52,7 +52,7 @@ if (!isset($settings['twitter']['token']) || $settings['twitter']['token'] == ''
 
 	?>
 	<script type="text/javascript">
-		window.location = "<?php echo $_SERVER['PHP_SELF']?>?page=<?php echo self::$account_dashboard_page; ?>";
+		window.location = "<?php echo get_admin_url(); ?>admin.php?page=<?php echo self::$account_dashboard_page; ?>";
 	</script>
 	<?php
 
@@ -81,7 +81,7 @@ if (!isset($settings['twitter']['token']) || $settings['twitter']['token'] == ''
 					<a href="https://twitter.com/<?php echo $account->screen_name; ?>" target="_blank"><?php echo $account->screen_name; ?></a>
 				</div>
 				<div class="<?php echo self::$prefix_dash; ?>remove">
-					<a href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$account_dashboard_page . '&action=remove&account=' . $settings['id'] . '&type=twitter', 'wpsite_twitter_reshare_admin_settings_remove'); ?>"></a>
+					<a href="<?php echo wp_nonce_url(get_admin_url() . 'admin.php?page=' . self::$account_dashboard_page . '&action=remove&account=' . $settings['id'] . '&type=twitter', 'wpsite_twitter_reshare_admin_settings_remove'); ?>"></a>
 				</div>
 			</div>
 			<?php
@@ -115,7 +115,7 @@ if (!isset($settings['twitter']['token']) || $settings['twitter']['token'] == ''
 				<a href="https://twitter.com/<?php echo $account['twitter']['screen_name']; ?>" target="_blank"><?php echo $account['twitter']['screen_name']; ?></a>
 			</div>
 			<div class="<?php echo self::$prefix_dash; ?>remove">
-				<a href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$account_dashboard_page . '&action=remove&account=' . $settings['id'] . '&type=twitter', 'wpsite_twitter_reshare_admin_settings_remove'); ?>"></a>
+				<a href="<?php echo wp_nonce_url(get_admin_url() . 'admin.php?page=' . self::$account_dashboard_page . '&action=remove&account=' . $settings['id'] . '&type=twitter', 'wpsite_twitter_reshare_admin_settings_remove'); ?>"></a>
 			</div>
 		</div>
 		<?php

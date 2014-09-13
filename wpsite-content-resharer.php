@@ -570,7 +570,7 @@ $faq_sub_menu_page = add_submenu_page(
 
 				?>
 				<script type="text/javascript">
-					window.location = "<?php echo $_SERVER['PHP_SELF']?>?page=<?php echo self::$account_dashboard_page; ?>";
+					window.location = "<?php echo get_admin_url(); ?>admin.php?page=<?php echo self::$account_dashboard_page; ?>";
 				</script>
 				<?php
 			}
@@ -594,7 +594,7 @@ $faq_sub_menu_page = add_submenu_page(
 
 			?>
 			<script type="text/javascript">
-				window.location = "<?php echo $_SERVER['PHP_SELF']?>?page=<?php echo self::$account_dashboard_page; ?>";
+				window.location = "<?php echo get_admin_url(); ?>admin.php?page=<?php echo self::$account_dashboard_page; ?>";
 			</script>
 			<?php
 		}
@@ -622,7 +622,7 @@ $faq_sub_menu_page = add_submenu_page(
 
 			?>
 			<script type="text/javascript">
-				window.location = "<?php echo $_SERVER['PHP_SELF']?>?page=<?php echo self::$account_dashboard_page; ?>";
+				window.location = "<?php echo get_admin_url(); ?>admin.php?page=<?php echo self::$account_dashboard_page; ?>";
 			</script>
 			<?php
 		}
@@ -651,7 +651,7 @@ $faq_sub_menu_page = add_submenu_page(
 
 			?>
 			<script type="text/javascript">
-				window.location = "<?php echo $_SERVER['PHP_SELF']?>?page=<?php echo self::$account_dashboard_page; ?>";
+				window.location = "<?php echo get_admin_url(); ?>admin.php?page=<?php echo self::$account_dashboard_page; ?>";
 			</script>
 			<?php
 		}
@@ -670,7 +670,7 @@ $faq_sub_menu_page = add_submenu_page(
 
 				?>
 				<script type="text/javascript">
-					window.location = "<?php echo $_SERVER['PHP_SELF']?>?page=<?php echo self::$account_dashboard_page; ?>";
+					window.location = "<?php echo get_admin_url(); ?>admin.php?page=<?php echo self::$account_dashboard_page; ?>";
 				</script>
 				<?php
 			}
@@ -771,7 +771,7 @@ $faq_sub_menu_page = add_submenu_page(
 
 				?>
 				<script type="text/javascript">
-					window.location = "<?php echo $_SERVER['PHP_SELF']?>?page=<?php echo self::$message_dashboard_page; ?>";
+					window.location = "<?php echo get_admin_url(); ?>admin.php?page=<?php echo self::$message_dashboard_page; ?>";
 				</script>
 				<?php
 			}
@@ -789,7 +789,7 @@ $faq_sub_menu_page = add_submenu_page(
 
 			?>
 			<script type="text/javascript">
-				window.location = "<?php echo $_SERVER['PHP_SELF']?>?page=<?php echo self::$message_dashboard_page; ?>";
+				window.location = "<?php echo get_admin_url(); ?>admin.php?page=<?php echo self::$message_dashboard_page; ?>";
 			</script>
 			<?php
 		}
