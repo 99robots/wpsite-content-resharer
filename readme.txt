@@ -4,7 +4,7 @@ Donate link:
 Tags: tweet, twitter, social media, social accounts, share, sharing, share post, share content, content share, content sharing, tweet post, post tweets, tweet content, promote content, promote posts, automatic, automatic tweet, share, follow, like, facebook, linkedin, marketing, wordpress, followers, evergreen, twitter plugin, content, auto Tweet, Hashtags, Twitter Hashtags, Wordpress Twitter Plugin, random, Wordpress Twitter, increase traffic, social share, auto tweet, auto share, social tweet, ajax, follow, followers, traffic, inbound, wpsite
 Requires at least: 3.8
 Tested up to: 4.0
-Stable tag: 1.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -71,7 +71,7 @@ On the "Accounts" page, hover over the Account you want to edit and you will see
 
 **What is the Accounts tab?**
 
-Under this tab you will be able to name your account and connect a social media account. The name of the account on for this plugin and will not affect your social media account. The "Connect Account" button will connect your social media account to the Content Resharer plugin. This is how we are able ot post on your behalf.
+Under this tab you will be able to name your account and connect a social media account. The name of the account on for this plugin and will not affect your social media account. The "Connect Account" button will connect your social media account to the Content Resharer plugin. This is how we are able to post on your behalf.
 
 **What is the General tab?**
 
@@ -93,7 +93,7 @@ You may also decide which post categories you want to exclude from being reshare
 
 **How can I customize Content Resharer?**
 
-Navigate to the "Content" section under the settings page of Content Resharer. All the settings in this tab control what content will be reshared. Do you want to include a link or an image? Do you want hashtags? Next navigate to the "Filters" scetion. These settings are used to determine which posts are eligible to be reshared. Do you want to reshare posts with a certaion age, or post type, or category? Then a random post is chosen from these qualified posts. After that, the message is added to the content. Either to beginning or end of the content. This would conclude how your content is being created.
+Navigate to the "Content" section under the settings page of Content Resharer. All the settings in this tab control what content will be reshared. Do you want to include a link or an image? Do you want hashtags? Next navigate to the "Filters" section. These settings are used to determine which posts are eligible to be reshared. Do you want to reshare posts with a certain age, or post type, or category? Then a random post is chosen from these qualified posts. After that, the message is added to the content. Either to beginning or end of the content. This would conclude how your content is being created.
 
 **How can I share manually?**
 
@@ -108,4 +108,8 @@ There is a way to reshare content manually. Go to the "Accounts" submenu page an
 == Changelog ==
 
 = 1.0 =
-Initail release (twitter only)
+* Fixed bug with twitter sign button
+* Fixed bug with multisite activation
+
+= 1.0 =
+* Initial release (twitter only)

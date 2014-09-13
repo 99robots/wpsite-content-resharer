@@ -3,7 +3,7 @@
 Plugin Name: WPsite Content Resharer
 plugin URI:
 Description: This plugin allows site owners to reshare their content automatically on a schedule to bring new life to existing posts and increase traffic.
-version: 1.0
+version: 1.0.1
 Author: WPSITE.NET
 Author URI: http://wpsite.net
 License: GPL2
@@ -36,7 +36,7 @@ if (!defined('WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN'))
 /* Plugin verison */
 
 if (!defined('WPSITE_TWITTER_RESHARE_VERSION_NUM'))
-    define('WPSITE_TWITTER_RESHARE_VERSION_NUM', '1.0.0');
+    define('WPSITE_TWITTER_RESHARE_VERSION_NUM', '1.0.1');
 
 
 /**
@@ -294,58 +294,119 @@ class WPsiteTwitterReshare {
 
 		if (function_exists("is_multisite") && is_multisite()) {
 			add_site_option(self::$prefix . 'version', WPSITE_TWITTER_RESHARE_VERSION_NUM);
+
+			global $wpdb;
+
+			$blog_ids = $wpdb->get_col( "SELECT blog_id FROM $wpdb->blogs" );
+
+		    foreach ( $blog_ids as $blog_id ) {
+		        switch_to_blog( $blog_id );
+
+		        $settings = get_option('wpsite_twitter_reshare_settings');
+
+				/* Default values */
+
+				if ($settings === false) {
+					$settings = array(
+						'accounts'		=> array(
+							'twitter' 	=> array(
+								'id'			=> 'twitter',
+								'type'			=> 'twitter',
+								'label'			=> 'twitter',
+								'status'		=> 'active',
+								'twitter'		=> array(
+									'consumer_key'		=> '',
+									'consumer_secret'	=> '',
+									'token'				=> '',
+									'token_secret'		=> ''
+								),
+								'general' 		=> array(
+									'reshare_content'		=> 'title',
+									'bitly_url_shortener'	=> '',
+									'hashtag_type'			=> 'none',
+									'specific_hashtags'		=> '',
+									'featured_image'		=> false,
+									'include_link'			=> false,
+									'min_interval'			=> '6', 	//hours
+								),
+								'post_filter'	=> array(
+									'min_age'		=> '30',			//days
+									'max_age'		=> '60',			//days
+									'post_types'	=> array(
+									),
+									'exclude_categories'	=> array(
+									)
+								)
+							)
+						),
+						'messages'		=> array(
+							'message' => array(
+								'id'		=> 'message',
+								'message'	=> '',
+								'place'		=> 'front'
+							)
+						),
+						'exclude_posts'	=> array()
+					);
+
+					update_option('wpsite_twitter_reshare_settings', $settings);
+				}
+		    }
+
+			restore_current_blog();
+
 		} else {
 			add_option(self::$prefix . 'version', WPSITE_TWITTER_RESHARE_VERSION_NUM);
-		}
 
-		$settings = get_option('wpsite_twitter_reshare_settings');
+			$settings = get_option('wpsite_twitter_reshare_settings');
 
-		/* Default values */
+			/* Default values */
 
-		if ($settings === false) {
-			$settings = array(
-				'accounts'		=> array(
-					'twitter' 	=> array(
-						'id'			=> 'twitter',
-						'type'			=> 'twitter',
-						'label'			=> 'twitter',
-						'status'		=> 'active',
-						'twitter'		=> array(
-							'consumer_key'		=> '',
-							'consumer_secret'	=> '',
-							'token'				=> '',
-							'token_secret'		=> ''
-						),
-						'general' 		=> array(
-							'reshare_content'		=> 'title',
-							'bitly_url_shortener'	=> '',
-							'hashtag_type'			=> 'none',
-							'specific_hashtags'		=> '',
-							'featured_image'		=> false,
-							'include_link'			=> false,
-							'min_interval'			=> '6', 	//hours
-						),
-						'post_filter'	=> array(
-							'min_age'		=> '30',			//days
-							'max_age'		=> '60',			//days
-							'post_types'	=> array(
+			if ($settings === false) {
+				$settings = array(
+					'accounts'		=> array(
+						'twitter' 	=> array(
+							'id'			=> 'twitter',
+							'type'			=> 'twitter',
+							'label'			=> 'twitter',
+							'status'		=> 'active',
+							'twitter'		=> array(
+								'consumer_key'		=> '',
+								'consumer_secret'	=> '',
+								'token'				=> '',
+								'token_secret'		=> ''
 							),
-							'exclude_categories'	=> array(
+							'general' 		=> array(
+								'reshare_content'		=> 'title',
+								'bitly_url_shortener'	=> '',
+								'hashtag_type'			=> 'none',
+								'specific_hashtags'		=> '',
+								'featured_image'		=> false,
+								'include_link'			=> false,
+								'min_interval'			=> '6', 	//hours
+							),
+							'post_filter'	=> array(
+								'min_age'		=> '30',			//days
+								'max_age'		=> '60',			//days
+								'post_types'	=> array(
+								),
+								'exclude_categories'	=> array(
+								)
 							)
 						)
-					)
-				),
-				'messages'		=> array(
-					'message' => array(
-						'id'		=> 'message',
-						'message'	=> '',
-						'place'		=> 'front'
-					)
-				),
-				'exclude_posts'	=> array()
-			);
+					),
+					'messages'		=> array(
+						'message' => array(
+							'id'		=> 'message',
+							'message'	=> '',
+							'place'		=> 'front'
+						)
+					),
+					'exclude_posts'	=> array()
+				);
 
-			update_option('wpsite_twitter_reshare_settings', $settings);
+				update_option('wpsite_twitter_reshare_settings', $settings);
+			}
 		}
 	}
 
@@ -618,7 +679,7 @@ $faq_sub_menu_page = add_submenu_page(
 
 			update_option('wpsite_twitter_reshare_settings', $settings);
 
-			delete_transient('wpsite_content_reshare_acccount_verify');
+			//delete_transient('wpsite_content_reshare_acccount_verify');
 
 			?>
 			<script type="text/javascript">

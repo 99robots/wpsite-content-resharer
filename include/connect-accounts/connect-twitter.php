@@ -1,6 +1,8 @@
 <?php
 require(WPSITE_TWITTER_RESHARE_PLUGIN_DIR . '/include/api_src/twitteroauth/twitteroauth.php');
 
+$sign_in_transient = get_transient('wpsite_content_reshare_acccount_verify');
+
 if (!isset($settings['twitter']['token']) || $settings['twitter']['token'] == '') {
 	$connection = new TwitterOAuth(self::$api_key, self::$api_secret);
 
@@ -26,7 +28,11 @@ if (!isset($settings['twitter']['token']) || $settings['twitter']['token'] == ''
 
 	self::wpsite_twitter_reshare_schedule_reshare_event($hook, array($args));
 
-} else if (isset($_REQUEST['oauth_verifier']) && get_transient('wpsite_content_reshare_acccount_verify') === false) {
+} else if (isset($_REQUEST['oauth_verifier']) && ($sign_in_transient === false || $sign_in_transient < 10)) {
+
+	if ($sign_in_transient === false) {
+		$sign_in_transient = 0;
+	}
 
 	$connection = new TwitterOAuth(self::$api_key, self::$api_secret, $settings['twitter']['token'], $settings['twitter']['token_secret']);
 
@@ -48,7 +54,9 @@ if (!isset($settings['twitter']['token']) || $settings['twitter']['token'] == ''
 
 	self::wpsite_twitter_reshare_schedule_reshare_event($hook, array($args));
 
-	set_transient('wpsite_content_reshare_acccount_verify', 'wpsite_content_reshare_acccount_verify', 60 * 15);
+	$sign_in_transient++;
+
+	set_transient('wpsite_content_reshare_acccount_verify', $sign_in_transient, 60 * 15);
 
 	?>
 	<script type="text/javascript">
