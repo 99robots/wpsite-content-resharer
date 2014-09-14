@@ -3,7 +3,7 @@
 Plugin Name: WPsite Content Resharer
 plugin URI:
 Description: This plugin allows site owners to reshare their content automatically on a schedule to bring new life to existing posts and increase traffic.
-version: 1.0.1
+version: 1.0.2
 Author: WPSITE.NET
 Author URI: http://wpsite.net
 License: GPL2
@@ -36,7 +36,7 @@ if (!defined('WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN'))
 /* Plugin verison */
 
 if (!defined('WPSITE_TWITTER_RESHARE_VERSION_NUM'))
-    define('WPSITE_TWITTER_RESHARE_VERSION_NUM', '1.0.1');
+    define('WPSITE_TWITTER_RESHARE_VERSION_NUM', '1.0.2');
 
 
 /**
@@ -873,10 +873,11 @@ $faq_sub_menu_page = add_submenu_page(
 
 		/* Edit */
 
-		if (isset($message_id))
+		if (isset($message_id)) {
 			$settings = $settings['messages'][$message_id];
-		else
+		} else {
 			$settings = self::$default_message;
+		}
 
 		require('admin/messages_add_edit.php');
 	}

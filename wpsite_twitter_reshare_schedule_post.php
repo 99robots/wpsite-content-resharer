@@ -42,10 +42,7 @@ class WPsiteTwitterResharePost {
 
 		/* Create reshare content */
 
-		$temp_image = wp_get_attachment_image_src(get_post_thumbnail_id($args['post']->ID),'single-post-thumbnail');
-
 		$content = '';
-		$featured_image = isset($temp_image) && is_array($temp_image) ? $temp_image[0] : null;
 		$post_link = get_permalink($args['post']->ID);
 		$post_title = $args['post']->post_title;
 		$post_data = '';
@@ -76,6 +73,13 @@ class WPsiteTwitterResharePost {
 			$post_data .= $post_title . ' ' . $args['post']->post_excerpt;
 		} else if ($account['general']['reshare_content'] == 'content') {
 			$post_data .= $args['post']->post_excerpt;
+		}
+
+		// Featured Image
+
+		if (isset($account['general']['featured_image']) && $account['general']['featured_image']) {
+			$temp_image = wp_get_attachment_image_src(get_post_thumbnail_id($args['post']->ID),'single-post-thumbnail');
+			$featured_image = isset($temp_image) && is_array($temp_image) ? $temp_image[0] : null;
 		}
 
 		//Message Place
