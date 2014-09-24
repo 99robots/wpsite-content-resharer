@@ -14,7 +14,7 @@ This plugin allows site owners to reshare their content automatically on a sched
 
 WPsite Content Resharer is a powerful marketing automation plugin that automatically shares your content on a pre-defined interval to ensure you stay active on social media, increase your followers, and generate more inbound traffic. This is the FREE version which provides all the functionality needed for one Twitter account.
 
-Buy the PRO version for marketing automation across Twitter, Facebook, LinkedIn, and Google+ using multiple accounts. Get it here: <a href="http://www.wpsite.net/?utm_source=wprepo&utm_medium=content-resharer&utm_campaign=desc">WPsite.net</a>
+Buy the PRO version for marketing automation across Twitter, Facebook, and LinkedIn using multiple accounts. Get it here: <a href="http://www.wpsite.net/?utm_source=wprepo&utm_medium=content-resharer&utm_campaign=desc">WPsite.net</a>
 
 = Features: =
 The FREE version includes the following features:
