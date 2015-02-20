@@ -19,7 +19,7 @@ Buy the PRO version for marketing automation across Twitter, Facebook, and Linke
 = Features: =
 The FREE version includes the following features:
 
-- Post to 1 Twitter account - Get the PRO version to post to multiple accounts as well as Facebook, Google+, etc.
+- Post to 1 Twitter account - Get the PRO version to post to multiple accounts as well as Facebook and LinkedIn 
 - Post new or existing content - All your content is eligible to be reshared automatically.
 - Custom post schedule - you can determine the interval frequency to tweet.
 - Share with Images (i.e., featured image) - get more visibility on Twitter by posting with images.
