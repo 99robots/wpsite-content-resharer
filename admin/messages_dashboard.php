@@ -5,8 +5,8 @@
 		<div id="wpsite_plugin_settings">
 
 			<div id="icon-edit" class="icon32 icon32-posts-post"><br/></div>
-			<!-- <a class="add-new-h2" href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$message_dashboard_page . '&action=add', 'wpsite_twitter_reshare_admin_settings_messages_add_edit'); ?>"><?php _e('Add New', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a> -->
-			<h2><?php _e('Messages', WPSITE_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h2>
+			<!-- <a class="add-new-h2" href="<?php echo wp_nonce_url($_SERVER['PHP_SELF'] . '?page=' . self::$message_dashboard_page . '&action=add', 'wpsite_twitter_reshare_admin_settings_messages_add_edit'); ?>"><?php _e('Add New', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a> -->
+			<h2><?php _e('Messages', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h2>
 
 			<div id="col-container">
 

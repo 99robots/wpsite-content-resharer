@@ -1,11 +1,11 @@
 <?php
 /*
-Plugin Name: WPsite Content Resharer
-plugin URI:
+Plugin Name: 99 Robots Content Resharer
+plugin URI: http://www.99robots.com/content-resharer
 Description: This plugin allows site owners to reshare their content automatically on a schedule to bring new life to existing posts and increase traffic.
-version: 1.1.3
-Author: WPSITE.NET
-Author URI: http://wpsite.net
+version: 1.1.4
+Author: 99 Robots
+Author URI: http://www.99robots.com
 License: GPL2
 */
 
@@ -36,7 +36,7 @@ if (!defined('WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN'))
 /* Plugin verison */
 
 if (!defined('WPSITE_TWITTER_RESHARE_VERSION_NUM'))
-    define('WPSITE_TWITTER_RESHARE_VERSION_NUM', '1.1.3');
+    define('WPSITE_TWITTER_RESHARE_VERSION_NUM', '1.1.4');
 
 
 /**
@@ -445,8 +445,8 @@ class WPsiteTwitterReshare {
 	 */
 	static function wpsite_twitter_reshare_menu_page() {
 	    add_menu_page(
-			__('WPsite Content Resharer', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN),
-			__('WPsite Content Resharer', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN),
+			__('Content Resharer', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN),
+			__('Content Resharer', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN),
 	    	'manage_options',
 	    	self::$account_dashboard_page,
 	    	array('WPsiteTwitterReshare', 'wpsite_twitter_reshare_settings'),

@@ -1,10 +1,10 @@
-=== WPsite Content Resharer ===
-Contributors: 99robots, wpsitenet, kjbenk, charliepatel
+=== 99 Robots Content Resharer ===
+Contributors: 99robots, wpsitenet
 Donate link:
 Tags: tweet, twitter, social media, social accounts, share, sharing, share post, share content, content share, content sharing, tweet post, post tweets, tweet content, promote content, promote posts, automatic, automatic tweet, share, follow, like, facebook, linkedin, marketing, wordpress, followers, evergreen, twitter plugin, content, auto Tweet, Hashtags, Twitter Hashtags, Wordpress Twitter Plugin, random, Wordpress Twitter, increase traffic, social share, auto tweet, auto share, social tweet, ajax, follow, followers, traffic, inbound, wpsite
 Requires at least: 3.8
-Tested up to: 4.1
-Stable tag: 1.1.3
+Tested up to: 4.2
+Stable tag: 1.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,9 +12,9 @@ This plugin allows site owners to reshare their content automatically on a sched
 
 == Description ==
 
-WPsite Content Resharer is a powerful marketing automation plugin that automatically shares your content on a pre-defined interval to ensure you stay active on social media, increase your followers, and generate more inbound traffic. This is the FREE version which provides all the functionality needed for one Twitter account.
+99 Robots Content Resharer is a powerful marketing automation plugin that automatically shares your content on a pre-defined interval to ensure you stay active on social media, increase your followers, and generate more inbound traffic. This is the FREE version which provides all the functionality needed for one Twitter account.
 
-Buy the PRO version for marketing automation across Twitter, Facebook, and LinkedIn using multiple accounts. Get it here: <a href="http://codecanyon.net/item/wp-content-resharer-pro/9059658?ref=wpsitenet">WPsite.net</a>
+Buy the PRO version for marketing automation across Twitter, Facebook, and LinkedIn using multiple accounts. Get it here: <a href="http://codecanyon.net/item/wp-content-resharer-pro/9059658?ref=wpsitenet">99 Robots</a>
 
 = Features: =
 The FREE version includes the following features:
@@ -29,17 +29,17 @@ The FREE version includes the following features:
 - Custom Position Link / Title - Choose your message structure with links at beginning or end.
 - URL Shortener integration (i.e, bitly)
 
-For more information, visit <a href="http://www.wpsite.net/?utm_source=wprepo&utm_medium=content-resharer&utm_campaign=desc">WPsite.net</a>
+For more information, visit <a href="http://www.99robots.com/?utm_source=wprepo&utm_medium=content-resharer&utm_campaign=desc">99 Robots</a>
 
 == Installation ==
 
-You can install the WPsite Content Resharer from your WordPress Dashboard or manually via FTP.
+You can install the 99 Robots Content Resharer from your WordPress Dashboard or manually via FTP.
 
 = From WordPress Dashboard =
 Similar to all other plugins, follow these instructions:
 
 * Navigate to 'Plugins -> Add New' from your WordPress dashboard.
-* Search for `WPsite Content Resharer` and install it.
+* Search for `99 Robots Content Resharer` and install it.
 * Activate the plugin from Plugins menu.
 * Configure the plugin's options from Content Resharer tab in your WP Admin.
 
@@ -49,7 +49,7 @@ Similar to all other plugins, follow these instructions:
 * Unzip the file
 * Upload the `wpsite-content-resharer` folder to your `/wp-content/plugins` directory (do not rename the folder)
 * Activate the plugin from Plugins menu.
-* Configure the plugin's options from WPsite Content Resharer tab in your WP Admin.
+* Configure the plugin's options from 99 Robots Content Resharer tab in your WP Admin.
 
 == Frequently Asked Questions ==
 
@@ -107,7 +107,10 @@ There is a way to reshare content manually. Go to the "Accounts" submenu page an
 
 == Changelog ==
 
-= 1.1.2 =
+= 1.1.4 =
+* Re-branded to 99 Robots
+
+= 1.1.3 =
 * Minor Updates
 
 = 1.1.2 =
