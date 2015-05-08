@@ -61,8 +61,6 @@ class WPsiteTwitterResharePost {
 					$post_link = json_decode($result)->data->url;
 				}
 			}
-
-			$post_data .= $post_link . ' ';
 		}
 
 		//Post Data
@@ -85,9 +83,9 @@ class WPsiteTwitterResharePost {
 		//Message Place
 
 		if ($args['message']['place'] == 'before') {
-			$content = $args['message']['text'] . ' ' .  $post_data;
+			$content = $args['message']['text'] . ' ' .  $post_data . ' ' . $post_link;
 		} else {
-			$content = $post_data . ' ' . $args['message']['text'];
+			$content = $post_data . ' ' . $args['message']['text'] . ' ' . $post_link;
 		}
 
 		//Hashtags
