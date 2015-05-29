@@ -3,7 +3,7 @@
 Plugin Name: 99 Robots Content Resharer
 plugin URI: http://www.99robots.com/content-resharer
 Description: This plugin allows site owners to reshare their content automatically on a schedule to bring new life to existing posts and increase traffic.
-version: 1.1.5
+version: 1.1.6
 Author: 99 Robots
 Author URI: http://www.99robots.com
 License: GPL2
@@ -36,7 +36,7 @@ if (!defined('WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN'))
 /* Plugin verison */
 
 if (!defined('WPSITE_TWITTER_RESHARE_VERSION_NUM'))
-    define('WPSITE_TWITTER_RESHARE_VERSION_NUM', '1.1.5');
+    define('WPSITE_TWITTER_RESHARE_VERSION_NUM', '1.1.6');
 
 
 /**
@@ -187,13 +187,13 @@ class WPsiteTwitterReshare {
 	/**
 	 * min_interval
 	 *
-	 * (default value: 2)
+	 * (default value: 1)
 	 *
 	 * @var int
 	 * @access private
 	 * @static
 	 */
-	private static $min_interval = 2;
+	private static $min_interval = 1;
 
 	/**
 	 * account_dashboard_page

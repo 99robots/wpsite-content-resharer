@@ -2,9 +2,9 @@
 Contributors: 99robots, wpsitenet
 Donate link:
 Tags: tweet, twitter, social media, social accounts, share, sharing, share post, share content, content share, content sharing, tweet post, post tweets, tweet content, promote content, promote posts, automatic, automatic tweet, share, follow, like, facebook, linkedin, marketing, wordpress, followers, evergreen, twitter plugin, content, auto Tweet, Hashtags, Twitter Hashtags, Wordpress Twitter Plugin, random, Wordpress Twitter, increase traffic, social share, auto tweet, auto share, social tweet, ajax, follow, followers, traffic, inbound, wpsite
-Requires at least: 3.8
-Tested up to: 4.2
-Stable tag: 1.1.5
+Requires at least: 4.0
+Tested up to: 4.2.2
+Stable tag: 1.1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -19,7 +19,7 @@ Buy the PRO version for marketing automation across Twitter, Facebook, and Linke
 = Features: =
 The FREE version includes the following features:
 
-- Post to 1 Twitter account - Get the PRO version to post to multiple accounts as well as Facebook and LinkedIn 
+- Post to 1 Twitter account - Get the PRO version to post to multiple accounts as well as Facebook and LinkedIn
 - Post new or existing content - All your content is eligible to be reshared automatically.
 - Custom post schedule - you can determine the interval frequency to tweet.
 - Share with Images (i.e., featured image) - get more visibility on Twitter by posting with images.
@@ -106,6 +106,9 @@ There is a way to reshare content manually. Go to the "Accounts" submenu page an
 3. Edit account’s general settings
 
 == Changelog ==
+
+= 1.1.6 =
+* Decreased the minimum interval to 1 hour
 
 = 1.1.5 =
 * Moved post link to the end of the tweet
