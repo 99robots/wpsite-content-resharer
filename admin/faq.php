@@ -70,14 +70,14 @@
 					<div class="postbox">
 						<h3><?php _e('How can I customize the reshare content?', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h3>
 						<div class="inside">
-							<span><?php _e('Navigate to the “Content" section under the settings page for your account.  All the settings in this tab control what the reshare will consist of.  Do you want to include a link or an image?  Do you want hashtags?  Next navigate to the "Filters" scetion.  These settings are used to determine which posts are eligible to be reshared.  Do you want to reshare posts with a certaion age, or post type, or category?  Then a random post is chosen from these qualified posts.  After that, the message is added to the content.  Either to beginning or end of the content.  This would conclude how your content is being created.', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></span>
+							<span><?php _e('Navigate to the "Content" section under the settings page for your account.  All the settings in this tab control what the reshare will consist of.  Do you want to include a link or an image?  Do you want hashtags?  Next navigate to the "Filters" section.  These settings are used to determine which posts are eligible to be reshared.  Do you want to reshare posts with a certain age, or post type, or category?  Then a random post is chosen from these qualified posts.  After that, the message is added to the content.  Either to beginning or end of the content.  This would conclude how your content is being created.', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></span>
 						</div>
 					</div>
 
 					<div class="postbox">
 						<h3><?php _e('How do I share manually?', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></h3>
 						<div class="inside">
-							<span><?php _e('There is a way to reshare content manually.  Go to the "Accounts" submenu page and hover over the account you want to manually reshare.  Go to the “Interval” column and hit the "reshare now” link.  This will manually reshare content to that account and will not affect the account’s scheduled reshare intervals.  This is a great way to test if your account is setup properly.', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></span>
+							<span><?php _e('There is a way to reshare content manually.  Go to the "Accounts" submenu page and hover over the account you want to manually reshare.  Go to the "Interval" column and hit the "reshare now" link.  This will manually reshare content to that account and will not affect the account\'s scheduled reshare intervals.  This is a great way to test if your account is setup properly.', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></span>
 						</div>
 					</div>
 

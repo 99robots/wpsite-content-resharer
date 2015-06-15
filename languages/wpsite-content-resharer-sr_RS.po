@@ -1,0 +1,782 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: wpsite-content-resharer\n"
+"POT-Creation-Date: 2015-06-02 10:58-0500\n"
+"PO-Revision-Date: 2015-06-15 14:57+0100\n"
+"Last-Translator: Borisa Djuraskovic <borisad@webhostinghub.com>\n"
+"Language-Team: \n"
+"Language: sr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+"X-Poedit-Basepath: ../../../Applications/MAMP/htdocs/wpsite/wp-content/"
+"plugins/wpsite-content-resharer/\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/account_add_edit.php:17
+msgid "Account"
+msgstr "Nalog"
+
+#: admin/account_add_edit.php:18 admin/account_add_edit.php:59
+msgid "General"
+msgstr "Opšti"
+
+#: admin/account_add_edit.php:19 admin/account_add_edit.php:111
+msgid "Content"
+msgstr "Sadržaj"
+
+#: admin/account_add_edit.php:20
+msgid "Filters"
+msgstr "Filteri"
+
+#: admin/account_add_edit.php:25
+msgid "Required"
+msgstr "Obavezni"
+
+#: admin/account_add_edit.php:34
+msgid "Account ID"
+msgstr "ID naloga"
+
+#: admin/account_add_edit.php:37
+msgid "social_media_account"
+msgstr "social_media_account"
+
+#: admin/account_add_edit.php:38
+msgid "A unique name for this account, there are no duplicates allowed."
+msgstr "Jedinstveni naziv ovog naloga, duplikati nisu dozvoljeni"
+
+#: admin/account_add_edit.php:44
+msgid "Connect Account"
+msgstr "Poveži nalog"
+
+#: admin/account_add_edit.php:48
+msgid ""
+"Sign into your twitter account.  If button says \"Sign In\" then your "
+"account is not yet registered with WPsite Content Resharer."
+msgstr ""
+"Prijavite se na twitter nalog. Ako taster kaže \"Prijavi se\", onda vaš "
+"nalog još nije registrovan sa WPsite Content Resharer-om."
+
+#: admin/account_add_edit.php:68 admin/account_dashboard.php:12
+#: admin/account_dashboard.php:21
+msgid "Status"
+msgstr "Status"
+
+#: admin/account_add_edit.php:71
+msgid "Active"
+msgstr "Aktivan"
+
+#: admin/account_add_edit.php:72
+msgid "Inactive"
+msgstr "Neaktivan"
+
+#: admin/account_add_edit.php:74
+msgid ""
+"Whether or not the account is active or deactive.  Deactive accounts will "
+"not post to social media channel."
+msgstr ""
+"Da li je nalog aktivan ili neaktivan. Neaktivni nalozi neće objavljivati na "
+"kanalu društvenih mreža."
+
+#: admin/account_add_edit.php:83 admin/account_dashboard.php:14
+#: admin/account_dashboard.php:23
+msgid "Label"
+msgstr "Oznaka"
+
+#: admin/account_add_edit.php:86
+msgid "Used for meta box name in edit post screen for custom messages."
+msgstr ""
+"Koristi se za naziv meta-okvira u ekranu za uređivanje posta za prilagođene "
+"poruke."
+
+#: admin/account_add_edit.php:95 admin/account_dashboard.php:15
+#: admin/account_dashboard.php:24
+msgid "Interval"
+msgstr "Interval"
+
+#: admin/account_add_edit.php:98
+msgid "The interval in which posts are shared."
+msgstr "Interval deljenja postova."
+
+#: admin/account_add_edit.php:99
+msgid "Units: hours"
+msgstr "Jedinica: sati"
+
+#: admin/account_add_edit.php:120
+msgid "Reshare Content"
+msgstr "Ponovo podeli sadržaj"
+
+#: admin/account_add_edit.php:123
+msgid "Title"
+msgstr "Naslov"
+
+#: admin/account_add_edit.php:125
+msgid "Excerpt"
+msgstr "Odlomak"
+
+#: admin/account_add_edit.php:127
+msgid "Title and Excerpt"
+msgstr "Naslov i odlomak"
+
+#: admin/account_add_edit.php:129
+msgid "Should the content be the a post's title, excerpt, or both?"
+msgstr "Treba li sadržaj da bude u naslovu ili u odlomku posta ili u oba?"
+
+#: admin/account_add_edit.php:138
+msgid "Hashtag Type"
+msgstr "vrsta hashtag-a "
+
+#: admin/account_add_edit.php:141
+msgid "Do not include hashtags"
+msgstr "Izuzmi hashtag-ove"
+
+#: admin/account_add_edit.php:142
+msgid "From post custom field (i.e Twitter Reshare Meta Box)"
+msgstr "Iz prilagođenog polja posta (npr. iz Twitter Reshare meta-okvira). "
+
+#: admin/account_add_edit.php:143
+msgid "First Category"
+msgstr "Prva kategorija"
+
+#: admin/account_add_edit.php:144
+msgid "Specific hashtag"
+msgstr "Određeni hashtag"
+
+#: admin/account_add_edit.php:146
+msgid "Include hashtags or not?"
+msgstr "Uključiti hashtag-ove ili ne?"
+
+#: admin/account_add_edit.php:155
+msgid "Specific Hashtags"
+msgstr "Određeni hashtag-ovi"
+
+#: admin/account_add_edit.php:158
+msgid "These hashtags will always be included in every tweet."
+msgstr "Sledeći hashtag-ovi uvek će biti uključeni u svaki tweet."
+
+#: admin/account_add_edit.php:159
+msgid "Spearate tags by commas."
+msgstr "Odvoji oznake zarezima."
+
+#: admin/account_add_edit.php:168
+msgid "Bitly URL Shortener"
+msgstr "Bitly URL Shortener"
+
+#: admin/account_add_edit.php:172
+msgid "This is optional and is used to shorten the URL of the post."
+msgstr "Ova opcija nije obavezna. Koristi se za skraćenje URL-a posta."
+
+#: admin/account_add_edit.php:173
+msgid "Your Bitly"
+msgstr "Vaš Bitly"
+
+#: admin/account_add_edit.php:173
+msgid "access token"
+msgstr "Token za pristup"
+
+#: admin/account_add_edit.php:182
+msgid "Include Link"
+msgstr "Obuhvati link"
+
+#: admin/account_add_edit.php:185
+msgid "Should the post's link be included in the post?"
+msgstr "Treba li link posta da bude uključen u post?"
+
+#: admin/account_add_edit.php:194
+msgid "Include Featured Image"
+msgstr "Uključi prilagođenu sliku"
+
+#: admin/account_add_edit.php:197
+msgid "Should the post's featured image be included in the post?"
+msgstr "Treba li prilagođena slika posta da bude uključena u post?"
+
+#: admin/account_add_edit.php:209
+msgid "Post Filters"
+msgstr "Filteri posta"
+
+#: admin/account_add_edit.php:218
+msgid "Minimun days for eligible"
+msgstr "Minimalan broj dana na raspolaganju"
+
+#: admin/account_add_edit.php:221
+msgid "Only reshare posts that have been published before this many days ago."
+msgstr ""
+"Ponovo podeli samo postove koji su objavljeni pre toliko i toliko dana."
+
+#: admin/account_add_edit.php:222 admin/account_add_edit.php:235
+msgid "Units: days"
+msgstr "Jedinice: dani"
+
+#: admin/account_add_edit.php:231
+msgid "Maximun days for eligible"
+msgstr "Maksimalan broj dana za raspolaganje"
+
+#: admin/account_add_edit.php:234
+msgid ""
+"Only reshare posts that have been published after this many days ago. (0 for "
+"no max age limit)"
+msgstr ""
+"Ponovo podeli samo postove koji su objavljeni pre toliko i toliko dana.(0 "
+"ako nećete ograničenje maksimalne starosti)"
+
+#: admin/account_add_edit.php:244
+msgid "Post Types"
+msgstr "Vrste postova"
+
+#: admin/account_add_edit.php:255 admin/account_add_edit.php:278
+#, php-format
+msgid "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%s"
+msgstr "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%s"
+
+#: admin/account_add_edit.php:257
+msgid "ONLY reshare posts that are of these post types."
+msgstr "Ponovo podeli SAMO postove ove vrste:"
+
+#: admin/account_add_edit.php:266
+msgid "Exclude Categories"
+msgstr "Izuzmi kategorije"
+
+#: admin/account_add_edit.php:280
+msgid "Do NOT reshare posts that are in these categories."
+msgstr "NE deli postove u sledećim kategorijama:"
+
+#: admin/account_dashboard.php:7 wpsite-content-resharer.php:458
+#: wpsite-content-resharer.php:459
+msgid "Accounts"
+msgstr "Nalozi"
+
+#: admin/account_dashboard.php:13 admin/account_dashboard.php:22
+#: admin/messages_dashboard.php:19 admin/messages_dashboard.php:26
+msgid "ID"
+msgstr "ID"
+
+#: admin/account_dashboard.php:16 admin/account_dashboard.php:25
+msgid "Type"
+msgstr "Vrsta"
+
+#: admin/account_dashboard.php:51
+msgid "Deactivate"
+msgstr "Deaktiviraj"
+
+#: admin/account_dashboard.php:51
+msgid "Activate"
+msgstr "Aktiviraj"
+
+#: admin/account_dashboard.php:81 admin/messages_dashboard.php:57
+msgid "Edit"
+msgstr "Uredi"
+
+#: admin/account_dashboard.php:86 admin/messages_dashboard.php:62
+msgid "Delete"
+msgstr "Obriši"
+
+#: admin/account_dashboard.php:104
+msgid " hours"
+msgstr "sati"
+
+#: admin/account_dashboard.php:109
+msgid "Reshare Now"
+msgstr "Ponovo podeli sada "
+
+#: admin/account_dashboard.php:121
+msgid ""
+"**Please note that if plugin is deleted then all WPsite Content Resharer "
+"accounts will be deleted.  Also, if this plugin is deactivated, then all "
+"WPsite Content Resharer accounts will be deactivated as well."
+msgstr ""
+"**Zapamtite: ako je plugin obrisan, biće obrisani i svi WPsite Content "
+"Resharer nalozi. Takođe, ako je ovaj plugin deaktiviran, biće deaktivirani i "
+"svi WPsite Content Resharer nalozi."
+
+#: admin/exclude_posts.php:7 wpsite-content-resharer.php:478
+#: wpsite-content-resharer.php:479
+msgid "Exclude Posts"
+msgstr "Izuzmi postove"
+
+#: admin/exclude_posts.php:18
+msgid "Category"
+msgstr "Kategorija"
+
+#: admin/faq.php:9 admin/help.php:37
+msgid "Frequently Asked Questions"
+msgstr "Često postavljana pitanja"
+
+#: admin/faq.php:12 admin/help.php:40
+msgid "What does Content Resharer do for me?"
+msgstr "Šta Content Resharer radi za mene?"
+
+#: admin/faq.php:14 admin/help.php:42
+msgid ""
+"Do you have a lot of posts on your blog and not enough traffic to them, or "
+"not enough traffic to old posts that are still very relevant?  Wish you can "
+"automatically share all your posts at random to your twitter account at set "
+"intervals?  Well with Content Resharer all of this is possible and more.  "
+"Simply link your twitter account to Content Resharer and we will take care "
+"of the rest."
+msgstr ""
+"Imate li mnogo postova na svom blogu, ali vam je saobraćaj nedovoljan ili "
+"nemate dovoljno saobraćaja za stare postove koji su i dalje važni? Želite li "
+"da automatski delite sve postove nasumično na vašem twitter nalogu u "
+"određenim intervalima? Uz pomoć Content Resharer plugin-a možete sve "
+"navedeno i još mnogo toga! Jednostavno povežite svoj twitter nalog sa "
+"Content Resharer-om i mi ćemo se pobrinuti za ostalo."
+
+#: admin/faq.php:19 admin/help.php:47
+msgid "What is an account?"
+msgstr "Šta je nalog?"
+
+#: admin/faq.php:21 admin/help.php:49
+msgid ""
+"An account is a social media channel that you would like Content Reshare to "
+"use to automatically reshare all your posts."
+msgstr ""
+"Nalog je kanal društvene mreže na koju biste želeli da Content Reshare "
+"automatski ponovo deli vaše postove."
+
+#: admin/faq.php:26 admin/help.php:54
+msgid "What is a message?"
+msgstr "Šta je poruka?"
+
+#: admin/faq.php:28 admin/help.php:56
+msgid ""
+"A message is the text you would like to include in the reshare content.  It "
+"is highly recommended to create messages and lots of them to make your "
+"reshare content more humanlike.  When creating a message you will see a "
+"preview that shows you what an example reshare content could look like.  "
+"Messages are totally optional and the plugin will still post to the social "
+"channel if you have none."
+msgstr ""
+"Poruka je tekst koji biste želeli da obuhvatite ponovo podeljenim sadržajem. "
+"Preporučujemo vam da kreirate veliki broj poruka kako bi vaš sadržaj koji se "
+"ponovo deli izgledao što spontanije. Kad kreirate poruku, videćete pregled "
+"koji vam prikazuje kako bi mogao da izgleda primer ponovo deljenog sadržaja. "
+"Poruke su potpuno opcione i ako nemate poruku, plugin će, bez obzira na to, "
+"objavljivati postove.   "
+
+#: admin/faq.php:33 admin/help.php:61
+msgid "How do I edit an account?"
+msgstr "Kako uređujem nalog?"
+
+#: admin/faq.php:35 admin/help.php:63
+msgid ""
+"On the \"Accounts\" page, hover over the table account you want to edit and "
+"you will see an \"Edit\" link appear.  Click this link and you will be "
+"redirected to the edit screen for that account."
+msgstr ""
+"Na stranici \"Nalozi\" pređite kursorom preko tabele naloga koji želite da "
+"uredite i pojaviće vam se link \"Uredi \". Kliknite na taj link i bićete "
+"preusmereni na ekran za uređivanje tog naloga. "
+
+#: admin/faq.php:40 admin/help.php:68
+msgid "What is the Account Tab?"
+msgstr "Čemu služi tabulator ‘Nalog’?"
+
+#: admin/faq.php:42 admin/help.php:70
+msgid ""
+"Under this tab you will be able to name your account and connect a social "
+"media account.  The name of the account on for this plugin and will not "
+"affect your social media account.  The \"Connect Account\" button will "
+"connect your social media account to the Content Resharer plugin.  This is "
+"how we are able ot post on your behalf."
+msgstr ""
+"U ovom tabulatoru moći ćete da date naziv svom nalogu i da ga povežete sa "
+"nalogom društvene mreže. Naziv naloga na ovom plugin-u neće uticati na nalog "
+"vaše društvene mreže. Taster \"Poveži nalog\" povezaće vaš nalog društvene "
+"mreže sa Content Resharer plugin-om. To nam omogućava da objavljujemo "
+"postove u vaše ime."
+
+#: admin/faq.php:47 admin/help.php:75
+msgid "What is the General Tab?"
+msgstr "Čemu služi tabulator ‘Opšti’?"
+
+#: admin/faq.php:49 admin/help.php:77
+msgid ""
+"The settings under this tab are basic settings for this account.  Most "
+"importantly is the interval setting, which controls how often Content "
+"Resharer will reshare content."
+msgstr ""
+"Podešavanja na ovom tabulatoru predstavljaju osnovna podešavanja za dati "
+"nalog. Najvažnije je podešavanje intervala koje kontroliše koliko će često "
+"Content Resharer ponovo deliti sadržaj. "
+
+#: admin/faq.php:54 admin/help.php:82
+msgid "What is the Content Tab?"
+msgstr "Čemu služi tabulator ‘Sadržaj’?"
+
+#: admin/faq.php:56 admin/help.php:84
+msgid ""
+"All settings under this tab control the content of the reshare.  You may "
+"also select your \"Hashtag Type\". There are several customization options "
+"here which include \"First Category\", which allows you to turn the first "
+"category that you assigned a post to into a hashtag. For example, if you "
+"write a post about entrepreneurship and you assign it a category "
+"\"entrepreneurs\", if that is the first category you assigned to the post "
+"then your reshare will include #entrepreneur along with the content and "
+"link. \"From post custom field\" allows to assign a hashtag directly in your "
+"post. To find this custom field, go to the bottom right of your post where "
+"you will see that you can assign a hashtag."
+msgstr ""
+"Sva podešavanja u ovom tabulatoru kontrolišu sadržaj koji se ponovo deli. "
+"Takođe, ovde možete odabrati svoju  \"Hashtag vrstu\". Ovde se nalazi "
+"nekoliko opcija prilagođavanja, uključujući i  \"Prvu kategoriju\" koja vam "
+"omogućava da prvu kategoriju dodeljenu postu pretvorite u hashtag. Na "
+"primer, ako napišete post o preduzetništvu i dodelite ga kategoriji  "
+"\"preduzetnici\", ako je to prva kategorija koju ste dodelili postu, "
+"prilikom ponovnog deljenja, zajedno sa sadržajem i linkom, pisaće i "
+"#preduzetnik. Opcija \"Iz prilagođenog polja posta\" omogućava vam da "
+"hashtag direktno dodelite svom postu. Da biste našli to prilagođeno polje, "
+"pogledajte donji desni ugao svog posta i tu ćete videti kako možete da "
+"dodelite hashtag."
+
+#: admin/faq.php:57 admin/help.php:85
+msgid ""
+"You may choose to include a link with your post, and if you assign your "
+"reshare with a Bitly access token, the reshare will appear with a Bitly link."
+msgstr ""
+"Možete odabrati da uključite link u svoj post, a ako dodelite svoj Reshare "
+"uz pomoć Bitly tokena za pristup, deljeni post pojaviće se zajedno sa Bitly "
+"linkom."
+
+#: admin/faq.php:58 admin/help.php:86
+msgid ""
+"If you would like to include a featured image with all posts, just check off "
+"that box as well."
+msgstr ""
+"Ako biste želeli da ubacite i uobličenu sliku u sve postove, samo "
+"štiklirajte i to polje."
+
+#: admin/faq.php:63 admin/help.php:91
+msgid "What is the Filters Tab?"
+msgstr "Čemu služi tabulator ‘Filteri’?"
+
+#: admin/faq.php:65 admin/help.php:93
+msgid ""
+"These settings are used to determine the amount of days you want a post to "
+"have reshare eligibility. For example, if you do not want a post to be "
+"reshared until 3 days after it was originally posted, you would put \"3\" in "
+"the \"Minimum days for eligibility\" box. You may also decide the maximum "
+"amount of days that a post is eligible for reshare. For example, if a post "
+"was published 10 days ago and you assign a maximum of 10, that means that "
+"the post will not be reshared since it has reached its maximum amount of "
+"days."
+msgstr ""
+"Ova podešavanja koriste se za određivanje broja dana intervala u kojem "
+"želite da vam Reshare ponovo podeli post. Na primer, ako ne želite da vam "
+"post bude ponovo podeljen sve dok ne prođe 3 dana od njegovog objavljivanja, "
+"unećete \"3\" u okvir \"Minimalan broj dana za raspoloživost\". Možete se "
+"odlučiti i za maksimalan broj dana za raspoloživost posta. Na primer, ako je "
+"post objavljen pre 10 dana i vi mu dodelite max 10, to znači da post neće "
+"biti ponovo podeljen jer je dosegao svoj maksimalan broj dana."
+
+#: admin/faq.php:66 admin/help.php:94
+msgid ""
+"You may also decide which post categories you want to exclude from being "
+"reshared. All of your assigned categories will appear that you can mark to "
+"exclude. You may also limit Post Types."
+msgstr ""
+"Možete izabrati koje kategorije postova treba izuzeti od deljenja. Sve vaše "
+"dodeljene kategorije pojaviće se tako da možete označiti kategorije koje "
+"želite da izuzmete. Takođe, možete ograničiti i vrste posta."
+
+#: admin/faq.php:71 admin/help.php:99
+msgid "How can I customize the reshare content?"
+msgstr "Kako da prilagodim sadržaj za ponovno deljenje?"
+
+#: admin/faq.php:73 admin/help.php:101
+msgid ""
+"Navigate to the \"Content\" section under the settings page for your "
+"account.  All the settings in this tab control what the reshare will consist "
+"of.  Do you want to include a link or an image?  Do you want hashtags?  Next "
+"navigate to the \"Filters\" section.  These settings are used to determine "
+"which posts are eligible to be reshared.  Do you want to reshare posts with "
+"a certain age, or post type, or category?  Then a random post is chosen from "
+"these qualified posts.  After that, the message is added to the content.  "
+"Either to beginning or end of the content.  This would conclude how your "
+"content is being created."
+msgstr ""
+"Kliknite na deo \"Sadržaj\" na stranici podešavanja vašeg naloga. Sva "
+"podešavanja u ovom tabulatoru kontrolišu od čega će se sastojati deljenje. "
+"Želite li da uključite link ili sliku? Želite li hashtag-ove? Zatim kliknite "
+"na deo \"Filteri\". Ova podešavanja koriste se za određivanje postova "
+"raspoloživih za deljenje. Želite li da podelite postove određene starosti, "
+"određene vrste ili određene kategorije? Zatim se iz tih kvalifikovanih "
+"postova bira nasumičan post. Nakon toga, poruka se dodaje sadržaju, na "
+"početak ili na kraj sadržaja. Na taj način odlučujete o kreiranju svog "
+"sadržaja."
+
+#: admin/faq.php:78 admin/help.php:106
+msgid "How do I share manually?"
+msgstr "Kako da delim manuelno?"
+
+#: admin/faq.php:80 admin/help.php:108
+msgid ""
+"There is a way to reshare content manually.  Go to the \"Accounts\" submenu "
+"page and hover over the account you want to manually reshare.  Go to the "
+"\"Interval\" column and hit the \"reshare now\" link.  This will manually "
+"reshare content to that account and will not affect the account's scheduled "
+"reshare intervals.  This is a great way to test if your account is setup "
+"properly."
+msgstr ""
+"Sadržaj se može deliti i manuelno. Idite na stranicu podmenija \"Nalozi\" i "
+"pređite mišem preko naloga koji želite da ponovo podelite manuelno. Kliknite "
+"na kolonu \"Interval\" i na linkove \"ponovo podeli sada\". Na taj način "
+"manuelno ćete podeliti sadržaj na određeni nalog i to neće uticati na "
+"planirane intervale ponovnog deljenja. To je odličan način da testirate da "
+"li je vaš nalog pravilno podešen."
+
+#: admin/header.php:10
+msgid "Visit"
+msgstr "Posetite"
+
+#: admin/header.php:10
+msgid "WPsite.net"
+msgstr "WPsite.net"
+
+#: admin/header.php:10
+msgid "for more WordPress plugins, resources, and news."
+msgstr "za više WordPress plugin-ova, izvora i novosti."
+
+#: admin/header.php:11
+msgid "Visit WPsite"
+msgstr "Posetite WPsite"
+
+#: admin/header.php:26 wpsite-content-resharer.php:448
+#: wpsite-content-resharer.php:449
+msgid "Content Resharer"
+msgstr "Content Resharer"
+
+#: admin/help.php:9 wpsite-content-resharer.php:488
+#: wpsite-content-resharer.php:489
+msgid "Help"
+msgstr "Pomoć"
+
+#: admin/help.php:12
+msgid "My Twitter account has not been tweeting at its intervals or at all."
+msgstr ""
+"Moj Twitter nalog ne objavljuje postove u planiranim intervalima ili ne "
+"objavljuje uopšte."
+
+#: admin/help.php:14
+msgid ""
+"First check to see if the account is set to active, and all your post "
+"filters are valid.  This is a very common problem so go through these steps "
+"to make sure your post filter settings are allowing for at least a couple "
+"posts to be selected."
+msgstr ""
+"Prvo proverite da li je nalog podešen na opciju ‘aktivan’ i da li su vaši "
+"filteri postova važeći. To je veoma čest problem koji ćete prevazići "
+"sledećim koracima kako biste proverili da li podešavanja filtera omogućavaju "
+"makar odabir nekoliko postova."
+
+#: admin/help.php:22
+msgid ""
+"Make sure your minimum and maximum age are valid and will return a list of "
+"posts.  For example if you put your minimum age as 1 day and maximum age as "
+"2 days, and you have no posts that were published in the last two days, then "
+"no posts can be selected and nothing will be reshared."
+msgstr ""
+"Proverite da li je vaša minimalna i maksimalna starost postova važeća i da "
+"li će vratiti listu postova. Na primer, ako za minimalnu starost odredite 1 "
+"dan, a za maksimalnu 2 dana i ako nemate postove objavljene u poslednja dva "
+"dana, postovi neće moći da budu odabrani i ništa neće biti ponovo podeljeno."
+
+#: admin/help.php:23
+msgid ""
+"Make sure you have selected post types to include.  This is found in the "
+"Accounts \"Post Filter\" section."
+msgstr ""
+"Proverite da li ste odabrali vrste postova za deljenje. To ćete naći u delu "
+"Nalozi \"Filter posta\". "
+
+#: admin/help.php:24
+msgid ""
+"Make sure to check to see if you have at least one box unchecked in the "
+"exclude posts in this category setting."
+msgstr ""
+"Proverite da li imate bar jedno neštiklirano polje u opciji ‘isključi "
+"postove’ u podešavanju kategorije. "
+
+#: admin/help.php:25
+msgid ""
+"Go to the \"Exclude Posts\" page and make sure that all, if not most posts "
+"are included.  All checked posts will be excluded when selecting a post to "
+"reshare."
+msgstr ""
+"Idite na stranicu \"Isključi postove\" proverite da li su uključeni svi "
+"postovi ako ne i većina postova. Svi štiklirani postovi biće isključeni kad "
+"birate post za ponovno deljenje. "
+
+#: admin/help.php:33
+msgid ""
+"If you have done the steps above and there are valid posts Content Resharer "
+"can choose from then go to the \"Accounts\" page and make sure the \"reshare "
+"now\" works for the account.  Hover over the account and the \"reshare now\" "
+"link will be under the \"Interval\" column.  Click the \"reshare now\" link "
+"and if nothing has been shared to your twitter account then try to re-"
+"connect your account.  If this still does not work then you might be "
+"recieving a \"Dupliate status error from twitter\".  This is safeguard for "
+"twitter and it basically means that you cannot post a certain amount of the "
+"same tweets within given set of tweets.  Basically, if 4 out of your last 5 "
+"tweets were the same then trying to tweet the same thing again could result "
+"in a \"Duplicate status error\"."
+msgstr ""
+"Ako ste obavili navedene korake, i ako postoje važeći postovi koje Content "
+"Resharer može da odabere, kliknite na stranicu \"Nalozi\" i proverite da li "
+"opcija \"ponovo podeli sada\" funkcioniše za dati nalog. Postavite kursor "
+"iznad naloga i link  \"ponovo podeli sada\" naći će se ispod kolone "
+"\"Interval\". Klinknite na \"ponovo podeli sada\" i ako se ništa ne podeli "
+"na vašem twitter nalogu, pokušajte da ponovo povežete svoj nalog. Ako i "
+"dalje ne funkcioniše, možda ćete dobiti poruku \"Greška duplikata statusa sa "
+"twitter-a\". Ovo je pojas za spasavanja za twitter i u osnovi znači da ne "
+"možete objaviti određeni broj istih tweet-ova u okviru datog skupa tweet-"
+"ova. Ako su 4 od vaših 5 tweet-ova bili isti, onda to može dovesti do "
+"obaveštenja  \"Greška duplikata statusa\". "
+
+#: admin/help.php:33
+msgid "Find out more"
+msgstr "Saznajte više"
+
+#: admin/help.php:112
+msgid ""
+"All errors should be found in the debug log if you want more information."
+msgstr ""
+"Trebalo bi da sve greške nađete u dnevniku otklanjanja grešaka ako želite "
+"više informacija."
+
+#: admin/messages_add_edit.php:6
+msgid "Message ID"
+msgstr "ID poruke"
+
+#: admin/messages_add_edit.php:7
+msgid "social_media_message"
+msgstr "poruka_društvene_mreže"
+
+#: admin/messages_add_edit.php:8
+msgid "This is the unique ID for the message"
+msgstr "Ovo je jedinstveni ID poruke"
+
+#: admin/messages_add_edit.php:14
+msgid "Message Text"
+msgstr "Tekst poruke"
+
+#: admin/messages_add_edit.php:15
+msgid "Check this out:"
+msgstr "Pogledajte ovo:"
+
+#: admin/messages_add_edit.php:16
+msgid "The message that will be included in the reshare content."
+msgstr "Ova poruka biće obuhvaćena u sadržaju za ponovno deljenje."
+
+#: admin/messages_add_edit.php:22 admin/messages_dashboard.php:21
+#: admin/messages_dashboard.php:28
+msgid "Place"
+msgstr "Mesto"
+
+#: admin/messages_add_edit.php:24
+msgid "Before"
+msgstr "Pre"
+
+#: admin/messages_add_edit.php:26
+msgid "After"
+msgstr "Posle"
+
+#: admin/messages_add_edit.php:28
+msgid "Where the message will be included, before or after the content."
+msgstr "Gde će se poruka nalaziti."
+
+#: admin/messages_add_edit.php:34
+msgid "Preview"
+msgstr "Pregled"
+
+#: admin/messages_add_edit.php:35 admin/messages_add_edit.php:41
+#: admin/messages_dashboard.php:20 admin/messages_dashboard.php:27
+msgid "Message"
+msgstr "Poruka"
+
+#: admin/messages_add_edit.php:37
+msgid "http://wpsite.net"
+msgstr "http://wpsite.net"
+
+#: admin/messages_add_edit.php:39
+msgid "Post Title: Content of the post (if included)"
+msgstr "Naslov posta: Sadržaj posta (ako je uključen)"
+
+#: admin/messages_add_edit.php:43
+msgid "An example content for the reshare."
+msgstr "Primer sadržaja za ponovno deljenje."
+
+#: admin/messages_dashboard.php:8
+msgid "Add New"
+msgstr "Dodaj novi"
+
+#: admin/messages_dashboard.php:9 wpsite-content-resharer.php:468
+#: wpsite-content-resharer.php:469
+msgid "Messages"
+msgstr "Poruke"
+
+#: admin/messages_dashboard.php:102
+msgid ""
+"**Please note that if plugin is deleted then all WPsite Twitter Reshare "
+"accounts will be deleted.  Also, if this plugin is deactivated, then all "
+"WPsite Twitter Reshare accounts will be deactivated as well."
+msgstr ""
+"**Zapamtite: ako je plugin obrisan, biće obrisani i svi WPsite Content "
+"Resharer nalozi. Takođe, ako je ovaj plugin deaktiviran, biće deaktivirani i "
+"svi WPsite Content Resharer nalozi."
+
+#: admin/sidebar.php:4
+msgid ""
+"Signup now to get notified of plugin updates, awesome themes, and more. Over "
+"10,000+ already have:"
+msgstr ""
+"Prijavite se da biste dobijali novosti u vezi s plugin-om, ažuriranja, "
+"fenomenalne teme i još mnogo toga! Više od 10.000 već se prijavilo: "
+
+#: admin/sidebar.php:21
+msgid "Email Address"
+msgstr "Mail adresa"
+
+#: admin/sidebar.php:38
+msgid "Must-Read Articles"
+msgstr "Članci koje ne smete propustiti"
+
+#: admin/sidebar.php:41
+msgid "Subscribe to WPsite Feed:"
+msgstr "Pretplatite se na WPsite Feed:"
+
+#: admin/sidebar.php:41
+msgid "Powered by FeedBurner"
+msgstr "Autor: FeedBurner"
+
+#: admin/sidebar.php:48
+msgid "Need Plugin or Theme Development?"
+msgstr "Potreban vam je razvoj plugin-a ili teme?"
+
+#: admin/sidebar.php:57
+msgid "Request a Plugin"
+msgstr "Zahtevaj plugin"
+
+#: admin/sidebar.php:66
+msgid "Get WordPress Themes"
+msgstr "Obezbedite WordPress teme"
+
+#: admin/sidebar.php:75
+msgid "Visit Support Forums"
+msgstr "Posetite forume za podršku"
+
+#: include/connect-accounts/connect-twitter.php:13
+#: include/connect-accounts/connect-twitter.php:113
+msgid "Sign In"
+msgstr "Prijavite se"
+
+#: wpsite-content-resharer.php:1028
+msgid "_recurrence"
+msgstr "_ponavljanje"
+
+#: wpsite_twitter_add_post_meta_box.php:87
+msgid "No spaces (i.e. hashtag,hashtag1) not (hashtag, hashtag1)"
+msgstr "Bez razmaka (npr. hashtag,hashtag1), ne (hashtag, hashtag1)"
