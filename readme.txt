@@ -1,9 +1,9 @@
-=== 99 Robots Content Resharer ===
-Contributors: 99robots, wpsitenet
+=== Content Resharer ===
+Contributors: 99robots
 Donate link:
 Tags: tweet, twitter, social media, social accounts, share, sharing, share post, share content, content share, content sharing, tweet post, post tweets, tweet content, promote content, promote posts, automatic, automatic tweet, share, follow, like, facebook, linkedin, marketing, wordpress, followers, evergreen, twitter plugin, content, auto Tweet, Hashtags, Twitter Hashtags, Wordpress Twitter Plugin, random, Wordpress Twitter, increase traffic, social share, auto tweet, auto share, social tweet, ajax, follow, followers, traffic, inbound, wpsite
 Requires at least: 4.0
-Tested up to: 4.2.2
+Tested up to: 4.3
 Stable tag: 1.1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -14,7 +14,7 @@ This plugin allows site owners to reshare their content automatically on a sched
 
 99 Robots Content Resharer is a powerful marketing automation plugin that automatically shares your content on a pre-defined interval to ensure you stay active on social media, increase your followers, and generate more inbound traffic. This is the FREE version which provides all the functionality needed for one Twitter account.
 
-Buy the PRO version for marketing automation across Twitter, Facebook, and LinkedIn using multiple accounts. Get it here: <a href="http://codecanyon.net/item/wp-content-resharer-pro/9059658?ref=wpsitenet">99 Robots</a>
+Buy the PRO version for marketing automation across Twitter, Facebook, and LinkedIn using multiple accounts. Get it here: <a href="https://99robots.com/products/wp-content-resharer-pro/">99 Robots</a>
 
 Translations:
 
@@ -112,7 +112,8 @@ There is a way to reshare content manually. Go to the "Accounts" submenu page an
 == Changelog ==
 
 = 1.1.7 =
-* ADDED: Translation to Serbian-Croatian 
+* ADDED: Translation to Serbian-Croatian
+* UPDATED: Readme file had a bad link
 
 = 1.1.6 =
 * Decreased the minimum interval to 1 hour

@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: 99 Robots Content Resharer
+Plugin Name: Content Resharer
 plugin URI: http://www.99robots.com/content-resharer
 Description: This plugin allows site owners to reshare their content automatically on a schedule to bring new life to existing posts and increase traffic.
 version: 1.1.7
