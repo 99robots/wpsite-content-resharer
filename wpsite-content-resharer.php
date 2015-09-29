@@ -3,7 +3,7 @@
 Plugin Name: Content Resharer
 plugin URI: http://www.99robots.com/content-resharer
 Description: This plugin allows site owners to reshare their content automatically on a schedule to bring new life to existing posts and increase traffic.
-version: 1.1.9
+version: 1.2.0
 Author: 99 Robots
 Author URI: http://www.99robots.com
 License: GPL2
@@ -36,7 +36,7 @@ if (!defined('WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN'))
 /* Plugin verison */
 
 if (!defined('WPSITE_TWITTER_RESHARE_VERSION_NUM'))
-    define('WPSITE_TWITTER_RESHARE_VERSION_NUM', '1.1.9');
+    define('WPSITE_TWITTER_RESHARE_VERSION_NUM', '1.2.0');
 
 
 /**
@@ -52,6 +52,7 @@ register_deactivation_hook( __FILE__, array('WPsiteTwitterReshare', 'wpsite_regi
 
 add_action('init', array('WPsiteTwitterReshare', 'wpsite_load_textdoamin'));
 add_action('admin_menu', array('WPsiteTwitterReshare', 'wpsite_twitter_reshare_menu_page'));
+add_action('admin_notices', array('WPsiteTwitterReshare', 'admin_notices'));
 add_filter('cron_schedules', array('WPsiteTwitterReshare','wpsite_twitter_reshare_create_schedule_intervals'));
 
 $plugin = plugin_basename(__FILE__);
@@ -425,6 +426,27 @@ class WPsiteTwitterReshare {
 
 			wp_clear_scheduled_hook($hook, array($args));
 		}
+	}
+
+	/**
+	 * Admin Notices
+	 *
+	 * @access public
+	 * @static
+	 * @return void
+	 */
+	static function admin_notices() {
+
+		// Show error message is WP Cron is turned off
+
+		if ( defined('DISABLE_WP_CRON') && DISABLE_WP_CRON ) {
+			?>
+		    <div class="error">
+		        <p><?php _e('<strong>WP Cron</strong> is <strong>DISABLED</strong>! <strong>Content Resharer</strong> needs WP Cron to be enabled in order to automatically reshare your content. Please read our' , WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?> <a href="https://99robots.com/?post_type=doc&p=9799" target="_blank"><?php _e('post' , WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></a> <?php _e('about how to enable WP Cron.' , WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></p>
+		    </div>
+		    <?php
+		}
+
 	}
 
 	/**
