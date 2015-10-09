@@ -10,7 +10,7 @@ if (!isset($settings['twitter']['token']) || $settings['twitter']['token'] == ''
 
 	$redirect_url = $connection->getAuthorizeURL($temporary_credentials);
 
-	?><a href="<?php echo $redirect_url; ?>"><input class="button" type="button" value="<?php _e('Sign In', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?>"/></a><?php
+	?><a href="<?php echo $redirect_url; ?>"><button class="btn btn-default" type="button"><?php _e('Sign In', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></button></a><?php
 
 	$hook = self::$prefix . 'twitter';
 	$args = $settings;
@@ -110,7 +110,7 @@ if (!isset($settings['twitter']['token']) || $settings['twitter']['token'] == ''
 
 			self::wpsite_twitter_reshare_schedule_reshare_event($hook, array($args));
 		} else {
-			?><a href="<?php echo $redirect_url; ?>"><input class="button" type="button" value="<?php _e('Sign In', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?>"/></a><?php
+			?><a href="<?php echo $redirect_url; ?>"><button class="btn btn-default" type="button"><?php _e('Sign In', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></button></a><?php
 		}
 
 	} else {
