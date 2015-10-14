@@ -4,36 +4,39 @@ Donate link:
 Tags: tweet, twitter, social media, social accounts, share, sharing, share post, share content, content share, content sharing, tweet post, post tweets, tweet content, promote content, promote posts, automatic, automatic tweet, share, follow, like, facebook, linkedin, marketing, wordpress, followers, evergreen, twitter plugin, content, auto Tweet, Hashtags, Twitter Hashtags, Wordpress Twitter Plugin, random, Wordpress Twitter, increase traffic, social share, auto tweet, auto share, social tweet, ajax, follow, followers, traffic, inbound, wpsite
 Requires at least: 4.0
 Tested up to: 4.3.1
-Stable tag: 2.0.0
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This plugin allows site owners to reshare their content automatically on a schedule to bring new life to existing posts and increase traffic.
+This plugin allows site owners to automatically schedule and reshare their content on Twitter and increase social traffic without lifting a finger.
 
 == Description ==
 
-99 Robots Content Resharer is a powerful marketing automation plugin that automatically shares your content on a pre-defined interval to ensure you stay active on social media, increase your followers, and generate more inbound traffic. This is the FREE version which provides all the functionality needed for one Twitter account.
+99 Robots Content Resharer is a powerful marketing automation plugin that automatically shares your content on a pre-defined interval to ensure you stay active on social media, increase your follower count, and generate more inbound traffic. This is the FREE version which provides all the functionality needed for one Twitter account.
 
-Buy the PRO version for marketing automation across Twitter, Facebook, and LinkedIn using multiple accounts. Get it here: <a href="https://99robots.com/products/wp-content-resharer-pro/">99 Robots</a>
-
-Translations:
-
-* Serbian-Croatian by Web Hosting Geeks
+<blockquote>
+<strong>Pro Version</strong>
+Buy the PRO version for more advanced marketing automation across unlimited Twitter, Facebook, and LinkedIn accounts. <a href="https://99robots.com/products/wp-content-resharer-pro/?utm_source=wprepo&utm_medium=content-resharer&utm_campaign=desc">Learn more about the Pro version.</a>
+</blockquote>
 
 = Features: =
 The FREE version includes the following features:
 
-- Post to 1 Twitter account - Get the PRO version to post to multiple accounts as well as Facebook and LinkedIn
+- Post to 1 Twitter account - <a href="https://99robots.com/products/wp-content-resharer-pro/?utm_source=wprepo&utm_medium=content-resharer&utm_campaign=desc">Get the PRO version</a> to post to multiple accounts as well as Facebook and LinkedIn
 - Post new or existing content - All your content is eligible to be reshared automatically.
-- Custom post schedule - you can determine the interval frequency to tweet.
-- Share with Images (i.e., featured image) - get more visibility on Twitter by posting with images.
-- Exclude Posts or Categories - include only evergreen content into your Content Resharer queue.
-- Add #hashtags from tags or categories - increases search results on Twitter.
-- Custom Post Message - make your tweets more human and add a custom message to ensure freshness.
+- Custom post schedule - You can determine how often to tweet.
+- Share with Images (i.e., featured image) - Get more visibility on Twitter by posting with images.
+- Exclude Posts or Categories - Include only evergreen content into your Content Resharer queue.
+- Add #hashtags from tags or categories - Increases search results on Twitter with hashtags.
+- Custom Post Message - Make your tweets more human by adding custom messages to ensure freshness.
 - Custom Position Link / Title - Choose your message structure with links at beginning or end.
-- URL Shortener integration (i.e, bitly)
+- URL Shortener integration (i.e, bitly) - Make more room for content and track clicks with Bitly URL shortener
 
-For more information, visit <a href="http://www.99robots.com/?utm_source=wprepo&utm_medium=content-resharer&utm_campaign=desc">99 Robots</a>
+For more information, <a href="https://99robots.com/docs/wp-content-resharer/?utm_source=wprepo&utm_medium=content-resharer&utm_campaign=desc">read the documentation</a>
+
+Translations:
+
+* Serbian-Croatian by Web Hosting Geeks
 
 == Installation ==
 
@@ -59,15 +62,15 @@ Similar to all other plugins, follow these instructions:
 
 **What can Content Resharer do for me?**
 
-Do you have a lot of posts on your blog and not enough traffic to them, or not enough traffic to old posts that are still very relevant? Wish you can automatically share all your posts at random to your twitter account at pre-defined intervals? With Content Resharer, all of this is possible and more. Simply link your Twitter account to Content Resharer and the plugin will start tweeting your content while you sleep resulting in more followers and increased traffic.
+Do you have a lot of posts on your blog and not enough traffic to them? Do you have evergreen content, but don't want to spend time promoting on Twitter? Wish you can automatically share all your posts at random to your twitter account at pre-defined intervals? With Content Resharer, all of this is possible and more. Simply link your Twitter account to Content Resharer and the plugin will start tweeting your content while you sleep resulting in more followers and increased traffic. <a href="https://99robots.com/products/wp-content-resharer-pro/?utm_source=wprepo&utm_medium=content-resharer&utm_campaign=faq">Upgrade to Pro</a> to share to Facebook and LinkedIn automatically.
 
 **What is an Account?**
 
-An account is any social media account that you would like to use with Content Resharer. Your content will be shared to the accounts you activate within Content Resharer.
+An account is any Twitter account that you would like Content Resharer to share on. Your content will only be shared to the single account you activate with Content Resharer. <a href="https://99robots.com/products/wp-content-resharer-pro/?utm_source=wprepo&utm_medium=content-resharer&utm_campaign=faq">Upgrade to Pro</a> to share on unlimited accounts.
 
 **What is a Message?**
 
-A message is the text you would like to include in the reshare content. When creating a message, the plugin will display a preview of your custom message. Messages are optional as the plugin will use the default message if no custom messages are created. It is highly recommended to create custom messages for posts as that provides a more human aspect to sharing. To further compliment your social media strategy, be sure to share your own unique tweets, retweets, and shareable content to your social media accounts.
+A message is the text you would like to include in the reshare content. When creating a message, the plugin will display a preview of your custom message. Messages are optional as the plugin will use a default message if no custom messages are created. It is highly recommended to create custom messages for posts as that provides a more human aspect to sharing. To further compliment your social media strategy, be sure to share your own unique tweets, retweets, and shareable content to your social media accounts.
 
 **How do I edit an account?**
 
@@ -111,7 +114,8 @@ There is a way to reshare content manually. Go to the "Accounts" submenu page an
 
 == Changelog ==
 
-= 2.0.0 =
+= 2.0.0 = 2015-10-14
+* NEW: All new admin settings UI :) 
 
 = 1.2.0 = 2015-9-29
 * ADDED: Show admin notice if WP_Cron is turned off
