@@ -260,7 +260,7 @@ class WPsiteTwitterReshare {
 	 * @access private
 	 * @static
 	 */
-	public static $api_key = 'kEKsMXElcPUvMFIRq9nJuTGoe';
+	public static $api_key = '6UPiXRW3RoeoTU8a0ydnw4jvd';
 
 	/**
 	 * api_secret
@@ -271,7 +271,7 @@ class WPsiteTwitterReshare {
 	 * @access private
 	 * @static
 	 */
-	public static $api_secret = '1EQWMgveYs4Zok50xhb2ThQAn4SH29Hjk76oXEFfvVsMWlZBne';
+	public static $api_secret = 'TZxeMTLIMenZOOdQEdmke1zvEvwSU1f7Lf2YRSY2RK7L21l5qf';
 
 	/**
 	 * Load the text domain
@@ -659,7 +659,7 @@ $faq_sub_menu_page = add_submenu_page(
 
 				?>
 				<script type="text/javascript">
-					window.location = "<?php echo get_admin_url(); ?>admin.php?page=<?php echo self::$account_dashboard_page; ?>";
+					window.location = "<?php echo get_admin_url(); ?>admin.php?page=<?php echo self::$account_dashboard_page; ?>&action=edit&account=twitter";
 				</script>
 				<?php
 			}
@@ -694,16 +694,16 @@ $faq_sub_menu_page = add_submenu_page(
 
 			/* Delete current cron job for the account */
 
-			$hook = self::$prefix . $settings['accounts'][$_GET['account']]['id'];
-			$args = $settings['accounts'][$_GET['account']];
+			$hook = self::$prefix . $settings['accounts']['twitter']['id'];
+			$args = $settings['accounts']['twitter'];
 			$args['status'] = 'active';
 
 			wp_clear_scheduled_hook($hook, array($args));
 
-			$settings['accounts'][$_GET['account']][$_GET['type']]['token'] = '';
-			$settings['accounts'][$_GET['account']][$_GET['type']]['token_secret'] = '';
-			$settings['accounts'][$_GET['account']][$_GET['type']]['profile_image'] = '';
-			$settings['accounts'][$_GET['account']][$_GET['type']]['screen_name'] = '';
+			$settings['accounts']['twitter']['twitter']['token'] = '';
+			$settings['accounts']['twitter']['twitter']['token_secret'] = '';
+			$settings['accounts']['twitter']['twitter']['profile_image'] = '';
+			$settings['accounts']['twitter']['twitter']['screen_name'] = '';
 
 			update_option('wpsite_twitter_reshare_settings', $settings);
 
@@ -780,7 +780,7 @@ $faq_sub_menu_page = add_submenu_page(
 
 		/* Edit existing account */
 
-		if (isset($_GET['action']) && $_GET['action'] == 'edit' && check_admin_referer('wpsite_twitter_reshare_admin_settings_add_edit')) {
+		if (isset($_GET['action']) && $_GET['action'] == 'edit' /* && check_admin_referer('wpsite_twitter_reshare_admin_settings_add_edit') */) {
 			wp_enqueue_script('wpsite_twitter_reshare_admin_js', WPSITE_TWITTER_RESHARE_PLUGIN_URL . '/js/wpsite_twitter_reshare_admin.js');
 			self::wpsite_twitter_reshare_settings_add_edit($_GET['account']);
 		}
