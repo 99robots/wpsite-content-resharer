@@ -3,8 +3,8 @@ Contributors: 99robots, kjbenk, charliepatel
 Donate link:
 Tags: tweet, twitter, social media, social accounts, share, sharing, share post, share content, content share, content sharing, tweet post, post tweets, tweet content, promote content, promote posts, automatic, automatic tweet, share, follow, like, facebook, linkedin, marketing, wordpress, followers, evergreen, twitter plugin, content, auto Tweet, Hashtags, Twitter Hashtags, Wordpress Twitter Plugin, random, Wordpress Twitter, increase traffic, social share, auto tweet, auto share, social tweet, ajax, follow, followers, traffic, inbound, wpsite
 Requires at least: 4.0
-Tested up to: 4.3.1
-Stable tag: 2.0.4
+Tested up to: 4.4.1
+Stable tag: 2.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,6 +37,8 @@ For more information, [read the documentation](https://99robots.com/docs/wp-cont
 Translations:
 
 * Serbian-Croatian by Web Hosting Geeks
+
+This plugin uses Freemius to collect data only if you opt-in to the service.  Absolutely nothing will be collected if you choose to opt-out.
 
 == Installation ==
 
@@ -113,6 +115,9 @@ There is a way to reshare content manually. Go to the "Accounts" submenu page an
 3. Edit account’s general settings
 
 == Changelog ==
+
+= 2.1.0 = 2016-2-3
+* ADDED: Freemius service to help us better understand how to help out our users :)
 
 = 2.0.4 = 2015-10-21
 * FIXED: File inclusions

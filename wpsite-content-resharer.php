@@ -3,11 +3,44 @@
 Plugin Name: Content Resharer
 plugin URI: https://99robots.com/docs/wp-content-resharer/
 Description: This plugin allows site owners to reshare their content automatically on a schedule to bring new life to existing posts and increase traffic.
-version: 2.0.4
+version: 2.1.0
 Author: 99 Robots
 Author URI: https://www.99robots.com
 License: GPL2
 */
+
+// Create a helper function for easy SDK access.
+function wps_cr_start_freemius() {
+    global $wps_cr_start_freemius;
+    if ( ! isset( $wps_cr_start_freemius ) ) {
+        // Include Freemius SDK.
+        require_once dirname(__FILE__) . '/freemius/start.php';
+
+        $my_prefix_fs = fs_dynamic_init( array(
+            'id'                => '193',
+            'slug'              => 'wpsite-content-resharer',
+            'menu'              => array(
+                'slug'       => 'wpsite-twitter-reshare-account-dashboard',
+                'account'    => true,
+                'contact'    => false,
+                'support'    => true,
+            ),
+            'public_key'        => 'pk_cce70a33380efc963636a032168ba',
+            'is_live'           => true,
+            'is_premium'        => false,
+            'has_addons'        => false,
+            'has_paid_plans'    => false,
+            // Set the SDK to work in a sandbox mode (for development & testing).
+            // IMPORTANT: MAKE SURE TO REMOVE SECRET KEY BEFORE DEPLOYMENT.
+            'secret_key'  		=> 'sk_4f{mu.>+O:mg^rHS8sm#=Po434b~U',
+        ) );
+    }
+
+    return $wps_cr_start_freemius;
+}
+
+// Init Freemius.
+wps_cr_start_freemius();
 
 /**
  * Global Definitions
@@ -36,7 +69,7 @@ if (!defined('WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN'))
 /* Plugin verison */
 
 if (!defined('WPSITE_TWITTER_RESHARE_VERSION_NUM'))
-    define('WPSITE_TWITTER_RESHARE_VERSION_NUM', '2.0.4');
+    define('WPSITE_TWITTER_RESHARE_VERSION_NUM', '2.1.0');
 
 
 /**
