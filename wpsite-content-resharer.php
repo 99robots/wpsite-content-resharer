@@ -16,7 +16,7 @@ function wps_cr_start_freemius() {
         // Include Freemius SDK.
         require_once dirname(__FILE__) . '/freemius/start.php';
 
-        $my_prefix_fs = fs_dynamic_init( array(
+        $wps_cr_start_freemius = fs_dynamic_init( array(
             'id'                => '193',
             'slug'              => 'wpsite-content-resharer',
             'menu'              => array(
