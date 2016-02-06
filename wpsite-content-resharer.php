@@ -3,7 +3,7 @@
 Plugin Name: Content Resharer
 plugin URI: https://99robots.com/docs/wp-content-resharer/
 Description: This plugin allows site owners to reshare their content automatically on a schedule to bring new life to existing posts and increase traffic.
-version: 2.1.1
+version: 2.1.2
 Author: 99 Robots
 Author URI: https://www.99robots.com
 License: GPL2
@@ -41,6 +41,7 @@ function wps_cr_start_freemius() {
 
 // Init Freemius.
 wps_cr_start_freemius();
+wps_cr_start_freemius()->add_action('after_uninstall', 'wps_cr_uninstall');
 
 /**
  * Global Definitions
@@ -69,7 +70,7 @@ if (!defined('WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN'))
 /* Plugin verison */
 
 if (!defined('WPSITE_TWITTER_RESHARE_VERSION_NUM'))
-    define('WPSITE_TWITTER_RESHARE_VERSION_NUM', '2.1.1');
+    define('WPSITE_TWITTER_RESHARE_VERSION_NUM', '2.1.2');
 
 
 /**
@@ -1094,4 +1095,60 @@ $faq_sub_menu_page = add_submenu_page(
 	}
 }
 
-?>
+/**
+ * The uninstall function hooked into Freemius
+ *
+ * @params none
+ * @return void
+ */
+function wps_cr_uninstall() {
+
+  /* Delete all existence of this plugin */
+
+  global $wpdb;
+
+  $prefix = 'wpsite_twitter_reshare_meta_box_';
+
+  if ( !is_multisite() ) {
+
+  	$settings = get_option('wpsite_twitter_reshare_settings');
+
+  	foreach ($settings['accounts'] as $account) {
+  		$hook = 'wpsite_twitter_reshare_' . $account['id'];
+  		$args = $account;
+  		$args['status'] = 'active';
+
+  		wp_clear_scheduled_hook($hook, array($args));
+  	}
+
+  	delete_option('wpsite_twitter_reshare_version');
+  	delete_option('wpsite_twitter_reshare_settings');
+
+  } else {
+
+  	delete_site_option('wpsite_twitter_reshare_version');
+
+      $blog_ids = $wpdb->get_col( "SELECT blog_id FROM $wpdb->blogs" );
+      $original_blog_id = get_current_blog_id();
+
+      foreach ( $blog_ids as $blog_id ) {
+        switch_to_blog( $blog_id );
+
+        //Delete site data here
+
+        $settings = get_option('wpsite_twitter_reshare_settings');
+
+    		foreach ($settings['accounts'] as $account) {
+    			$hook = 'wpsite_twitter_reshare_' . $account['id'];
+    			$args = $account;
+    			$args['status'] = 'active';
+
+    			wp_clear_scheduled_hook($hook, array($args));
+    		}
+
+        delete_option('wpsite_twitter_reshare_settings');
+      }
+
+      switch_to_blog( $original_blog_id );
+  }
+}
