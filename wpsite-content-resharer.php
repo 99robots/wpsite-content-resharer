@@ -334,7 +334,7 @@ class WPsite_Content_Resharer extends Resharer_Base {
 
 		load_textdomain(
 			'wpsite-twitter-reshare',
-			WP_LANG_DIR . '/plugin-name/plugin-name-' . $locale . '.mo'
+			WP_LANG_DIR . '/wpsite-content-resharer/wpsite-content-resharer-' . $locale . '.mo'
 		);
 
 		load_plugin_textdomain(
