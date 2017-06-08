@@ -21,11 +21,11 @@ if (isset($_GET['oauth_verifier'])) {
 	$hook = self::$prefix . 'twitter';
 	$args = $settings;
 
-	self::wpsite_twitter_reshare_schedule_reshare_event($hook, array($args));
+	self::schedule_reshare_event($hook, array($args));
 
 	?>
 	<script type="text/javascript">
-		window.location = "<?php echo get_admin_url() . 'admin.php?page=' . self::$account_dashboard_page . '&action=edit&account=twitter'; ?>";
+		window.location = "<?php echo $this->get_page_url( 'dashboard' ) . '&action=edit&account=twitter'; ?>";
 	</script>
 	<?php
 
@@ -41,7 +41,7 @@ if (isset($settings['twitter']['profile_image']) && $settings['twitter']['profil
 			<a href="https://twitter.com/<?php echo $settings['twitter']['screen_name']; ?>" target="_blank"><?php echo $settings['twitter']['screen_name']; ?></a>
 		</div>
 		<div class="<?php echo self::$prefix_dash; ?>remove">
-			<a href="<?php echo wp_nonce_url(get_admin_url() . 'admin.php?page=' . self::$account_dashboard_page . '&action=remove&account=twitter&type=twitter', 'wpsite_twitter_reshare_admin_settings_remove'); ?>"></a>
+			<a href="<?php echo wp_nonce_url( $this->get_page_url( 'dashboard' ) . '&action=remove&account=twitter&type=twitter', 'wpsite_twitter_reshare_admin_settings_remove'); ?>"></a>
 		</div>
 	</div>
 	<?php
@@ -63,7 +63,7 @@ else {
 				<a href="https://twitter.com/<?php echo $account->screen_name; ?>" target="_blank"><?php echo $account->screen_name; ?></a>
 			</div>
 			<div class="<?php echo self::$prefix_dash; ?>remove">
-				<a href="<?php echo wp_nonce_url(get_admin_url() . 'admin.php?page=' . self::$account_dashboard_page . '&action=remove&account=twitter&type=twitter', 'wpsite_twitter_reshare_admin_settings_remove'); ?>"></a>
+				<a href="<?php echo wp_nonce_url( $this->get_page_url( 'dashboard' ) . '&action=remove&account=twitter&type=twitter', 'wpsite_twitter_reshare_admin_settings_remove'); ?>"></a>
 			</div>
 		</div>
 		<?php
@@ -82,16 +82,16 @@ else {
 		$hook = self::$prefix . 'twitter';
 		$args = $settings;
 
-		self::wpsite_twitter_reshare_schedule_reshare_event($hook, array($args));
+		self::schedule_reshare_event($hook, array($args));
 	} else {
 
 		$sign_in = new TwitterOAuth(self::$api_key, self::$api_secret);
 
-		$temporary_credentials = $sign_in->getRequestToken(get_admin_url() . 'admin.php?page=' . self::$account_dashboard_page . '&action=edit&account=twitter');
+		$temporary_credentials = $sign_in->getRequestToken( $this->get_page_url( 'dashboard' ) . '&action=edit&account=twitter');
 
 		$redirect_url = $sign_in->getAuthorizeURL($temporary_credentials);
 
-		?><a href="<?php echo $redirect_url; ?>"><button class="btn btn-default" type="button"><?php _e('Sign In', WPSITE_TWITTER_RESHARE_PLUGIN_TEXT_DOMAIN); ?></button></a><?php
+		?><a href="<?php echo $redirect_url; ?>"><button class="btn btn-default" type="button"><?php _e('Sign In', 'wpsite-twitter-reshare'); ?></button></a><?php
 	}
 
 }
