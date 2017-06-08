@@ -3,7 +3,7 @@
  * Plugin Name:		Content Resharer
  * Plugin URI:		https://99robots.com/docs/wp-content-resharer/
  * Description:		This plugin allows site owners to reshare their content automatically on a schedule to bring new life to existing posts and increase traffic.
- * Version:			2.1.2
+ * Version:			2.2.0
  * Author:			99 Robots
  * Author URI:		https://www.99robots.com
  * License:			GPL2
@@ -51,7 +51,7 @@ class WPsite_Content_Resharer extends Resharer_Base {
 	 * Content Resharer version.
 	 * @var string
 	 */
-	public $version = '2.1.2';
+	public $version = '2.2.0';
 
 	/**
 	 * The single instance of the class.
@@ -855,7 +855,7 @@ class WPsite_Content_Resharer extends Resharer_Base {
 			foreach ( $blog_ids as $blog_id ) {
 				switch_to_blog( $blog_id );
 
-				$this->default_options();
+				self::default_options();
 			}
 
 			restore_current_blog();
@@ -863,14 +863,14 @@ class WPsite_Content_Resharer extends Resharer_Base {
 		} else {
 			add_option( self::$prefix . 'version', wpsite_resharer()->get_version() );
 
-			$this->default_options();
+			self::default_options();
 		}
 	}
 
 	/**
 	 * Add default options.
 	 */
-	private function default_options() {
+	public static function default_options() {
 
 		$settings = get_option( 'wpsite_twitter_reshare_settings' );
 

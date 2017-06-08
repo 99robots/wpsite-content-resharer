@@ -3,8 +3,8 @@ Contributors: 99robots, kjbenk, charliepatel
 Donate link:
 Tags: tweet, twitter, social media, social accounts, share, sharing, share post, share content, content share, content sharing, tweet post, post tweets, tweet content, promote content, promote posts, automatic, automatic tweet, share, follow, like, facebook, linkedin, marketing, wordpress, followers, evergreen, twitter plugin, content, auto Tweet, Hashtags, Twitter Hashtags, Wordpress Twitter Plugin, random, Wordpress Twitter, increase traffic, social share, auto tweet, auto share, social tweet, ajax, follow, followers, traffic, inbound, wpsite
 Requires at least: 4.0
-Tested up to: 4.4.2
-Stable tag: 2.1.2
+Tested up to: 4.8.0
+Stable tag: 2.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -116,8 +116,12 @@ There is a way to reshare content manually. Go to the "Accounts" submenu page an
 
 == Changelog ==
 
+= 2.2.0 = 2017-6-8
+* Compatible with WordPress 4.8
+* Refactor the code according to WordPress Coding Standards
+
 = 2.1.2 = 2016-1-6
-* UPDATED: Uninstall function 
+* UPDATED: Uninstall function
 
 = 2.1.1 = 2016-2-3
 * Minor Updates
