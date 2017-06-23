@@ -442,7 +442,7 @@ class WPsite_Content_Resharer extends Resharer_Base {
 	 *
 	 * @since 1.0.0
 	 */
-	static function page_settings() {
+	public function page_settings() {
 
 		$settings = $this->get_settings();
 
