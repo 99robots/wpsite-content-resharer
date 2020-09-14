@@ -1,10 +1,10 @@
 === Content Resharer ===
-Contributors: 99robots, kjbenk, charliepatel
+Contributors: 99robots, kjbenk, charliepatel, draftpress
 Donate link:
 Tags: tweet, twitter, social media, social accounts, share, sharing, share post, share content, content share, content sharing, tweet post, post tweets, tweet content, promote content, promote posts, automatic, automatic tweet, share, follow, like, facebook, linkedin, marketing, wordpress, followers, evergreen, twitter plugin, content, auto Tweet, Hashtags, Twitter Hashtags, Wordpress Twitter Plugin, random, Wordpress Twitter, increase traffic, social share, auto tweet, auto share, social tweet, ajax, follow, followers, traffic, inbound, wpsite
 Requires at least: 4.0
-Tested up to: 4.9.4
-Stable tag: 2.3.0
+Tested up to: 5.5.1
+Stable tag: 2.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,13 +16,13 @@ This plugin allows site owners to automatically schedule and reshare their conte
 
 = Pro Version =
 
-> Buy the PRO version for more advanced marketing automation across unlimited Twitter, Facebook, and LinkedIn accounts. [Learn more about the Pro version.](https://99robots.com/products/wp-content-resharer-pro/?utm_source=wprepo&utm_medium=content-resharer&utm_campaign=desc)
+> Buy the PRO version for more advanced marketing automation across unlimited Twitter, Facebook, and LinkedIn accounts. [Learn more about the Pro version.](https://draftpress.com/products/wp-content-resharer-pro/?utm_source=wprepo&utm_medium=content-resharer&utm_campaign=desc)
 
 = Features: =
 
 The FREE version includes the following features:
 
-- Post to 1 Twitter account - <a href="https://99robots.com/products/wp-content-resharer-pro/?utm_source=wprepo&utm_medium=content-resharer&utm_campaign=desc">Get the PRO version</a> to post to multiple accounts as well as Facebook and LinkedIn
+- Post to 1 Twitter account - <a href="https://draftpress.com/products/wp-content-resharer-pro/?utm_source=wprepo&utm_medium=content-resharer&utm_campaign=desc">Get the PRO version</a> to post to multiple accounts as well as Facebook and LinkedIn
 - Post new or existing content - All your content is eligible to be reshared automatically.
 - Custom post schedule - You can determine how often to tweet.
 - Share with Images (i.e., featured image) - Get more visibility on Twitter by posting with images.
@@ -32,7 +32,7 @@ The FREE version includes the following features:
 - Custom Position Link / Title - Choose your message structure with links at beginning or end.
 - URL Shortener integration (i.e, bitly) - Make more room for content and track clicks with Bitly URL shortener
 
-For more information, [read the documentation](https://99robots.com/docs/wp-content-resharer/?utm_source=wprepo&utm_medium=content-resharer&utm_campaign=desc).  Also please check out our other [plugins](https://99robots.com/products/?utm_source=wprepo&utm_medium=content-resharer&utm_campaign=desc) :)
+For more information, [read the documentation](https://draftpress.com/docs/wp-content-resharer/?utm_source=wprepo&utm_medium=content-resharer&utm_campaign=desc).  Also please check out our other [plugins](https://draftpress.com/products/?utm_source=wprepo&utm_medium=content-resharer&utm_campaign=desc) :)
 
 Translations:
 
@@ -64,11 +64,11 @@ Similar to all other plugins, follow these instructions:
 
 **What can Content Resharer do for me?**
 
-Do you have a lot of posts on your blog and not enough traffic to them? Do you have evergreen content, but don't want to spend time promoting on Twitter? Wish you can automatically share all your posts at random to your twitter account at pre-defined intervals? With Content Resharer, all of this is possible and more. Simply link your Twitter account to Content Resharer and the plugin will start tweeting your content while you sleep resulting in more followers and increased traffic. <a href="https://99robots.com/products/wp-content-resharer-pro/?utm_source=wprepo&utm_medium=content-resharer&utm_campaign=faq">Upgrade to Pro</a> to share to Facebook and LinkedIn automatically.
+Do you have a lot of posts on your blog and not enough traffic to them? Do you have evergreen content, but don't want to spend time promoting on Twitter? Wish you can automatically share all your posts at random to your twitter account at pre-defined intervals? With Content Resharer, all of this is possible and more. Simply link your Twitter account to Content Resharer and the plugin will start tweeting your content while you sleep resulting in more followers and increased traffic. <a href="https://draftpress.com/products/wp-content-resharer-pro/?utm_source=wprepo&utm_medium=content-resharer&utm_campaign=faq">Upgrade to Pro</a> to share to Facebook and LinkedIn automatically.
 
 **What is an Account?**
 
-An account is any Twitter account that you would like Content Resharer to share on. Your content will only be shared to the single account you activate with Content Resharer. <a href="https://99robots.com/products/wp-content-resharer-pro/?utm_source=wprepo&utm_medium=content-resharer&utm_campaign=faq">Upgrade to Pro</a> to share on unlimited accounts.
+An account is any Twitter account that you would like Content Resharer to share on. Your content will only be shared to the single account you activate with Content Resharer. <a href="https://draftpress.com/products/wp-content-resharer-pro/?utm_source=wprepo&utm_medium=content-resharer&utm_campaign=faq">Upgrade to Pro</a> to share on unlimited accounts.
 
 **What is a Message?**
 
@@ -115,6 +115,10 @@ There is a way to reshare content manually. Go to the "Accounts" submenu page an
 3. Edit account’s general settings
 
 == Changelog ==
+
+=2.3.1 = 2020-09-14
+* Compatible with WordPress 5.5.1
+
 = 2.3.0 = 2018-3-20
 * FIXED: Fatal Error on Reshare now
 * UPDATED: Twitter character count to 280
