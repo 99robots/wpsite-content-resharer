@@ -4,7 +4,7 @@
  * @author Kyle Benk <kjbenk@gmail.com>
  */
 
-jQuery(document).ready(function($) {
+jQuery(function($) {
 
 	$.getScript("http://platform.linkedin.com/in.js?async=true", function success() {
         IN.init({

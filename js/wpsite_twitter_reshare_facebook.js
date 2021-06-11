@@ -4,7 +4,7 @@
  * @author Kyle Benk <kjbenk@gmail.com>
  */
 
-jQuery(document).ready(function($) {
+jQuery(function($) {
 
 	window.fbAsyncInit = function() {
 

@@ -4,11 +4,11 @@
  * @author Kyle Benk <kjbenk@gmail.com>
  */
 
-jQuery(document).ready(function($) {
+jQuery(function($) {
 
 	/* Admin form make the name field required */
 
-	$("#wpsite_twitter_reshare_account_form").submit(function(e){
+	$("#wpsite_twitter_reshare_account_form").on("submit", function(e){
 		$("#wps_settings_account_id").removeClass('wpsite_twitter_reshare_admin_required');
 
 		/* Account id */
@@ -21,7 +21,7 @@ jQuery(document).ready(function($) {
 
 	/* Admin form make the name field required */
 
-	$("#wpsite_twitter_reshare_message_form").submit(function(e){
+	$("#wpsite_twitter_reshare_message_form").on("submit", function(e){
 		$("#wps_settings_message_id").removeClass('wpsite_twitter_reshare_admin_required');
 
 		/* Field group */
@@ -32,15 +32,15 @@ jQuery(document).ready(function($) {
 		}
 	});
 
-	$(".wpsite_twitter_reshare_admin_settings_add_edit_submitdelete").click(function(){
+	$(".wpsite_twitter_reshare_admin_settings_add_edit_submitdelete").on("click", function(){
 		wpsite_twitter_reshare_delete($(this).attr('id').substring(30), $("#wpsite_twitter_reshare_delete_url_" + $(this).attr('id').substring(30)).text());
 	});
 
-	$(".wpsite_twitter_reshare_message_delete").click(function(){
+	$(".wpsite_twitter_reshare_message_delete").on("click", function(){
 		wpsite_twitter_reshare_delete($(this).attr('id').substring(38), $("#wpsite_twitter_reshare_delete_url_" + $(this).attr('id').substring(38)).text());
 	});
 
-	$("#wps_general_hashtag_type").change(function() {
+	$("#wps_general_hashtag_type").on("change", function() {
 		$(".wpsite_general_specific_hashtag").hide();
 
 		if ($(this).val() == 'specific_hashtags') {
@@ -57,7 +57,7 @@ jQuery(document).ready(function($) {
 	/* Exclude Posts */
 
 	if (typeof(categories) != "undefined" && categories !== null) {
-		$("#wpsite_twitter_reshare_exclude_posts_category").change(function() {
+		$("#wpsite_twitter_reshare_exclude_posts_category").on("change", function() {
 
 			$(".wpsite_twitter_reshare_exclude_posts_general").hide();
 
@@ -71,13 +71,13 @@ jQuery(document).ready(function($) {
 
 	/* Message Preview */
 
-	$("#wps_settings_message_text").keyup(function(){
+	$("#wps_settings_message_text").on("keyup", function(){
 		$(".wps_settings_message_preview").text($(this).val());
 	});
 
 	$(".wps_settings_message_preview").text($("#wps_settings_message_text").val());
 
-	$("#wps_settings_message_place").change(function(){
+	$("#wps_settings_message_place").on("change", function(){
 		$("#wps_settings_message_preview_before").hide();
 		$("#wps_settings_message_preview_after").hide();
 

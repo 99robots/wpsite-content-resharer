@@ -1,5 +1,5 @@
 <script type="text/javascript">
-jQuery(document).ready(function($) {
+jQuery(function($) {
 	$( "#tabs" ).tabs();
 });
 </script>
